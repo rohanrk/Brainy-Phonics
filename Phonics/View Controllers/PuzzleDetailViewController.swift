@@ -57,11 +57,8 @@ class PuzzleDetailViewController : UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         self.view.layoutIfNeeded()
         
-//        rhymeText.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.new, context: nil)
-
         updateAccessoryViews(visible: false)
         self.puzzleView.alpha = 0.0
         if let puzzle = self.sound.puzzle {
@@ -254,12 +251,6 @@ class PuzzleDetailViewController : UIViewController {
             Puzzle.save(image: image, asPuzzleNamed: sound.puzzleName)
         }
     }
-    
-//    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-//        var topCorrect : CGFloat = (rhymeText.frame.height - rhymeText.contentSize.height);
-//        topCorrect = topCorrect < 0.0 ? 0.0 : topCorrect / 2
-//        rhymeText.contentOffset = CGPoint(x: 0, y: -topCorrect)
-//    }
     
 }
 
