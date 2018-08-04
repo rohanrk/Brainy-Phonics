@@ -251,9 +251,7 @@ class PuzzleDetailViewController : UIViewController {
             Puzzle.save(image: image, asPuzzleNamed: sound.puzzleName)
         }
     }
-    
 }
-
 
 extension UIView {
  
