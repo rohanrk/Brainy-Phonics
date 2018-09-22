@@ -20,8 +20,19 @@ class Player : NSObject, NSCoding {
     var id: String
     var puzzleProgress: [String : PuzzleProgress]
     
-    var sightWordCoins: (gold: Int, silver: Int)
     var hasSeenSightWordsCelebration: Bool
+    let celebrationAmount = 125  // 125 gold coins, which is 1 truck
+    
+    var celebrate: Bool {
+        return sightWordCoins.gold >= celebrationAmount && !hasSeenSightWordsCelebration
+    }
+    
+    var sightWordCoins: (gold: Int, silver: Int) {
+        willSet {
+            // reset hasSeenCelebration to false if users wins a new truck
+            hasSeenSightWordsCelebration = !(hasSeenSightWordsCelebration && newValue.gold % celebrationAmount == 0)
+        }
+    }
     
     override init() {
         self.id = PHDefaultPlayerKey

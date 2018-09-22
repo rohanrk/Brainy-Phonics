@@ -14,10 +14,9 @@ class BankViewController : UIViewController {
     
     //MARK: Presentation
     
-    static func present(from source: UIViewController, goldCount: Int, silverCount: Int, playCelebration: Bool, onDismiss: @escaping () -> ()) {
+    static func present(from source: UIViewController, goldCount: Int, silverCount: Int, onDismiss: @escaping () -> ()) {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "bank") as! BankViewController
         controller.modalPresentationStyle = .overCurrentContext
-        controller.playCelebration = playCelebration
         controller.totalGoldCount = goldCount
         controller.totalSilverCount = silverCount
         controller.onDismiss = onDismiss
@@ -29,7 +28,6 @@ class BankViewController : UIViewController {
     
     var totalGoldCount = 0
     var totalSilverCount = 0
-    var playCelebration = false
     var onDismiss: (() -> ())?
     
     @IBOutlet weak var noCoins: UIButton!
@@ -72,9 +70,10 @@ class BankViewController : UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if playCelebration {
+        if Player.current.celebrate {
             self.spawnCoins()
             PHPlayer.play("sight words celebration", ofType: "mp3")
+            Player.current.hasSeenSightWordsCelebration = true
         }
     }
     

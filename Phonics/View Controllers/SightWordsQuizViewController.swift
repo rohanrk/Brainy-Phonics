@@ -325,20 +325,16 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     }
     
     func presentBank() {
-        let overThreshold = Player.current.sightWordCoins.gold >= 50
-        let celebrate = overThreshold && !Player.current.hasSeenSightWordsCelebration
-        
         self.view.isUserInteractionEnabled = false
         
         BankViewController.present(
             from: self,
             goldCount: Player.current.sightWordCoins.gold,
             silverCount: Player.current.sightWordCoins.silver,
-            playCelebration: celebrate,
             onDismiss: {
                 self.view.isUserInteractionEnabled = true
 
-                if celebrate {
+                if Player.current.celebrate {
                     self.setupForNewWord(animateTransition: true)
                 } else {
                     self.animateForCurrentWord()
