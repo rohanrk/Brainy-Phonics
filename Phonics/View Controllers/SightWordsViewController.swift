@@ -124,10 +124,15 @@ class SightWordCell : UICollectionViewCell {
     @IBOutlet var wordLabel: UILabel!
     @IBOutlet var leftImageView: UIImageView!
     @IBOutlet var rightImageView: UIImageView!
+    @IBOutlet var fullImageView: UIImageView! // for readAWord, only one image
+    
+    // TODO: - THIS MAY NOT BE PERFORMANT to check category each time!
     
     func decorate(for sightWord: SightWord) {
         self.cardView.layer.cornerRadius = self.cardView.frame.height * 0.1
         self.wordLabel.text = sightWord.text
+        self.wordLabel.adjustsFontSizeToFitWidth = true
+        self.wordLabel.minimumScaleFactor = 0.2
         
         func shouldIgnoreImageUpdate() -> Bool {
             //ignore the image update if the text has already changed to a different word
@@ -135,12 +140,24 @@ class SightWordCell : UICollectionViewCell {
             return self.wordLabel.text != sightWord.text
         }
         
-        self.leftImageView.update(on: SightWordCell.backgroundThread, withImage: {
-            return sightWord.sentence1.thumbnail
-        }, shouldIgnoreUpdateIf: shouldIgnoreImageUpdate)
+        if let sentence2 = sightWord.sentence2 {
+            self.fullImageView.removeFromSuperview()
+            self.leftImageView.update(on: SightWordCell.backgroundThread, withImage: {
+                return sightWord.sentence1.thumbnail
+            }, shouldIgnoreUpdateIf: shouldIgnoreImageUpdate)
+            
+            self.rightImageView.update(on: SightWordCell.backgroundThread, withImage: {
+                return sentence2.thumbnail
+            }, shouldIgnoreUpdateIf: shouldIgnoreImageUpdate)
+            
+        } else {
+            // readAWord: show only one image on card
+            self.fullImageView.update(on: SightWordCell.backgroundThread, withImage: {
+                return sightWord.sentence1.thumbnail
+            }, shouldIgnoreUpdateIf: shouldIgnoreImageUpdate)
+            self.leftImageView.removeFromSuperview()
+            self.rightImageView.removeFromSuperview()
+        }
         
-        self.rightImageView.update(on: SightWordCell.backgroundThread, withImage: {
-            return sightWord.sentence2.thumbnail
-        }, shouldIgnoreUpdateIf: shouldIgnoreImageUpdate)
     }
 }

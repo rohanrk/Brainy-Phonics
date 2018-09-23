@@ -17,6 +17,7 @@ class HomeViewController : InteractiveGrowViewController {
     @IBOutlet weak var prekSightWordsView: UIImageView!
     @IBOutlet weak var kindergartenSightWordsView: UIImageView!
     @IBOutlet weak var secretStuffView: UIImageView!
+    @IBOutlet weak var readAWordView: UIImageView!
     
     private var temporaryImageView: UIImageView?
     
@@ -45,6 +46,10 @@ class HomeViewController : InteractiveGrowViewController {
         static let pigLatin = Launcher(audioFileName: "secret child stuff", onTapBlock: { vc in
             PigLatinViewController.present(from: vc)
         })
+        
+        static let readAWord = Launcher(audioFileName: "kindergarten sight words", onTapBlock: { vc in
+            SightWordsViewController.present(from: vc, using: PHContent.readAWord)
+        })
     }
     
     func launcher(for view: UIView) -> Launcher? {
@@ -54,6 +59,7 @@ class HomeViewController : InteractiveGrowViewController {
             case prekSightWordsView: return .prekSightWords
             case kindergartenSightWordsView: return .kindergartenSightWords
             case secretStuffView: return .pigLatin
+            case readAWordView: return .readAWord
             default: return nil
         }
     }

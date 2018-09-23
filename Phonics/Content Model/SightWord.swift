@@ -13,7 +13,7 @@ public struct SightWord : Equatable {
     
     var text: String
     var sentence1: Sentence
-    var sentence2: Sentence
+    var sentence2: Sentence? // nil for readAWord
     
     func playAudio(using manager: SightWordsManager) {
         let audioPath = manager.category.individualAudioFilePath(for: self)

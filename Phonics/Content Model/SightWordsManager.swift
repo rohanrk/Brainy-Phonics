@@ -14,12 +14,13 @@ class SightWordsManager {
     //MARK: - Categories
     
     public enum Category {
-        case preK, kindergarten
+        case preK, kindergarten, readAWord
         
         var color: UIColor {
             switch(self) {
             case .preK: return #colorLiteral(red: 0.5109489352, green: 0.7969939907, blue: 0.6771487374, alpha: 1)
             case .kindergarten: return #colorLiteral(red: 0.5696855614, green: 0.8092797134, blue: 0.5067765564, alpha: 1)
+            case .readAWord: return #colorLiteral(red: 0.7, green: 0.3, blue: 0.2, alpha: 1)
             }
         }
         
@@ -27,6 +28,7 @@ class SightWordsManager {
             switch(self) {
             case .preK: return "Pre-K Sight Words"
             case .kindergarten: return "Kindergarten Sight Words"
+            case .readAWord: return "Words" // TODO: - may not work
             }
         }
         
@@ -35,11 +37,11 @@ class SightWordsManager {
         }
         
         var imageFolderName: String {
-            return self.folderNamePrefix + " Art"
+            return (self == .readAWord ? "" : self.folderNamePrefix + " Art") //todo may also not work!
         }
         
         func individualAudioFilePath(for word: SightWord) -> String {
-            return self.audioFolderName + "/Individual Words/" + word.text.lowercased()
+            return self == .readAWord ? self.audioFolderName + "/" + word.text.lowercased() : self.audioFolderName + "/Individual Words/" + word.text.lowercased() //todo may also not work!
         }
     }
     
@@ -78,30 +80,41 @@ class SightWordsManager {
         var temporarySentences = [String : Sentence]()
         
         for audioFileNameWithEnding in audioFiles {
+            
             //audioFileNameWithEnding format: "word-# (Sentence here).mp3"
             guard let audioFileName = audioFileNameWithEnding.components(separatedBy: ".").first else { continue }
             guard let metadata = audioFileName.components(separatedBy: " ").first else { continue }
-            guard let highlightWord = metadata.components(separatedBy: "-").first else { continue }
+            guard let highlightWord = category == .readAWord ? audioFileName : metadata.components(separatedBy: "-").first else { continue }
             
-            var sentenceText = audioFileName.replacingOccurrences(of: metadata + " ", with: "")
+            var sentenceText = category == .readAWord ? audioFileName : audioFileName.replacingOccurrences(of: metadata + " ", with: "")
             sentenceText = sentenceText.replacingOccurrences(of: ";", with: ".")
             
             guard let indexOfImageWithSameMetadata = imageFiles.index(where: { $0.hasPrefix(metadata) }) else { continue }
             let imageFileName = imageFiles.remove(at: indexOfImageWithSameMetadata)
             
+            
             let newSentence = Sentence(text: sentenceText,
-                                       highlightWord: highlightWord,
-                                       audioFileName: category.audioFolderName + "/" + audioFileName,
-                                       imageFileName: category.imageFolderName + "/" + imageFileName)
+                                   highlightWord: highlightWord,
+                                   audioFileName: category.audioFolderName + "/" + audioFileName,
+                                   imageFileName: (category == .readAWord ? imageFileName : category.imageFolderName + "/" + imageFileName))  // todo added this
+            
             
             //build completed SightWord
-            if let otherSentence = temporarySentences[highlightWord] {
-                let newSightWord = SightWord(text: highlightWord, sentence1: otherSentence, sentence2: newSentence)
+            //.readAWord does not need a pair
+            if category == .readAWord {
+                let newSightWord = SightWord(text: highlightWord, sentence1: newSentence, sentence2: nil)  //note redundancy
                 completedWords.append(newSightWord)
                 temporarySentences.removeValue(forKey: highlightWord)
             } else {
-                temporarySentences[highlightWord] = newSentence
+                if let otherSentence = temporarySentences[highlightWord] {
+                    let newSightWord = SightWord(text: highlightWord, sentence1: otherSentence, sentence2: newSentence)
+                    completedWords.append(newSightWord)
+                    temporarySentences.removeValue(forKey: highlightWord)
+                } else {
+                    temporarySentences[highlightWord] = newSentence
+                }
             }
+            
         }
         
         if temporarySentences.count != 0 {

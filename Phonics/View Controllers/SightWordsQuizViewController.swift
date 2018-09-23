@@ -228,7 +228,7 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
             self.currentlyAnimating = false
             
             //celebration if over threshold
-            if Player.current.sightWordCoins.gold >= 50 {
+            if Player.current.sightWordCoins.gold >= Player.current.celebrationAmount {
                 self.presentBank()
             } else {
                 self.setupForNewWord(animateTransition: true)

@@ -26,6 +26,7 @@ class PHContentManager {
     
     let sightWordsPreK: SightWordsManager
     let sightWordsKindergarten: SightWordsManager
+    let readAWord: SightWordsManager
     
     
     //MARK: - Static Init Helpers
@@ -164,6 +165,7 @@ class PHContentManager {
         
         self.sightWordsPreK = SightWordsManager(category: .preK)
         self.sightWordsKindergarten = SightWordsManager(category: .kindergarten)
+        self.readAWord = SightWordsManager(category: .readAWord)
     }
     
     
