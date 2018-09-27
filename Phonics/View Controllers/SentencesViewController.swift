@@ -84,7 +84,6 @@ class SentencesViewController : InteractiveGrowViewController {
             self.secondSentenceImageView.image = sentence2.image
         } else {
             focusedSentenceImageView.image = self.currentWord.sentence1.image
-//            firstSentenceImageView.removeFromSuperview()
             secondSentenceImageView.removeFromSuperview()
         }
         
@@ -110,10 +109,6 @@ class SentencesViewController : InteractiveGrowViewController {
     //MARK: - Animation
     
     func animateForCurrentWord(immediatelyStartWithFirstSentenceVisible: Bool = false) {
-        //todo really fix this up - spaghetti code
-        
-        let isReadAWord = currentWord.sentence2 == nil
-        
         //cancel view animations to avoid overlap
         for view in [firstSentenceImageView, secondSentenceImageView] {
             view?.layer.removeAllAnimations()
@@ -122,15 +117,14 @@ class SentencesViewController : InteractiveGrowViewController {
         self.wordLabel.layer.removeAllAnimations()
         self.timers.forEach { $0.invalidate() }
         self.timers = []
-        
         self.currentlyAnimating = true
         self.repeatButton.isEnabled = false
         self.focusedSentenceTextField.alpha = 1.0
-        
         var startTime = 0.0
-        
-        
+        let isReadAWord = currentWord.sentence2 == nil
+
         //show the first sentence -- either with or without an animation
+        
         self.hideQuizButton(animated: true)
         
         if immediatelyStartWithFirstSentenceVisible {
@@ -139,7 +133,6 @@ class SentencesViewController : InteractiveGrowViewController {
                 self.focusedSentenceImageView.image = self.currentWord.sentence1.image
             }
             self.focusedSentenceContainer.alpha = 1.0
-
             
             startTime += 0.6
         } else {
@@ -155,17 +148,17 @@ class SentencesViewController : InteractiveGrowViewController {
             startTime += 0.5
         }
         
+        
         //play first sentence
         Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
             self.pulseMainWordLabel()
             PHPlayer.play(self.currentWord.sentence1.audioFileName, ofType: "mp3")
         })
         
+        
         if let sentence2 = currentWord.sentence2 {
-            // not readAWord- no need for these since there is no sentence
-            
+            // not readAWord, so 2 images
             startTime = UALengthOfFile(self.currentWord.sentence1.audioFileName, ofType: "mp3") + 1.0
-
             //show second sentence
             Timer.scheduleAfter(startTime, addToArray: &self.timers, handler: {
                 self.updateSentenceLabel(for: sentence2)
@@ -186,18 +179,11 @@ class SentencesViewController : InteractiveGrowViewController {
         }
         
         
-        
         //animate to regular state
         Timer.scheduleAfter(isReadAWord ? 0 : startTime, addToArray: &self.timers, handler: {
-            if isReadAWord {
-                self.animateImage(from: self.focusedSentenceImageView,
-                                  to: self.firstSentenceImageView,
-                                  duration: 0.65)
-            } else {
-                self.animateImage(from: self.focusedSentenceImageView,
-                                  to: self.secondSentenceImageView,
-                                  duration: 0.65)
-            }
+            self.animateImage(from: self.focusedSentenceImageView,
+                              to: isReadAWord ? self.firstSentenceImageView : self.secondSentenceImageView,
+                              duration: 0.65)
             
             UIView.animate(withDuration: 0.3) {
                 self.focusedSentenceContainer.alpha = 0.0
@@ -207,7 +193,6 @@ class SentencesViewController : InteractiveGrowViewController {
             }
             
             self.showQuizButton(delay: 0.5)
-            
         })
     }
     

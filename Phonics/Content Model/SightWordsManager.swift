@@ -28,7 +28,7 @@ class SightWordsManager {
             switch(self) {
             case .preK: return "Pre-K Sight Words"
             case .kindergarten: return "Kindergarten Sight Words"
-            case .readAWord: return "Words" // TODO: - may not work
+            case .readAWord: return "Words"
             }
         }
         
@@ -37,11 +37,11 @@ class SightWordsManager {
         }
         
         var imageFolderName: String {
-            return (self == .readAWord ? "" : self.folderNamePrefix + " Art") //todo may also not work!
+            return self == .readAWord ? "" : self.folderNamePrefix + " Art"
         }
         
         func individualAudioFilePath(for word: SightWord) -> String {
-            return self == .readAWord ? self.audioFolderName + "/" + word.text.lowercased() : self.audioFolderName + "/Individual Words/" + word.text.lowercased() //todo may also not work!
+            return  self.audioFolderName + (self == .readAWord ? "/" : "/Individual Words/") + word.text.lowercased()
         }
     }
     
@@ -80,7 +80,6 @@ class SightWordsManager {
         var temporarySentences = [String : Sentence]()
         
         for audioFileNameWithEnding in audioFiles {
-            
             //audioFileNameWithEnding format: "word-# (Sentence here).mp3"
             guard let audioFileName = audioFileNameWithEnding.components(separatedBy: ".").first else { continue }
             guard let metadata = audioFileName.components(separatedBy: " ").first else { continue }
@@ -96,23 +95,21 @@ class SightWordsManager {
             let newSentence = Sentence(text: sentenceText,
                                    highlightWord: highlightWord,
                                    audioFileName: category.audioFolderName + "/" + audioFileName,
-                                   imageFileName: (category == .readAWord ? imageFileName : category.imageFolderName + "/" + imageFileName))  // todo added this
+                                   imageFileName: (category == .readAWord ? imageFileName : category.imageFolderName + "/" + imageFileName))
             
             
-            //build completed SightWord
-            //.readAWord does not need a pair
+            //build completed SightWord. note that readAWord does not need a pair.
             if category == .readAWord {
-                let newSightWord = SightWord(text: highlightWord, sentence1: newSentence, sentence2: nil)  //note redundancy
+                let newSightWord = SightWord(text: highlightWord, sentence1: newSentence, sentence2: nil)
                 completedWords.append(newSightWord)
                 temporarySentences.removeValue(forKey: highlightWord)
-            } else {
-                if let otherSentence = temporarySentences[highlightWord] {
+            } else if let otherSentence = temporarySentences[highlightWord] {
                     let newSightWord = SightWord(text: highlightWord, sentence1: otherSentence, sentence2: newSentence)
                     completedWords.append(newSightWord)
                     temporarySentences.removeValue(forKey: highlightWord)
-                } else {
-                    temporarySentences[highlightWord] = newSentence
-                }
+            } else {
+                // first time reaching this word
+                temporarySentences[highlightWord] = newSentence
             }
             
         }

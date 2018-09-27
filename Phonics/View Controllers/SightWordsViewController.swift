@@ -140,23 +140,21 @@ class SightWordCell : UICollectionViewCell {
             return self.wordLabel.text != sightWord.text
         }
         
+        func update(imageView: UIImageView, with sentence: Sentence) {
+            imageView.update(on: SightWordCell.backgroundThread, withImage: {
+                return sentence.thumbnail
+            }, shouldIgnoreUpdateIf: shouldIgnoreImageUpdate)
+        }
+        
         if let sentence2 = sightWord.sentence2 {
-            self.fullImageView.removeFromSuperview()
-            self.leftImageView.update(on: SightWordCell.backgroundThread, withImage: {
-                return sightWord.sentence1.thumbnail
-            }, shouldIgnoreUpdateIf: shouldIgnoreImageUpdate)
-            
-            self.rightImageView.update(on: SightWordCell.backgroundThread, withImage: {
-                return sentence2.thumbnail
-            }, shouldIgnoreUpdateIf: shouldIgnoreImageUpdate)
-            
+            fullImageView.removeFromSuperview()
+            update(imageView: leftImageView, with: sightWord.sentence1)
+            update(imageView: rightImageView, with: sentence2)
         } else {
             // readAWord: show only one image on card
-            self.fullImageView.update(on: SightWordCell.backgroundThread, withImage: {
-                return sightWord.sentence1.thumbnail
-            }, shouldIgnoreUpdateIf: shouldIgnoreImageUpdate)
             self.leftImageView.removeFromSuperview()
             self.rightImageView.removeFromSuperview()
+            update(imageView: fullImageView, with: sightWord.sentence1)
         }
         
     }
