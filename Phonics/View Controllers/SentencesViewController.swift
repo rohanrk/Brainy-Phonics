@@ -182,8 +182,8 @@ class SentencesViewController : InteractiveGrowViewController {
         //animate to regular state
         Timer.scheduleAfter(isReadAWord ? 0 : startTime, addToArray: &self.timers, handler: {
             self.animateImage(from: self.focusedSentenceImageView,
-                              to: isReadAWord ? self.firstSentenceImageView : self.secondSentenceImageView,
-                              duration: 0.65)
+                                  to: isReadAWord ? self.firstSentenceImageView : self.secondSentenceImageView,
+                                  duration: 0.65)
             
             UIView.animate(withDuration: 0.3) {
                 self.focusedSentenceContainer.alpha = 0.0

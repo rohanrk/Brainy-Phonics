@@ -84,7 +84,7 @@ class BankViewController : UIViewController {
         }
         
         var gold = totalGoldCount + Int(Double(totalSilverCount) * 0.5)
-        let silver = (totalSilverCount.isOdd) ? 1 : 0
+        let silver = totalSilverCount.isEven ? 0 : 1
         
         //calculate coins
         let trucks = gold / 125
