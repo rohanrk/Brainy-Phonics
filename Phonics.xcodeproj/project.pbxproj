@@ -2115,6 +2115,7 @@
 		8544B43D20F14B99008E6609 /* puzzle-G-GR-row3-col2.jpng in Resources */ = {isa = PBXBuildFile; fileRef = 8544B43020F14B98008E6609 /* puzzle-G-GR-row3-col2.jpng */; };
 		8544B43E20F14B99008E6609 /* puzzle-G-GR-row0-col0.jpng in Resources */ = {isa = PBXBuildFile; fileRef = 8544B43120F14B98008E6609 /* puzzle-G-GR-row0-col0.jpng */; };
 		854CF40D20F673D30002EDDA /* book.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 854CF40C20F673D10002EDDA /* book.jpg */; };
+		854FEDC121D5D3B400754879 /* read a word.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 854FEDC021D5D3B400754879 /* read a word.mp3 */; };
 		856E7C2220BB3095004464B7 /* shoes.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 856E7C2120BB3094004464B7 /* shoes.jpg */; };
 		8581005420EFFFC800F8F080 /* sound-IE.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8581005320EFFFC700F8F080 /* sound-IE.mp3 */; };
 		85A4F63F20F033280055CD6D /* puzzle-C-sss-row0-col1.jpng in Resources */ = {isa = PBXBuildFile; fileRef = 85A4F63220F033270055CD6D /* puzzle-C-sss-row0-col1.jpng */; };
@@ -4373,6 +4374,7 @@
 		8544B43020F14B98008E6609 /* puzzle-G-GR-row3-col2.jpng */ = {isa = PBXFileReference; lastKnownFileType = file; path = "puzzle-G-GR-row3-col2.jpng"; sourceTree = "<group>"; };
 		8544B43120F14B98008E6609 /* puzzle-G-GR-row0-col0.jpng */ = {isa = PBXFileReference; lastKnownFileType = file; path = "puzzle-G-GR-row0-col0.jpng"; sourceTree = "<group>"; };
 		854CF40C20F673D10002EDDA /* book.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = book.jpg; sourceTree = "<group>"; };
+		854FEDC021D5D3B400754879 /* read a word.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "read a word.mp3"; sourceTree = "<group>"; };
 		856E7C2120BB3094004464B7 /* shoes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = shoes.jpg; sourceTree = "<group>"; };
 		8581005320EFFFC700F8F080 /* sound-IE.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sound-IE.mp3"; sourceTree = "<group>"; };
 		85A4F63220F033270055CD6D /* puzzle-C-sss-row0-col1.jpng */ = {isa = PBXFileReference; lastKnownFileType = file; path = "puzzle-C-sss-row0-col1.jpng"; sourceTree = "<group>"; };
@@ -7104,6 +7106,7 @@
 				2E88B5CC1EEFC50600A595EE /* pre-k sight words.mp3 */,
 				2E88B5CD1EEFC50600A595EE /* secret child stuff.mp3 */,
 				2E3D3FC21EF3A7E500AA0258 /* sight words celebration.mp3 */,
+				854FEDC021D5D3B400754879 /* read a word.mp3 */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -8970,6 +8973,7 @@
 				2E0D53091ED1676A00EF3706 /* words-S-zz.mp3 in Resources */,
 				2E14679F1E46F15400BD6C2C /* puzzle-A-ahh-row1-col1.jpng in Resources */,
 				2E1468BC1E46F15500BD6C2C /* puzzle-E-ET-row1-col0.jpng in Resources */,
+				854FEDC121D5D3B400754879 /* read a word.mp3 in Resources */,
 				85FA78AD20F14E1B0007D929 /* puzzle-P-PL-row0-col0.jpng in Resources */,
 				2E146A521E46F15500BD6C2C /* puzzle-O-long-row2-col0.jpng in Resources */,
 				2E4B02F31EE115EB00834D45 /* angry.jpg in Resources */,

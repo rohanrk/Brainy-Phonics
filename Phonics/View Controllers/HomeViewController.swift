@@ -47,7 +47,7 @@ class HomeViewController : InteractiveGrowViewController {
             PigLatinViewController.present(from: vc)
         })
         
-        static let readAWord = Launcher(audioFileName: "kindergarten sight words", onTapBlock: { vc in
+        static let readAWord = Launcher(audioFileName: "read a word", onTapBlock: { vc in
             SightWordsViewController.present(from: vc, using: PHContent.readAWord)
         })
     }
