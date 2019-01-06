@@ -62,7 +62,8 @@ struct Word: Equatable {
             "robot"         : [2],
             "volcano"       : [1],
             "seagulls"      : [2],
-            "afraid"        : [2]
+            "afraid"        : [2],
+            "millipede"     : [1]
         ]
         
         //balance beam

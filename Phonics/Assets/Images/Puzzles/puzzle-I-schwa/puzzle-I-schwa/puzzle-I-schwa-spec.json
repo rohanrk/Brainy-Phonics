@@ -1,0 +1,80 @@
+{
+  "pieces" : {
+    "row0-col1" : {
+      "rightNub" : "inside",
+      "leftNub" : "outside",
+      "topNub" : "none",
+      "bottomNub" : "inside"
+    },
+    "row3-col0" : {
+      "rightNub" : "outside",
+      "leftNub" : "none",
+      "topNub" : "outside",
+      "bottomNub" : "none"
+    },
+    "row3-col2" : {
+      "rightNub" : "none",
+      "leftNub" : "outside",
+      "topNub" : "outside",
+      "bottomNub" : "none"
+    },
+    "row2-col1" : {
+      "rightNub" : "outside",
+      "leftNub" : "outside",
+      "topNub" : "outside",
+      "bottomNub" : "outside"
+    },
+    "row2-col0" : {
+      "rightNub" : "inside",
+      "leftNub" : "none",
+      "topNub" : "inside",
+      "bottomNub" : "inside"
+    },
+    "row1-col1" : {
+      "rightNub" : "inside",
+      "leftNub" : "inside",
+      "topNub" : "outside",
+      "bottomNub" : "inside"
+    },
+    "row0-col2" : {
+      "rightNub" : "none",
+      "leftNub" : "outside",
+      "topNub" : "none",
+      "bottomNub" : "inside"
+    },
+    "row1-col2" : {
+      "rightNub" : "none",
+      "leftNub" : "outside",
+      "topNub" : "outside",
+      "bottomNub" : "inside"
+    },
+    "row1-col0" : {
+      "rightNub" : "outside",
+      "leftNub" : "none",
+      "topNub" : "inside",
+      "bottomNub" : "outside"
+    },
+    "row0-col0" : {
+      "rightNub" : "inside",
+      "leftNub" : "none",
+      "topNub" : "none",
+      "bottomNub" : "outside"
+    },
+    "row3-col1" : {
+      "rightNub" : "inside",
+      "leftNub" : "inside",
+      "topNub" : "inside",
+      "bottomNub" : "none"
+    },
+    "row2-col2" : {
+      "rightNub" : "none",
+      "leftNub" : "inside",
+      "topNub" : "outside",
+      "bottomNub" : "inside"
+    }
+  },
+  "pixelsWide" : 753,
+  "pixelsTall" : 1004,
+  "cols" : 3,
+  "rows" : 4
+}

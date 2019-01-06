@@ -27,6 +27,7 @@ E,schwa,E,camel,dandelion,kitten,"oven, shovel, squirrel, mittens, telescope, se
 E,EA,EA,eat,eagle,leaf,"beaver, seagulls, steal, ice cream, beagle, teapot, guinea pig, peas, green beans, balance beam", black
 E,ER,ER,boxer,catcher,teeter-totter,"flower, dozer, hamster, juggler, beaver, butterfly, silver, finger, feather, spider", black
 E,ET,ET,net,pet,pretzel,"marionette, lettuce, machete", black
+E,KET,ET,rocket,trumpet,hatchet,"blanket, life jacket, hatchet, carpet, bucket", blue
 E,EW,EW,flew,screws,stew pot,"cashew, threw, blew, jewelry", black
 F,fuh,F,fox,fish,sofa,"firetruck, wolf, fiddle, giraffe, fall, elf, feather, traffic light, leaf, surfboard", black
 F,FL,FL,flower,fly,flag,"butterfly, flew, flute, housefly, flashlight, flame", black
@@ -38,7 +39,7 @@ G,GR,GR,grapes,grass,angry,"greyhound, playground, green beans, grizzly bear, gr
 H,huh,H,hug,hard hat,greyhound,"hawk, hamster, horn, hilly, hatchet, bloodhound, hand, hat, hot, hit", black
 I,long,I,ice,climb,life jacket,"lion, slide, tricycle, spider, ice cream, bride, diving, five", black
 I,short,I,mittens,hit,fish,"lizard, window, frisbee, slippers, chimney, swing, fiddle, unicycle, sing, ostrich", green
-I,schwa,I,rabbit,pencil,family,"", orange
+I,schwa,I,rabbit,pencil,family,"cardinal, centipede, clarinet, millipede", orange
 I,ee,IE,collie,cookies,strawberries,"beanie cap, groceries, labrador retriever, blackberries, diesel truck", black
 I,ie,IE,tie,quiet,pie,"flies, spies, butterflies, cries, pie man, bow tie", green
 I,IGH,IGH,light,frightened,nightgown,"lightning, night, flashlight, fight, flight", black
@@ -59,7 +60,7 @@ O,uh,O,onion,oven,wagon,"love, monkey, glove, mother, shovel, monkey wrench, gra
 O,ew,OO,spoon,raccoons,boots,"kangaroo, poodle, goose, school bus, balloon, moon, broom, stool, coonskin cap, tool belt", black
 O,uuh,OO,cookies,wood,foot,"football, crook, crooked, footstool, bookcase, book", green
 O,OA,OA,goat,boat,coat,"soap, soccer goal, toaster, boat trailer, front loader", black
-O,OI,OI,coin,poison,noise,"toilet, five-point-star, fencing foil, toilet paper, six-point-star", black
+O,OI,OI,coin,poison,noise,"toilet, five-point-star, fencing foil, toilet paper", black
 O,OR,OR,fork,storm,corn,"excavator, hornet, popcorn, tortilla, forest", black
 O,OU,OU,mouth,cloud,mouse,"proud, playground, greyhound, doll house, mountain, bloodhound, cloudy", black
 O,ohw,OW,rainbow,snow,bow and arrows,"window, yellow, bowl, throw, crowbar, lawnmower", black

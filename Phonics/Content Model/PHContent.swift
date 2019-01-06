@@ -121,14 +121,16 @@ class PHContentManager {
                 let colorString = line[7].trimmingWhitespace()
                 var color: UIColor
                 switch colorString {
-                case "orange":
-                    color = UIColor(red: 247/255, green: 107/255, blue: 0/255, alpha: 1.0) /* #f76b00 */
-                case "green":
-                    color = UIColor(red: 35/255, green: 191/255, blue: 0/255, alpha: 1.0) /* #23bf00 */
-                case "purple":
-                    color = UIColor(red: 237/255, green: 0/255, blue: 217/255, alpha: 1.0) /* #ed00d9 */
-                default:
-                    color = .black
+                    case "orange":
+                        color = UIColor(red: 247/255, green: 107/255, blue: 0/255, alpha: 1.0) /* #f76b00 */
+                    case "green":
+                        color = UIColor(red: 35/255, green: 191/255, blue: 0/255, alpha: 1.0) /* #23bf00 */
+                    case "purple":
+                        color = UIColor(red: 237/255, green: 0/255, blue: 217/255, alpha: 1.0) /* #ed00d9 */
+                    case "blue":
+                        color = UIColor(red: 79/255, green: 193/255, blue: 242/255, alpha: 1.0) /* #4fc1f2 */
+                    default:
+                        color = .black
                 }
                 
                 
