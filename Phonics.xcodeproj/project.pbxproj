@@ -2061,8 +2061,14 @@
 		2EECD5661E0BBA4800C667DE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5621E0BBA4800C667DE /* Player.swift */; };
 		2EECD5671E0BBA4800C667DE /* PuzzleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5631E0BBA4800C667DE /* PuzzleProgress.swift */; };
 		2EECD56A1E0BBF5F00C667DE /* NSCoding+Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5691E0BBF5F00C667DE /* NSCoding+Key.swift */; };
+		850A378521E2A72500C1383F /* sedan car.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 850A378321E2A72400C1383F /* sedan car.jpg */; };
+		850A378621E2A72500C1383F /* telescope.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 850A378421E2A72400C1383F /* telescope.jpg */; };
+		850A378A21E2A8E000C1383F /* marionette.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 850A378721E2A8DF00C1383F /* marionette.jpg */; };
+		850A378B21E2A8E000C1383F /* machete.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 850A378821E2A8DF00C1383F /* machete.jpg */; };
+		850A378C21E2A8E000C1383F /* lettuce.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 850A378921E2A8E000C1383F /* lettuce.jpg */; };
 		850ECC2920EE953C0045512B /* jelly-jars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 850ECC2820EE953A0045512B /* jelly-jars.jpg */; };
 		85217DF521E19C6900163693 /* Complete a whole puzzle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 85217DF421E19C6900163693 /* Complete a whole puzzle.mp3 */; };
+		85217DF721E1B71700163693 /* blouse.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 85217DF621E1B71600163693 /* blouse.jpg */; };
 		8544B38E20F148D8008E6609 /* puzzle-C-CL-row0-col2.jpng in Resources */ = {isa = PBXBuildFile; fileRef = 8544B38120F148D7008E6609 /* puzzle-C-CL-row0-col2.jpng */; };
 		8544B38F20F148D8008E6609 /* puzzle-C-CL-row3-col0.jpng in Resources */ = {isa = PBXBuildFile; fileRef = 8544B38220F148D7008E6609 /* puzzle-C-CL-row3-col0.jpng */; };
 		8544B39020F148D8008E6609 /* puzzle-C-CL-spec.json in Resources */ = {isa = PBXBuildFile; fileRef = 8544B38320F148D7008E6609 /* puzzle-C-CL-spec.json */; };
@@ -4321,8 +4327,14 @@
 		2EECD5621E0BBA4800C667DE /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		2EECD5631E0BBA4800C667DE /* PuzzleProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleProgress.swift; sourceTree = "<group>"; };
 		2EECD5691E0BBF5F00C667DE /* NSCoding+Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCoding+Key.swift"; sourceTree = "<group>"; };
+		850A378321E2A72400C1383F /* sedan car.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "sedan car.jpg"; sourceTree = "<group>"; };
+		850A378421E2A72400C1383F /* telescope.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = telescope.jpg; sourceTree = "<group>"; };
+		850A378721E2A8DF00C1383F /* marionette.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = marionette.jpg; sourceTree = "<group>"; };
+		850A378821E2A8DF00C1383F /* machete.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = machete.jpg; sourceTree = "<group>"; };
+		850A378921E2A8E000C1383F /* lettuce.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lettuce.jpg; sourceTree = "<group>"; };
 		850ECC2820EE953A0045512B /* jelly-jars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "jelly-jars.jpg"; sourceTree = "<group>"; };
 		85217DF421E19C6900163693 /* Complete a whole puzzle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Complete a whole puzzle.mp3"; sourceTree = "<group>"; };
+		85217DF621E1B71600163693 /* blouse.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blouse.jpg; sourceTree = "<group>"; };
 		8544B38120F148D7008E6609 /* puzzle-C-CL-row0-col2.jpng */ = {isa = PBXFileReference; lastKnownFileType = file; path = "puzzle-C-CL-row0-col2.jpng"; sourceTree = "<group>"; };
 		8544B38220F148D7008E6609 /* puzzle-C-CL-row3-col0.jpng */ = {isa = PBXFileReference; lastKnownFileType = file; path = "puzzle-C-CL-row3-col0.jpng"; sourceTree = "<group>"; };
 		8544B38320F148D7008E6609 /* puzzle-C-CL-spec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "puzzle-C-CL-spec.json"; sourceTree = "<group>"; };
@@ -6614,6 +6626,9 @@
 				2E4B00F31EE115E900834D45 /* ambulance.jpg */,
 				2E4B00F41EE115E900834D45 /* angry.jpg */,
 				2E4B00F51EE115E900834D45 /* ape.jpg */,
+				850A378921E2A8E000C1383F /* lettuce.jpg */,
+				850A378821E2A8DF00C1383F /* machete.jpg */,
+				850A378721E2A8DF00C1383F /* marionette.jpg */,
 				2E4B00F61EE115E900834D45 /* arm.jpg */,
 				2E4B00F71EE115E900834D45 /* armadillo.jpg */,
 				2E4B00F81EE115E900834D45 /* astronaut.jpg */,
@@ -6874,6 +6889,8 @@
 				2E4B01F71EE115EA00834D45 /* man.jpg */,
 				2E4B01F81EE115EA00834D45 /* mask of frog.jpg */,
 				2E4B01F91EE115EA00834D45 /* mittens.jpg */,
+				850A378321E2A72400C1383F /* sedan car.jpg */,
+				850A378421E2A72400C1383F /* telescope.jpg */,
 				2E4B01FA1EE115EA00834D45 /* mole.jpg */,
 				2E4B01FB1EE115EA00834D45 /* monkey bars.jpg */,
 				2E4B01FC1EE115EA00834D45 /* monkey wrench.jpg */,
@@ -6947,6 +6964,7 @@
 				2E4B02411EE115EA00834D45 /* school bus.jpg */,
 				2E4B02421EE115EA00834D45 /* scratch.jpg */,
 				2E4B02431EE115EA00834D45 /* screws.jpg */,
+				85217DF621E1B71600163693 /* blouse.jpg */,
 				2E4B02441EE115EA00834D45 /* seagulls.jpg */,
 				2E4B02451EE115EA00834D45 /* see saw.jpg */,
 				2E4B02461EE115EA00834D45 /* sheep.jpg */,
@@ -7974,6 +7992,7 @@
 				2E146A721E46F15500BD6C2C /* puzzle-O-ohw-spec.json in Resources */,
 				2E1464821E46F15300BD6C2C /* puzzle-O-OI-rhymeText.txt in Resources */,
 				2E4B04D41EE115EC00834D45 /* zipper.jpg in Resources */,
+				850A378C21E2A8E000C1383F /* lettuce.jpg in Resources */,
 				2E1464861E46F15300BD6C2C /* puzzle-O-OY-rhymeText.txt in Resources */,
 				2E14680A1E46F15400BD6C2C /* puzzle-A-schwa-row2-col1.jpng in Resources */,
 				2E0D52CE1ED1676A00EF3706 /* words-E-short.mp3 in Resources */,
@@ -8685,6 +8704,7 @@
 				2E146C091E46F15500BD6C2C /* puzzle-W-wuh-row1-col0.jpng in Resources */,
 				2E14652F1E46F15400BD6C2C /* sound-GL.mp3 in Resources */,
 				2E14646D1E46F15300BD6C2C /* puzzle-I-ee-rhymeText.txt in Resources */,
+				850A378A21E2A8E000C1383F /* marionette.jpg in Resources */,
 				2E14653B1E46F15400BD6C2C /* sound-J.mp3 in Resources */,
 				2E146A1E1E46F15500BD6C2C /* puzzle-N-NG-row2-col0.jpng in Resources */,
 				2E146BC81E46F15500BD6C2C /* puzzle-U-short-row1-col0.jpng in Resources */,
@@ -8696,6 +8716,7 @@
 				2E4B03871EE115EB00834D45 /* fencing foil.jpg in Resources */,
 				2E146B0D1E46F15500BD6C2C /* puzzle-Q-qwuh-row3-col2.jpng in Resources */,
 				2E1465731E46F15400BD6C2C /* sound-US.mp3 in Resources */,
+				850A378B21E2A8E000C1383F /* machete.jpg in Resources */,
 				85A4F67720F034E00055CD6D /* puzzle-A-AN-row0-col0.jpng in Resources */,
 				2E14647E1E46F15300BD6C2C /* puzzle-O-ew-rhymeText.txt in Resources */,
 				2E1468B41E46F15500BD6C2C /* puzzle-E-ER-row2-col2.jpng in Resources */,
@@ -8865,6 +8886,7 @@
 				2E1464691E46F15300BD6C2C /* puzzle-G-GR-rhymeText.txt in Resources */,
 				2E4B03B51EE115EC00834D45 /* gloves.jpg in Resources */,
 				2E4B03101EE115EB00834D45 /* blew.jpg in Resources */,
+				850A378521E2A72500C1383F /* sedan car.jpg in Resources */,
 				2E1467CF1E46F15400BD6C2C /* puzzle-A-AU-row0-col0.jpng in Resources */,
 				2E3D3FC31EF3A7E500AA0258 /* sight words celebration.mp3 in Resources */,
 				2E4B04091EE115EC00834D45 /* nose.jpg in Resources */,
@@ -9257,6 +9279,7 @@
 				2E4B02FF1EE115EB00834D45 /* balloon.jpg in Resources */,
 				2E1468231E46F15400BD6C2C /* puzzle-B-BL-row2-col0.jpng in Resources */,
 				85FA793520F151750007D929 /* puzzle-X-ks-row0-col0.jpng in Resources */,
+				850A378621E2A72500C1383F /* telescope.jpg in Resources */,
 				2E4B03941EE115EC00834D45 /* flew.jpg in Resources */,
 				2E146A481E46F15500BD6C2C /* puzzle-O-ew-row3-col0.jpng in Resources */,
 				2E146B6A1E46F15500BD6C2C /* puzzle-S-SW-row0-col0.jpng in Resources */,
@@ -9581,6 +9604,7 @@
 				2E4B049B1EE115EC00834D45 /* toilet paper.jpg in Resources */,
 				2E4B03E31EE115EC00834D45 /* juggler.jpg in Resources */,
 				2E4B03001EE115EB00834D45 /* bandage.jpg in Resources */,
+				85217DF721E1B71700163693 /* blouse.jpg in Resources */,
 				2E146B091E46F15500BD6C2C /* puzzle-Q-qwuh-row2-col1.jpng in Resources */,
 				2E1464881E46F15300BD6C2C /* puzzle-O-uh-rhymeText.txt in Resources */,
 				2E146B5C1E46F15500BD6C2C /* puzzle-S-sss-spec.json in Resources */,

@@ -1,18 +1,18 @@
 //
 // letter, sound ID, display string, word1, word2, word3, "quiz word1, quizWord2", color
 //
-A,long,A,ape,tail,jay,"skate, suitcase, crayons, baby, grapes, playground, crane, cradle, face, whale", black
+A,long,A,ape,skate,crane, "suitcase, baby, grape, cradle, face, whale", black
 A,short,A,bat,cat,wagon,"axe, taxi, wagon, clam, hamster, raccoons, camel, rabbit, cactus, statue", green
-A,ahh,A,swan,father,squash,"saw, swan, fall, hawk, walnuts, fall, draw, walrus, ball", purple
+A,ahh,A,swan,father,squash,"walnuts, fall, ball, walrus", purple
 A,schwa,A,canoe,zebra,sofa,"afraid, excavator, gazelle, balance beam", orange
-A,AI,AI,tail,nail,rainbow,"snail, airplane, chair, saint bernard, wheelchair, afraid, paint, chainsaw, mailman", black
+A,AI,AI,tail,nail,rainbow,"snail, saint bernard, afraid, paint, chainsaw, mailman", black
 A,AN,AN,man,hand,candy,"panda, sandbox, van, frying pan, blanket, kangaroo", black
 A,AR,AR,arm,star,garden,"car, armadillo, scarf, barn, carpet, dark, hard hat, saint bernard", black
 A,AU,AU,daughter,laundress,sauce pan,"astronaut, sauce pan, cauldron, faucet, caught, haul", black
 A,AW,AW,saw,hawk,draw,"chainsaw, strawberries, yawn, straw, claw hammer, macaw parrot, see saw", black
 A,AY,AY,jay,crayons,playground,"daydreaming, daybreak", black
 B,buh,B,bubble,boy,frisbee,"butterfly, rabbit, beaver, sandbox, saint bernard, rainbow, bat, surfboard, zebra, balance", black
-B,BL,BL,blue,blanket,bloodhound,"blackberries, blew", black
+B,BL,BL,blue,blanket,bloodhound,"blackberries, blouse, black", black
 B,BR,BR,bridge,break,brush,"zebra, gingerbread man, umbrellas, sombrero, eyebrow, brother, brown", black
 C,kuh,C,cat,canary,cake,"candy, volcano, camel, raccoons, cow, cut, curl, corn, suitcase, car", black
 C,sss,C,celery,face,balance,"ice, pencil, tricycle, unicycle, ice cream, sauce pan, dancing", green
@@ -23,10 +23,10 @@ D,duh,D,dog,dozer,sled,"dig, cloud, dark, slide, window, garden, bed, bulldog, s
 D,DR,DR,drink,drop,drill,"drum, draw, laundress, cauldron", black
 E,long,E,key,zebra,tree,"monkey, frisbee, trolley, queen, chimney, jeep, sleepy, sweet, three, wheelchair", black
 E,short,E,elf,bed,net,"sled, yellow, jelly-jars, jellyfish, bell, pretzel, present, question", green
-E,schwa,E,camel,hatchet,kitten,"oven, carpet, shovel, squirrel, mittens, quiet", orange
+E,schwa,E,camel,dandelion,kitten,"oven, shovel, squirrel, mittens, telescope, sedan car", orange
 E,EA,EA,eat,eagle,leaf,"beaver, seagulls, steal, ice cream, beagle, teapot, guinea pig, peas, green beans, balance beam", black
 E,ER,ER,boxer,catcher,teeter-totter,"flower, dozer, hamster, juggler, beaver, butterfly, silver, finger, feather, spider", black
-E,ET,ET,net,pet,rocket,"trumpet, basket, blanket, life jacket, hatchet, carpet, pretzel, bucket", black
+E,ET,ET,net,pet,pretzel,"marionette, lettuce, machete", black
 E,EW,EW,flew,screws,stew pot,"cashew, threw, blew, jewelry", black
 F,fuh,F,fox,fish,sofa,"firetruck, wolf, fiddle, giraffe, fall, elf, feather, traffic light, leaf, surfboard", black
 F,FL,FL,flower,fly,flag,"butterfly, flew, flute, housefly, flashlight, flame", black

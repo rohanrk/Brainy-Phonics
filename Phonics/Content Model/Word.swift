@@ -48,21 +48,23 @@ struct Word: Equatable {
         
         // [Word : OccurenceOfSoundToExclude]
         let explicitExclusions: [String : [Int]] = [
-            "eagle" : [2],
-            "skis" : [1],
-            "footstool" : [2],
-            "dune buggy" : [2],
-            "ice cream" : [2],
-            "excavator" : [2],
-            "balance beam" : [1, 3],
-            "tricycle" : [2],
-            "unicycle" : [2],
-            "motorcycle" : [2],
-            "pretzel" : [2],
-            "robot" : [2],
-            "volcano" : [1],
-            "seagulls" : [2]
+            "eagle"         : [2],
+            "skis"          : [1],
+            "footstool"     : [2],
+            "dune buggy"    : [2],
+            "ice cream"     : [2],
+            "excavator"     : [2],
+            "balance beam"  : [1, 3],
+            "tricycle"      : [2],
+            "unicycle"      : [2],
+            "motorcycle"    : [2],
+            "pretzel"       : [2],
+            "robot"         : [2],
+            "volcano"       : [1],
+            "seagulls"      : [2],
+            "afraid"        : [2]
         ]
+        
         //balance beam
         var soundText = sound.displayString
         if soundText.hasPrefix("\(letter.text)\(letter.text.lowercased())") {
