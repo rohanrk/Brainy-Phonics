@@ -18,10 +18,14 @@ class QuizViewController : InteractiveGrowViewController {
     var onlyShowThreeWords: Bool = false
     var dismissOnReturnFromModal = false
     var difficulty: Letter.Difficulty?
+    var isEntireQuiz: Bool = false // not just one item
     
     var currentLetter: Letter!
     var currentSound: Sound!
     var answerWord: Word!
+    var currentAlphabetLetter: String? {
+        return currentSound?.sourceLetter.lowercased()
+    }
     
     @IBOutlet weak var soundLabel: UILabel!
     @IBOutlet var wordViews: [WordView]!
@@ -30,12 +34,19 @@ class QuizViewController : InteractiveGrowViewController {
     
     @IBOutlet weak var puzzleView: PuzzleView!
     @IBOutlet weak var puzzleShadow: UIView!
+    @IBOutlet weak var bankButton: UIButton!
+    
+    /// 0 or 150
+    @IBOutlet weak var buttonAreaToWords: NSLayoutConstraint!
+    @IBOutlet weak var soundSuperview: UIView!
+
     
     var originalCenters = [WordView : CGPoint]()
     var timers = [Timer]()
     var state: QuizState = .waiting
     var attempts = 0
     var index = 0 //the index of the previous word in the total array
+    var starsStreak = 0 // how many answered correctly in a row
     
     enum QuizState {
         case waiting, playingQuestion, transitioning
@@ -54,6 +65,17 @@ class QuizViewController : InteractiveGrowViewController {
     
     
     //MARK: - Content Setup
+    
+    override func viewDidLoad() {
+        if difficulty == .easyDifficulty {
+            // center the words and get rid of puzzle area
+            self.soundSuperview.backgroundColor = .white
+            self.puzzleShadow.isHidden = true
+            self.puzzleView.isHidden = true
+            buttonAreaToWords.constant = 0
+        }
+        isEntireQuiz = self.sound == nil
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         if let sound = self.sound {
@@ -85,6 +107,7 @@ class QuizViewController : InteractiveGrowViewController {
         }
         
         self.view.layoutIfNeeded()
+        bankButton.isHidden = self.difficulty == .standardDifficulty
         sortOutletCollectionByTag(&wordViews)
         wordViews.forEach{ originalCenters[$0] = $0.center }
         
@@ -131,7 +154,7 @@ class QuizViewController : InteractiveGrowViewController {
         //get other (wrong) word choices
         let allWords = PHContent.allWordsNoDuplicates
         let blacklistedSound = currentSound.ipaPronunciation ?? currentSound.displayString.lowercased()
-        let additionalBlacklist = currentSound.blacklist
+        let additionalBlacklists = currentSound.blacklist
         
         let possibleWords = allWords.filter { word in
             
@@ -141,7 +164,7 @@ class QuizViewController : InteractiveGrowViewController {
                 }
             }
             
-            for blacklist in additionalBlacklist {
+            for blacklist in additionalBlacklists {
                 if word.text.lowercased().contains(blacklist) {
                     return false
                 }
@@ -166,14 +189,33 @@ class QuizViewController : InteractiveGrowViewController {
         }
         
         
+        // used only for phonics: all 4 word choices, including answer
         var selectedWords: [Word] = [answerWord]
-        while selectedWords.count != wordViews.count {
-            if let candidateWord = possibleWords.random(), !selectedWords.contains(candidateWord) {
-                selectedWords.append(candidateWord)
+        if difficulty == .standardDifficulty {
+            while selectedWords.count != wordViews.count {
+                if let candidateWord = possibleWords.random(), !selectedWords.contains(candidateWord) {
+                    selectedWords.append(candidateWord)
+                }
             }
+            selectedWords = selectedWords.shuffled()
         }
         
-        selectedWords = selectedWords.shuffled()
+        // used only for alphabet letters: all 4 letter choices, including answer
+        var selectedLetters: [String] = [currentAlphabetLetter!]
+        if difficulty == .easyDifficulty {
+            while selectedLetters.count != wordViews.count {
+                let candidateLetter = String.randomAlphabetLetter()
+                if !selectedLetters.contains(candidateLetter) {
+                    selectedLetters.append(candidateLetter)
+                }
+            }
+            selectedLetters = selectedLetters.shuffled()
+        }
+        
+        
+        
+        // set Phonics wordviews to be images of differnt words,
+        // and set Alphabet Letters wordviews to be single letters
         
         for (index, wordView) in wordViews.enumerated() {
             wordView.center = self.originalCenters[wordView]!
@@ -181,19 +223,31 @@ class QuizViewController : InteractiveGrowViewController {
             wordView.layoutIfNeeded()
             wordView.transform = CGAffineTransform.identity
             wordView.alpha = 1.0
-            wordView.useWord(selectedWords[index], forSound: currentSound, ofLetter: currentLetter)
-        }
-        
-        soundLabel.text = self.currentSound.displayString.lowercased()
-        
-        //update puzzle
-        puzzleView.puzzleName = self.currentSound.puzzleName
-        
-        if let puzzle = puzzleView.puzzle {
-            let puzzleProgress = Player.current.progress(for: puzzle)
             
-            puzzleView.isPieceVisible = puzzleProgress.isPieceOwned
+            if self.difficulty == .easyDifficulty {
+                // alphabet letters: only letter, no image
+                wordView.useLetter(selectedLetters[index])
+            } else {
+                // phonics: include image
+                wordView.useWord(selectedWords[index], forSound: currentSound, ofLetter: currentLetter)
+            }
         }
+        
+        if difficulty == .standardDifficulty {
+            soundLabel.text = self.currentSound.displayString.lowercased()
+            
+            //update puzzle
+            puzzleView.puzzleName = self.currentSound.puzzleName
+            
+            if let puzzle = puzzleView.puzzle {
+                let puzzleProgress = Player.current.progress(for: puzzle)
+                
+                puzzleView.isPieceVisible = puzzleProgress.isPieceOwned
+            }
+        } else {
+            soundLabel.text = ""
+        }
+        
         
         transitionToCurrentSound(isFirst: isFirst)
     }
@@ -289,8 +343,24 @@ class QuizViewController : InteractiveGrowViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func bankButtonPressed(_ sender: UIButton) {
+        presentBank()
+    }
+    
+    func presentBank() {
+        self.view.isUserInteractionEnabled = false
+        
+        BankViewController.present(
+            from: self,
+            goldCount: Player.current.sightWordCoins.gold,
+            silverCount: Player.current.sightWordCoins.silver,
+            onDismiss: {
+                self.view.isUserInteractionEnabled = true
+        })
+    }
+    
     @IBAction func repeatSound(_ sender: UIButton) {
-        if self.state == .playingQuestion { return }
+        if UAIsAudioPlaying() {return}
         
         sender.isUserInteractionEnabled = false
         delay(1.0) {
@@ -299,7 +369,6 @@ class QuizViewController : InteractiveGrowViewController {
         
         //sender.tag = 0  >>  repeat Sound Animation
         //sender.tag = 1  >>  repeat pronunciation
-        
         if (sender.tag == 0) {
             playQuestionAnimation()
         } else if sender.tag == 1 {
@@ -311,21 +380,53 @@ class QuizViewController : InteractiveGrowViewController {
     func wordViewSelected(_ wordView: WordView) {
         self.attempts += 1
         
-        // DELETED - may be necessary to avoid clipping, but does not seem to.
-        // deleting this is necessary to avoid "jumping" the words superview
-        // wordView.superview?.bringSubview(toFront: wordView)
-        
-        if wordView.word == answerWord {
-            if attempts == 1 {
-                index -= 1
-                if remainingAnswerWordPool != nil {
-                    remainingAnswerWordPool.remove(at: index)
+        if self.difficulty == .easyDifficulty {
+            let selectedLetter = wordView.letterLabelView.text
+            if let letter = selectedLetter, letter == currentAlphabetLetter {
+            
+                if attempts == 1 { // first try
+                    starsStreak += 1
+                    Player.current.updateStarsIfGreater(for: letter, newValue: starsStreak)
+                    
+                    if isEntireQuiz {
+                        starsStreak = 0
+                    }
+                    
+                } else {
+                    starsStreak = 0
+                }
+                
+                correctWordSelected(wordView)
+            } else {
+                shakeView(wordView)
+                delay(0.6) {
+                    // replay sound
+                    PHContent.playAudioForInfo(self.currentSound.pronunciationTiming)
                 }
             }
-            correctWordSelected(wordView)
         } else {
-            wordView.setShowingText(true, animated: true)
-            shakeView(wordView)
+            if wordView.word == answerWord {
+                // PHONICS, not alphabet letters
+                if attempts == 1 { // first try
+                    index -= 1
+                    if remainingAnswerWordPool != nil {
+                        remainingAnswerWordPool.remove(at: index)
+                    }
+                    
+                    starsStreak += 1
+                    Player.current.updateStarsIfGreater(for: currentSound.soundId, newValue: starsStreak)
+                    if isEntireQuiz {
+                        starsStreak = 0
+                    }
+                } else {
+                    starsStreak = 0
+                }
+                
+                correctWordSelected(wordView)
+            } else {
+                wordView.setShowingText(true, animated: true)
+                shakeView(wordView)
+            }
         }
     }
     
@@ -353,7 +454,9 @@ class QuizViewController : InteractiveGrowViewController {
         self.state = .transitioning
         self.wordViews.first!.superview!.isUserInteractionEnabled = false
         
-        wordView.setShowingText(true, animated: true, duration: 0.5)
+        if self.difficulty == .standardDifficulty {
+            wordView.setShowingText(true, animated: true, duration: 0.5)
+        }
         
         func hideOtherWords() {
             UIView.animate(withDuration: 0.2, animations: {
@@ -368,31 +471,55 @@ class QuizViewController : InteractiveGrowViewController {
             
             PHPlayer.play("correct", ofType: "mp3")
             
+            if self.difficulty == .easyDifficulty {
+                delay(0.6) {
+                    PHContent.playAudioForInfo(self.currentSound.pronunciationTiming) // good reinforcement
+                }
+            }
+            
             let pieceSpawnPoint = self.view.convert(wordView.center, from: wordView.superview)
             Timer.scheduleAfter(0.8, addToArray: &self.timers, handler: self.addNewPuzzlePiece(spawningAt: pieceSpawnPoint))
             
-            var puzzleWasAlreadyComplete = false
-            if let puzzle = self.puzzleView.puzzle {
-                puzzleWasAlreadyComplete = Player.current.progress(for: puzzle).isComplete
-            }
-            
-            //if the puzzle goes from Incomplete to Complete, show the puzzle detail
-            //Otherwise continue to next sound
-            Timer.scheduleAfter(1.45, addToArray: &self.timers, handler: {
-                
-                if !puzzleWasAlreadyComplete, let puzzle = self.puzzleView.puzzle {
-                    if Player.current.progress(for: puzzle).isComplete {
-                        self.dismissOnReturnFromModal = true
-                        self.showPuzzleDetail(self)
-                        return
-                    }
+            if self.difficulty == .standardDifficulty {
+                // puzzle
+                var puzzleWasAlreadyComplete = false
+                if let puzzle = self.puzzleView.puzzle {
+                    puzzleWasAlreadyComplete = Player.current.progress(for: puzzle).isComplete
                 }
                 
-                self.setupForRandomSoundFromPool()
-            })
+                //if the puzzle goes from Incomplete to Complete, show the puzzle detail
+                //Otherwise continue to next sound
+                Timer.scheduleAfter(1.45, addToArray: &self.timers, handler: {
+                    
+                    if !puzzleWasAlreadyComplete, let puzzle = self.puzzleView.puzzle {
+                        if Player.current.progress(for: puzzle).isComplete {
+                            self.dismissOnReturnFromModal = true
+                            self.showPuzzleDetail(self)
+                            return
+                        }
+                    }
+                    
+                    self.setupForRandomSoundFromPool()
+                })
+            } else {
+                // coin
+                Timer.scheduleAfter(1.45, addToArray: &self.timers) {
+                    let selectedWordViewCenter = wordView.superview!.convert(wordView.center, to: self.view)
+                    self.playCoinAnimation(startingAt: selectedWordViewCenter)
+                }
+                
+                Timer.scheduleAfter(2.7, addToArray: &self.timers) {
+                    //celebration if over threshold, else continue
+                    if Player.current.sightWordCoins.gold >= Player.current.celebrationAmount {
+                        self.presentBank()
+                    } else {
+                        self.setupForRandomSoundFromPool()
+                    }
+                }
+            }
         }
         
-        if (UAIsAudioPlaying()) {
+        if UAIsAudioPlaying() {
             UAWhenDonePlayingAudio {
                 hideOtherWords()
                 Timer.scheduleAfter(0.1, addToArray: &self.timers, handler: animateAndContinue)
@@ -400,6 +527,58 @@ class QuizViewController : InteractiveGrowViewController {
         } else {
             Timer.scheduleAfter(0.45, addToArray: &self.timers, handler: hideOtherWords)
             Timer.scheduleAfter(0.55, addToArray: &self.timers, handler: animateAndContinue)
+        }
+    }
+    
+    
+    //MARK: - Coins
+    
+    func playCoinAnimation(startingAt origin: CGPoint) {
+        var coinImage: UIImage?
+        switch(self.attempts) {
+        case 1:
+            coinImage = #imageLiteral(resourceName: "coin-gold")
+            Player.current.sightWordCoins.gold += 1
+        case 2:
+            coinImage = #imageLiteral(resourceName: "coin-silver")
+            Player.current.sightWordCoins.silver += 1
+        default:
+            coinImage = nil
+        }
+        
+        if let coinImage = coinImage {
+            
+            //save new coin
+            Player.current.save()
+            
+            let coinView = UIImageView(image: coinImage)
+            coinView.frame.size = iPad() ? CGSize(width: 150, height: 150) : CGSize(width: 75, height: 75)
+            coinView.center = origin
+            coinView.alpha = 0.0
+            self.view.addSubview(coinView)
+            
+            self.view.bringSubview(toFront: bankButton)
+            
+            //animate coin into piggy bank
+            UIView.animate(withDuration: 0.125, animations: {
+                coinView.alpha = 1.0
+            })
+            
+            UIView.animate(withDuration: 0.95, delay: 0.0, usingSpringWithDamping: 1.0, animations: {
+                coinView.frame.size = CGSize(width: 40, height: 40)
+                coinView.center = self.bankButton.superview!.convert(self.bankButton.center, to: self.view)
+            })
+            
+            //pulse piggybank
+            UIView.animate(withDuration: 0.25, delay: 0.5, options: [.allowUserInteraction, .curveEaseInOut, .beginFromCurrentState], animations: {
+                self.bankButton.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
+            }, completion: nil)
+            
+            UIView.animate(withDuration: 0.45, delay: 0.9, options: [.allowUserInteraction, .curveEaseInOut, .beginFromCurrentState], animations: {
+                self.bankButton.transform = .identity
+            }, completion: { bool in
+                coinView.alpha = 0.0
+            })
         }
     }
     

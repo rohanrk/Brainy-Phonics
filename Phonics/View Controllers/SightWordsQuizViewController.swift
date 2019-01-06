@@ -78,7 +78,8 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     var remainingWords: [SightWord] = []
     var currentWord: SightWord?
     var guessCount = 0
-    
+    var starsStreak = 0 // how many answered correctly in a row
+
     var currentlyAnimating = false
     var timers = [Timer]()
     
@@ -197,10 +198,28 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
         })
     }
     
+    func handleStars() {
+        if guessCount == 1 {
+            // correct on first try
+            starsStreak += 1
+            guard let word = currentWord else {return}
+            Player.current.updateStarsIfGreater(for: word.text, newValue: starsStreak)
+            
+            switch self.mode {
+                case .allWords:
+                    starsStreak = 0
+                default:
+                    break
+            }
+        }
+    }
+    
     func userSelectedCorrectWord(from view: UIView) {
         self.currentlyAnimating = true
         PHPlayer.play("correct", ofType: "mp3")
         self.updateInstructions(with: .correct, animate: true)
+        
+        handleStars()
         
         UIView.animate(withDuration: 0.2) {
             for answerLabel in self.answerLabels {
@@ -370,6 +389,7 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
             userSelectedCorrectWord(from: view)
         } else {
             userSelectedIncorrectWord(sightWord, from: view)
+            starsStreak = 0
         }
     }
     

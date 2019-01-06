@@ -12,16 +12,27 @@ class BasicLabelView: UIView {
     
     private let label: UILabel
     
-    init(with text: String, font: UIFont) {
+    var text: String? {
+        set {
+            self.label.text = newValue
+        }
+        get {
+            return self.label.text
+        }
+    }
+    
+    init(with text: String, font: UIFont, frame: CGRect = .zero) {
         label = UILabel()
-        super.init(frame: .zero)
-        
+        super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         setUpLabel(with: text, font: font)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("Not implemented")
+        label = UILabel()
+        super.init(coder: aDecoder)
+        translatesAutoresizingMaskIntoConstraints = false
+        setUpLabel(with: "", font: UIFont.comicSans)
     }
     
     private func setUpLabel(with text: String, font: UIFont) {

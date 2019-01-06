@@ -60,7 +60,7 @@ func getTopController(_ application: UIApplicationDelegate) -> UIViewController?
 
 ///sorts any [UIView]! by view.tag
 func sortOutletCollectionByTag<T : UIView>(_ collection: inout [T]!) {
-    collection = (collection as NSArray).sortedArray(using: [NSSortDescriptor(key: "tag", ascending: true)]) as! [T]
+    collection = (collection as NSArray).sortedArray(using: [NSSortDescriptor(key: "tag", ascending: true)]) as? [T]
 }
 
 ///animates a back and forth shake
@@ -132,7 +132,7 @@ func iPad() -> Bool {
     return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
 }
 
-///returns trus if the current device is an iPhone 4S
+///returns true if the current device is an iPhone 4S
 func is4S() -> Bool {
     return UIScreen.main.bounds.height == 480.0
 }
@@ -259,7 +259,7 @@ class UINibView : UIView {
     func setupNib() {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: nibName(), bundle: bundle)
-        nibView = nib.instantiate(withOwner: self, options: nil)[0] as! UIView
+        nibView = nib.instantiate(withOwner: self, options: nil)[0] as? UIView
         
         nibView.frame = bounds
         nibView.layer.masksToBounds = true
@@ -482,3 +482,37 @@ extension UIImage {
     }
     
 }
+
+extension UIFont {
+    static var comicSans: UIFont {
+        let fontSize: CGFloat = iPad() ? 60 : 45
+        return UIFont(name: "ComicNeue-Bold", size: fontSize) ?? .systemFont(ofSize: fontSize)
+    }
+}
+
+extension String {
+    static func randomAlphabetLetter() -> String {
+        return String("qwertyuiopasdfghjklzxcvbnm".randomElement()!)
+    }
+}
+
+extension UIView {
+    
+    var asImage: UIImage {
+        let previousAlpha = self.alpha
+        self.alpha = 1.0
+        
+        let deviceScale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, false, deviceScale)
+        
+        let context = UIGraphicsGetCurrentContext()!
+        self.layer.render(in: context)
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        
+        UIGraphicsEndImageContext()
+        self.alpha = previousAlpha
+        return image
+    }
+    
+}
+

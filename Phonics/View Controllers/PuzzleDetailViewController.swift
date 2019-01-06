@@ -249,25 +249,6 @@ class PuzzleDetailViewController : UIViewController {
     }
 }
 
-extension UIView {
- 
-    var asImage: UIImage {
-        let previousAlpha = self.alpha
-        self.alpha = 1.0
-        
-        let deviceScale = UIScreen.main.scale
-        UIGraphicsBeginImageContextWithOptions(self.frame.size, false, deviceScale)
-        
-        let context = UIGraphicsGetCurrentContext()!
-        self.layer.render(in: context)
-        let image = UIGraphicsGetImageFromCurrentImageContext()!
-        
-        UIGraphicsEndImageContext()
-        self.alpha = previousAlpha
-        return image
-    }
-    
-}
 
 
 

@@ -10,12 +10,14 @@ import UIKit
 
 @IBDesignable
 class WordView : UINibView {
-    
+
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var labelBottom: NSLayoutConstraint!
     var word: Word?
     
+    // beneath imageView. so to show this, hide imageView.
+    @IBOutlet weak var letterLabelView: BasicLabelView!
     
     //MARK: - IBInspectables
     
@@ -71,6 +73,15 @@ class WordView : UINibView {
         return "WordView"
     }
     
+    
+    /// alphabet letters
+    func useLetter(_ letter: String) {
+        self.imageView.isHidden = true
+        letterLabelView.text = letter
+    }
+    
+    
+    /// phonics
     func useWord(_ word: Word?, forSound sound: Sound? = nil, ofLetter letter: Letter? = nil) {
         self.word = word
         
@@ -80,6 +91,7 @@ class WordView : UINibView {
             return
         }
         
+        self.imageView.isHidden = false
         self.imageView.image = word.image
         self.text = word.text
         

@@ -20,6 +20,22 @@ class Player : NSObject, NSCoding {
     var id: String
     var puzzleProgress: [String : PuzzleProgress]
     
+    /// [“a”: 3, “ah”: 3, “apple”: 1]
+    /// lowercased alphabet letters, phonics, and words
+    private var stars: [String: Int]
+    
+    func stars(for key: String) -> Int {
+        return self.stars[key.lowercased()] ?? 0
+    }
+    
+    func updateStarsIfGreater(for k: String, newValue: Int) {
+        let key = k.lowercased()
+        let existingValue = stars[key]
+        if existingValue == nil || existingValue! < newValue {
+            stars[key] = newValue
+        }
+    }
+    
     var hasSeenSightWordsCelebration: Bool
     let celebrationAmount = 125  // 125 gold coins, which is 1 truck
     
@@ -37,6 +53,7 @@ class Player : NSObject, NSCoding {
     override init() {
         self.id = PHDefaultPlayerKey
         self.puzzleProgress = [:]
+        self.stars = [:]
         self.sightWordCoins = (0, 0)
         self.hasSeenSightWordsCelebration = false
     }
@@ -50,6 +67,7 @@ class Player : NSObject, NSCoding {
         case sightWordGoldCoins = "Player.sightWordCoins.gold"
         case sightWordSilverCoins = "Player.sightWordCoins.silver"
         case hasSeenSightWordsCelebration = "Player.hasSeenCelebration"
+        case stars = "Player.stars"
     }
     
     required init?(coder decoder: NSCoder) {
@@ -63,6 +81,8 @@ class Player : NSObject, NSCoding {
         self.sightWordCoins = (sightWordGoldCoins, sightWordSilverCoins)
         
         self.hasSeenSightWordsCelebration = decoder.value(for: Key.hasSeenSightWordsCelebration) as? Bool ?? false
+        
+        self.stars = decoder.value(for: Key.stars) as? [String: Int] ?? [:]
     }
     
     func encode(with encoder: NSCoder) {
@@ -71,7 +91,7 @@ class Player : NSObject, NSCoding {
         encoder.setValue(self.sightWordCoins.gold, for: Key.sightWordGoldCoins)
         encoder.setValue(self.sightWordCoins.silver, for: Key.sightWordSilverCoins)
         encoder.setValue(self.hasSeenSightWordsCelebration, for: Key.hasSeenSightWordsCelebration)
-        
+        encoder.setValue(self.stars, for: Key.stars)
     }
     
     

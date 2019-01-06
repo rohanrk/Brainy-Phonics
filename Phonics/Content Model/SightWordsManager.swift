@@ -89,7 +89,11 @@ class SightWordsManager {
             sentenceText = sentenceText.replacingOccurrences(of: ";", with: ".")
             
             guard let indexOfImageWithSameMetadata = imageFiles.index(where: { $0.hasPrefix(metadata) }) else { continue }
-            let imageFileName = imageFiles.remove(at: indexOfImageWithSameMetadata)
+            var imageFileName = imageFiles.remove(at: indexOfImageWithSameMetadata)
+            
+            if imageFileName == "pig latin content.mp3" {
+                imageFileName = "pig.jpg" // weird bug, idk
+            }
             
             
             let newSentence = Sentence(text: sentenceText,

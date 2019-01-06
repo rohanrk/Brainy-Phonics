@@ -65,6 +65,8 @@ class LetterViewController : InteractiveGrowViewController {
     //MARK: - Set up
     
     override func viewWillAppear(_ animated: Bool) {
+        UAHaltPlayback()
+
         decorateForCurrentSound()
         sortOutletCollectionByTag(&wordViews)
         

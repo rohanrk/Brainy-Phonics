@@ -29,15 +29,21 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     
     @IBOutlet weak var sidebarColorView: UIView!
     
+    @IBOutlet weak var bankButton: UIButton!
+    
+    
+    
     var difficulty: Letter.Difficulty!
     
     
     
     override func viewWillAppear(_ animated: Bool) {
-        collectionView.reloadData()
+        bankButton.isHidden = self.difficulty == .standardDifficulty
         self.collectionView.backgroundColor = self.difficulty.color
         self.sidebarColorView.backgroundColor = self.difficulty.color
+        collectionView.reloadData()
     }
+
     
     
     //MARK: - Collection View Data Source
@@ -76,7 +82,19 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     
     
     //MARK: - User Interaction
-
+    
+    @IBAction func bankButton(_ sender: UIButton) {
+        self.view.isUserInteractionEnabled = false
+        
+        BankViewController.present(
+            from: self,
+            goldCount: Player.current.sightWordCoins.gold,
+            silverCount: Player.current.sightWordCoins.silver,
+            onDismiss: {
+                self.view.isUserInteractionEnabled = true
+        })
+    }
+    
     @IBAction func puzzleButtonPressed(_ sender: Any) {
         PuzzleCollectionViewController.present(with: difficulty, from: self)
     }
@@ -85,7 +103,13 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
         QuizViewController.presentQuiz(customSound: nil, showingThreeWords: false, difficulty: self.difficulty, onController: self)
     }
     
+    @IBAction func checkmarkButtonPressed(_ sender: Any) {
+        PHPlayer.play("Complete a whole puzzle", ofType: "mp3")
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        UAHaltPlayback() // because of green checkmark audio
         
         self.view.isUserInteractionEnabled = false
         
@@ -114,7 +138,6 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
         } else {
             //phonics
             let sound = PHContent.allPhonicsSorted[indexPath.item]
-//            let letter = Letter(text: PHContent.allPhonicsSorted[indexPath.item].sourceLetter, sounds: [sound])
             guard let letter = PHContent[sound.sourceLetter] else { return }
             afterAudio(letter: letter, initialSound: sound)
         }
@@ -129,13 +152,12 @@ class LetterCell : UICollectionViewCell {
     @IBOutlet weak var letterIcon: UIImageView!
     @IBOutlet weak var progressBar: ProgressBar!
     @IBOutlet weak var checkmark: UIButton!
+    @IBOutlet weak var starsStackView: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         cardView.layer.masksToBounds = true
         cardView.clipsToBounds = true
-        
-        
     }
     
     func decorateForLetter(_ letterText: String, difficulty: Letter.Difficulty, sound: Sound? = nil) {
@@ -155,6 +177,14 @@ class LetterCell : UICollectionViewCell {
             decorateIcon(letterIconImage: sound.thumbnail, letter: letter, difficulty: difficulty, sound: sound)
         }
         
+        // show stars
+        // phonics: key is the phonic. sound is never nil.
+        // alphabet letters: key is the letterText, like "A"
+        let key = difficulty == .easyDifficulty ? letterText : sound!.soundId
+        let stars = Player.current.stars(for: key)
+        for i in 0 ..< 5 {
+            starsStackView.subviews[i].alpha = i < stars ? 1 : 0
+        }
     }
     
     //update image icon with correct image and aspect ratio

@@ -27,16 +27,19 @@ class SightWordsViewController : UIViewController, UICollectionViewDataSource, U
     
     @IBOutlet weak var sidebarColorView: UIView!
     
+    
+    
+    
     //MARK: - Setup
     
     override func viewDidLoad() {
         self.view.backgroundColor = self.sightWordsManager.category.color
         sidebarColorView.backgroundColor = self.sightWordsManager.category.color
     }
-    
-    /*override func viewDidAppear(_ animated: Bool) {
-        playWords(wordsToPlay: self.sightWords.words.reversed())
-    }*/
+
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
+    }
     
     func playWords(wordsToPlay: [SightWord]) {
         var words = wordsToPlay
@@ -76,17 +79,6 @@ class SightWordsViewController : UIViewController, UICollectionViewDataSource, U
         return 0
     }
     
-    
-    //MARK: - User Interaction
-    
-    @IBAction func dismiss() {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func playQuiz(_ sender: Any) {
-        SightWordsQuizViewController.present(from: self, using: self.sightWordsManager, mode: .allWords)
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         self.view.isUserInteractionEnabled = false
@@ -110,6 +102,28 @@ class SightWordsViewController : UIViewController, UICollectionViewDataSource, U
         }
     }
     
+    
+    //MARK: - User Interaction
+    
+    @IBAction func dismiss() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func bankButtonPressed(_ sender: Any) {
+        self.view.isUserInteractionEnabled = false
+        
+        BankViewController.present(
+            from: self,
+            goldCount: Player.current.sightWordCoins.gold,
+            silverCount: Player.current.sightWordCoins.silver,
+            onDismiss: {
+                self.view.isUserInteractionEnabled = true
+        })
+    }
+    
+    @IBAction func playQuiz(_ sender: Any) {
+        SightWordsQuizViewController.present(from: self, using: self.sightWordsManager, mode: .allWords)
+    }
 }
 
 
@@ -125,6 +139,7 @@ class SightWordCell : UICollectionViewCell {
     @IBOutlet var leftImageView: UIImageView!
     @IBOutlet var rightImageView: UIImageView!
     @IBOutlet var fullImageView: UIImageView! // for readAWord, only one image
+    @IBOutlet weak var starsStackView: UIStackView!
     
     // TODO: - THIS MAY NOT BE PERFORMANT to check category each time!
     
@@ -142,7 +157,7 @@ class SightWordCell : UICollectionViewCell {
         
         func update(imageView: UIImageView, with sentence: Sentence) {
             imageView.update(on: SightWordCell.backgroundThread, withImage: {
-                return sentence.thumbnail
+                return sentence.thumbnail // this line is crashing
             }, shouldIgnoreUpdateIf: shouldIgnoreImageUpdate)
         }
         
@@ -157,5 +172,12 @@ class SightWordCell : UICollectionViewCell {
             update(imageView: fullImageView, with: sightWord.sentence1)
         }
         
+        // show stars
+        // phonics: key is the phonic. sound is never nil.
+        // alphabet letters: key is the letterText, like "A"
+        let stars = Player.current.stars(for: sightWord.text)
+        for i in 0 ..< 5 {
+            starsStackView.subviews[i].alpha = i < stars ? 1 : 0
+        }
     }
 }

@@ -2062,6 +2062,7 @@
 		2EECD5671E0BBA4800C667DE /* PuzzleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5631E0BBA4800C667DE /* PuzzleProgress.swift */; };
 		2EECD56A1E0BBF5F00C667DE /* NSCoding+Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5691E0BBF5F00C667DE /* NSCoding+Key.swift */; };
 		850ECC2920EE953C0045512B /* jelly-jars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 850ECC2820EE953A0045512B /* jelly-jars.jpg */; };
+		85217DF521E19C6900163693 /* Complete a whole puzzle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 85217DF421E19C6900163693 /* Complete a whole puzzle.mp3 */; };
 		8544B38E20F148D8008E6609 /* puzzle-C-CL-row0-col2.jpng in Resources */ = {isa = PBXBuildFile; fileRef = 8544B38120F148D7008E6609 /* puzzle-C-CL-row0-col2.jpng */; };
 		8544B38F20F148D8008E6609 /* puzzle-C-CL-row3-col0.jpng in Resources */ = {isa = PBXBuildFile; fileRef = 8544B38220F148D7008E6609 /* puzzle-C-CL-row3-col0.jpng */; };
 		8544B39020F148D8008E6609 /* puzzle-C-CL-spec.json in Resources */ = {isa = PBXBuildFile; fileRef = 8544B38320F148D7008E6609 /* puzzle-C-CL-spec.json */; };
@@ -4321,6 +4322,7 @@
 		2EECD5631E0BBA4800C667DE /* PuzzleProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleProgress.swift; sourceTree = "<group>"; };
 		2EECD5691E0BBF5F00C667DE /* NSCoding+Key.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSCoding+Key.swift"; sourceTree = "<group>"; };
 		850ECC2820EE953A0045512B /* jelly-jars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "jelly-jars.jpg"; sourceTree = "<group>"; };
+		85217DF421E19C6900163693 /* Complete a whole puzzle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Complete a whole puzzle.mp3"; sourceTree = "<group>"; };
 		8544B38120F148D7008E6609 /* puzzle-C-CL-row0-col2.jpng */ = {isa = PBXFileReference; lastKnownFileType = file; path = "puzzle-C-CL-row0-col2.jpng"; sourceTree = "<group>"; };
 		8544B38220F148D7008E6609 /* puzzle-C-CL-row3-col0.jpng */ = {isa = PBXFileReference; lastKnownFileType = file; path = "puzzle-C-CL-row3-col0.jpng"; sourceTree = "<group>"; };
 		8544B38320F148D7008E6609 /* puzzle-C-CL-spec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "puzzle-C-CL-spec.json"; sourceTree = "<group>"; };
@@ -7099,6 +7101,7 @@
 				2E88B5C61EEFC50600A595EE /* alphabet letters.mp3 */,
 				2E88B5C71EEFC50600A595EE /* brainy phonics.mp3 */,
 				2E88B5C81EEFC50600A595EE /* correct.mp3 */,
+				85217DF421E19C6900163693 /* Complete a whole puzzle.mp3 */,
 				2E88B5C91EEFC50600A595EE /* incorrect.mp3 */,
 				2E88B5CA1EEFC50600A595EE /* kindergarten sight words.mp3 */,
 				2E88B5CB1EEFC50600A595EE /* phonics.mp3 */,
@@ -9678,6 +9681,7 @@
 				2E1469531E46F15500BD6C2C /* puzzle-G-juh-row3-col2.jpng in Resources */,
 				2E4B049D1EE115EC00834D45 /* tool belt.jpg in Resources */,
 				2E4B038F1EE115EB00834D45 /* five-point-star.jpg in Resources */,
+				85217DF521E19C6900163693 /* Complete a whole puzzle.mp3 in Resources */,
 				2E14695C1E46F15500BD6C2C /* puzzle-H-huh-row2-col1.jpng in Resources */,
 				2E146B871E46F15500BD6C2C /* puzzle-T-th-row1-col0.jpng in Resources */,
 				2E0D53161ED1676A00EF3706 /* words-Y-e.mp3 in Resources */,
@@ -10243,7 +10247,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = CT648UDKHF;
 				INFOPLIST_FILE = "$(SRCROOT)/Phonics/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hearatale.Phonics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -10265,7 +10269,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = CT648UDKHF;
 				INFOPLIST_FILE = "$(SRCROOT)/Phonics/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hearatale.Phonics;
 				PRODUCT_NAME = "$(TARGET_NAME)";

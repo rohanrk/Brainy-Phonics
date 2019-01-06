@@ -78,16 +78,22 @@ class BankViewController : UIViewController {
     }
     
     func decorateCoins() {
+    
         //clear coins
         for i in 0...9 {
             coinImages[i].image = nil
         }
         
-        var gold = totalGoldCount + Int(Double(totalSilverCount) * 0.5)
-        let silver = totalSilverCount.isEven ? 0 : 1
+        var gold = totalGoldCount + totalSilverCount / 2
+        let silver = totalSilverCount % 2 // 1 if it is odd
+        
+        let maxGold = 5 * 625 // 5 banks
+        gold %= maxGold
         
         //calculate coins
-        let trucks = gold / 125
+        let banks = gold / 625
+        gold %= 625
+        let trucks = gold / 125 // yes, THE Armored Monkey Truck
         gold %= 125
         let bags = gold / 25
         gold %= 25
@@ -95,8 +101,6 @@ class BankViewController : UIViewController {
         gold %= 20
         let coin5 = gold / 5
         gold %= 5
-        let coinGold = gold
-        let coinSilver = silver
         
         if coin20 > 7 {
             //too many to display
@@ -115,6 +119,9 @@ class BankViewController : UIViewController {
         }
         
         var current = 0
+        for _ in 0 ..< banks {
+            setImage(&current, "bank")
+        }
         for _ in 0 ..< trucks {
             setImage(&current, "money-truck")
         }
@@ -127,10 +134,10 @@ class BankViewController : UIViewController {
         for _ in 0 ..< coin5 {
             setImage(&current, "coin-5")
         }
-        for _ in 0 ..< coinGold {
+        for _ in 0 ..< gold {
             setImage(&current, "coin-gold-big")
         }
-        for _ in 0 ..< coinSilver {
+        for _ in 0 ..< silver {
             setImage(&current, "coin-silver-big")
         }
         
