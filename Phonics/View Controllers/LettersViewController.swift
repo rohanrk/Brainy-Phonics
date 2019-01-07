@@ -181,10 +181,8 @@ class LetterCell : UICollectionViewCell {
         // phonics: key is the phonic. sound is never nil.
         // alphabet letters: key is the letterText, like "A"
         let key = difficulty == .easyDifficulty ? letterText : sound!.soundId
-        let stars = Player.current.stars(for: key)
-        for i in 0 ..< 5 {
-            starsStackView.subviews[i].alpha = i < stars ? 1 : 0
-        }
+        let stars = Player.current.stars(for: key).highScore
+        starsStackView.update(stars: stars)
     }
     
     //update image icon with correct image and aspect ratio

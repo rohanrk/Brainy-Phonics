@@ -176,10 +176,9 @@ class SightWordCell : UICollectionViewCell {
         // show stars
         // phonics: key is the phonic. sound is never nil.
         // alphabet letters: key is the letterText, like "A"
-        let stars = Player.current.stars(for: sightWord.text)
-        for i in 0 ..< 5 {
-            starsStackView.subviews[i].alpha = i < stars ? 1 : 0
-        }
+        let stars = Player.current.stars(for: sightWord.text).highScore
+        starsStackView.update(stars: stars)
+        
         checkmark.isHidden = stars < 5
     }
 }

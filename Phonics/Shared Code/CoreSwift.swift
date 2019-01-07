@@ -516,3 +516,11 @@ extension UIView {
     
 }
 
+extension UIStackView {
+    func update(stars: Int) {
+        for i in 0 ..< 5 {
+            self.subviews[i].alpha = i < stars ? 1 : 0
+        }
+    }
+}
+

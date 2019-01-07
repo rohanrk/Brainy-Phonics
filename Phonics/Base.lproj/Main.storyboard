@@ -1833,68 +1833,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p7j-Qh-1PD" userLabel="content view">
                                 <rect key="frame" x="134" y="0.0" width="678" height="375"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLF-V1-WmC" userLabel="listen pill" customClass="CornerRadiusView" customModule="Phonics" customModuleProvider="target">
-                                        <rect key="frame" x="212.66666666666669" y="30" width="188.66666666666669" height="82"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NNn-dj-qdH">
-                                                <rect key="frame" x="20" y="10" width="148.66666666666666" height="62"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listen" translatesAutoresizingMaskIntoConstraints="NO" id="AWx-tj-Nxg">
-                                                        <rect key="frame" x="0.0" y="0.0" width="62" height="62"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" secondItem="AWx-tj-Nxg" secondAttribute="height" multiplier="1:1" id="JtC-cx-PJn"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Listen... " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOY-4a-WNv">
-                                                        <rect key="frame" x="72" y="21" width="76.666666666666686" height="20"/>
-                                                        <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="20"/>
-                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.84506635273972597" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <variation key="heightClass=regular-widthClass=regular">
-                                                            <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="35"/>
-                                                        </variation>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="NNn-dj-qdH" firstAttribute="leading" secondItem="zLF-V1-WmC" secondAttribute="leading" constant="20" id="3hH-Hy-3lF"/>
-                                            <constraint firstAttribute="trailing" secondItem="NNn-dj-qdH" secondAttribute="trailing" constant="20" id="4Ot-dE-DJO"/>
-                                            <constraint firstAttribute="bottom" secondItem="NNn-dj-qdH" secondAttribute="bottom" constant="10" id="IlI-cr-Lhh"/>
-                                            <constraint firstAttribute="height" constant="100" id="d6v-xv-3mm"/>
-                                            <constraint firstItem="NNn-dj-qdH" firstAttribute="top" secondItem="zLF-V1-WmC" secondAttribute="top" constant="10" id="zk5-mi-VYS"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="35"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="d6v-xv-3mm"/>
-                                            </mask>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <mask key="constraints">
-                                                <include reference="d6v-xv-3mm"/>
-                                            </mask>
-                                        </variation>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7mR-xa-7RM" userLabel="answers view">
-                                        <rect key="frame" x="0.0" y="142" width="614" height="184"/>
+                                        <rect key="frame" x="0.0" y="110" width="614" height="216"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="phJ-Jz-MHv">
-                                                <rect key="frame" x="92.333333333333343" y="0.0" width="429.33333333333326" height="184"/>
+                                                <rect key="frame" x="55" y="0.0" width="504" height="216"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="y7c-ju-yrS">
-                                                        <rect key="frame" x="0.0" y="0.0" width="207.33333333333334" height="184"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="244.66666666666666" height="216"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyY-Rm-yZv" userLabel="word 1" customClass="SelectCornerRadiusView" customModule="Phonics" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="207.33333333333334" height="84.666666666666671"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="244.66666666666666" height="100.66666666666667"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="big" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CJL-Na-OTN">
-                                                                        <rect key="frame" x="83.333333333333343" y="27.333333333333343" width="40.333333333333343" height="30"/>
+                                                                        <rect key="frame" x="102" y="35.333333333333343" width="40.333333333333343" height="30"/>
                                                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="30"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1918,10 +1870,10 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AlC-gE-XIf" userLabel="word 3" customClass="SelectCornerRadiusView" customModule="Phonics" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="99.666666666666657" width="207.33333333333334" height="84.333333333333343"/>
+                                                                <rect key="frame" x="0.0" y="115.66666666666666" width="244.66666666666666" height="100.33333333333334"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="H8t-dQ-Ndc">
-                                                                        <rect key="frame" x="80.999999999999972" y="27.000000000000028" width="45" height="30"/>
+                                                                        <rect key="frame" x="99.666666666666686" y="35.000000000000028" width="45" height="30"/>
                                                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="30"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1951,13 +1903,13 @@
                                                         <variation key="heightClass=regular-widthClass=regular" spacing="25"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Qmd-pK-Qnc">
-                                                        <rect key="frame" x="222.33333333333337" y="0.0" width="207" height="184"/>
+                                                        <rect key="frame" x="259.66666666666669" y="0.0" width="244.33333333333331" height="216"/>
                                                         <subviews>
                                                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2aU-aB-h9L" userLabel="word 2" customClass="SelectCornerRadiusView" customModule="Phonics" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="207" height="84.666666666666671"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="244.33333333333334" height="100.66666666666667"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="what" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cLk-FR-xwF">
-                                                                        <rect key="frame" x="71.999999999999943" y="27.333333333333343" width="63" height="30"/>
+                                                                        <rect key="frame" x="90.666666666666686" y="35.333333333333343" width="63" height="30"/>
                                                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="30"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1981,10 +1933,10 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hp1-2r-qBU" userLabel="word 4" customClass="SelectCornerRadiusView" customModule="Phonics" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="99.666666666666657" width="207" height="84.333333333333343"/>
+                                                                <rect key="frame" x="0.0" y="115.66666666666666" width="244.33333333333334" height="100.33333333333334"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="came" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RaZ-Dz-E39">
-                                                                        <rect key="frame" x="66.666666666666686" y="27.000000000000028" width="73.666666666666686" height="30"/>
+                                                                        <rect key="frame" x="85.333333333333314" y="35.000000000000028" width="73.666666666666686" height="30"/>
                                                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="30"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -2035,25 +1987,59 @@
                                             </constraint>
                                         </constraints>
                                     </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oz3-Ii-EZI" userLabel="Stars Stack View">
+                                        <rect key="frame" x="182" y="30" width="250" height="50"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="2o6-6a-ww4">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="pG0-nT-Kma"/>
+                                                    <constraint firstAttribute="width" constant="50" id="vmG-vD-EKi"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="C16-oG-hcC">
+                                                <rect key="frame" x="50" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="1GK-wZ-tI8"/>
+                                                    <constraint firstAttribute="width" constant="50" id="WjT-Mt-WsR"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bUV-zT-eGI">
+                                                <rect key="frame" x="100" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="8Hk-iZ-xNX"/>
+                                                    <constraint firstAttribute="height" constant="50" id="vP1-Wn-9AL"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="RLK-py-7bw">
+                                                <rect key="frame" x="150" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="17k-dA-OgI"/>
+                                                    <constraint firstAttribute="width" constant="50" id="tmG-rc-VRb"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ylk-lR-WMv">
+                                                <rect key="frame" x="200" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="VW6-rE-kYa"/>
+                                                    <constraint firstAttribute="width" constant="50" id="m2j-BB-FrG"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="USe-B5-xWk"/>
+                                            <constraint firstAttribute="height" constant="50" id="gWN-D6-U2P"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="zLF-V1-WmC" firstAttribute="centerX" secondItem="phJ-Jz-MHv" secondAttribute="centerX" id="1QX-NO-gJd"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="7mR-xa-7RM" secondAttribute="bottom" constant="20" id="5nQ-kD-f6O"/>
-                                    <constraint firstItem="7mR-xa-7RM" firstAttribute="top" secondItem="zLF-V1-WmC" secondAttribute="bottom" constant="30" id="CjM-W1-N3q">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="50"/>
-                                    </constraint>
                                     <constraint firstItem="7mR-xa-7RM" firstAttribute="leading" secondItem="p7j-Qh-1PD" secondAttribute="leading" id="fei-3D-FaO"/>
-                                    <constraint firstItem="zLF-V1-WmC" firstAttribute="top" secondItem="p7j-Qh-1PD" secondAttribute="top" constant="30" id="iXe-sE-AR0">
-                                        <variation key="heightClass=regular-widthClass=regular" constant="85"/>
-                                    </constraint>
-                                    <constraint firstItem="zLF-V1-WmC" firstAttribute="height" secondItem="p7j-Qh-1PD" secondAttribute="height" multiplier="0.21875" id="vGW-Rn-Yla"/>
+                                    <constraint firstItem="oz3-Ii-EZI" firstAttribute="centerX" secondItem="7mR-xa-7RM" secondAttribute="centerX" id="lVE-3Z-dkj"/>
+                                    <constraint firstItem="7mR-xa-7RM" firstAttribute="top" secondItem="oz3-Ii-EZI" secondAttribute="bottom" constant="30" id="lVr-9F-DVP"/>
+                                    <constraint firstItem="oz3-Ii-EZI" firstAttribute="top" secondItem="p7j-Qh-1PD" secondAttribute="top" constant="30" id="x02-P6-F57"/>
                                 </constraints>
-                                <variation key="heightClass=regular-widthClass=regular">
-                                    <mask key="constraints">
-                                        <exclude reference="vGW-Rn-Yla"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FA7-sK-2Jc" userLabel="button area">
                                 <rect key="frame" x="0.0" y="0.0" width="134" height="354"/>
@@ -2109,9 +2095,7 @@
                         <outlet property="answersView" destination="7mR-xa-7RM" id="oIV-OZ-uz9"/>
                         <outlet property="bankButton" destination="B1d-Sd-vlA" id="e9a-GG-gfq"/>
                         <outlet property="buttonArea" destination="FA7-sK-2Jc" id="XDW-PE-shD"/>
-                        <outlet property="instructionsImage" destination="AWx-tj-Nxg" id="FvA-cK-T95"/>
-                        <outlet property="instructionsLabel" destination="TOY-4a-WNv" id="w2J-JI-HhE"/>
-                        <outlet property="instructionsPill" destination="zLF-V1-WmC" id="gTT-UP-3Z0"/>
+                        <outlet property="starsStackView" destination="oz3-Ii-EZI" id="DSc-08-cZX"/>
                         <outletCollection property="interactiveViews" destination="2aU-aB-h9L" collectionClass="NSMutableArray" id="sP5-qV-JdB"/>
                         <outletCollection property="answerLabels" destination="RaZ-Dz-E39" collectionClass="NSMutableArray" id="D41-gb-H42"/>
                         <outletCollection property="answerLabels" destination="cLk-FR-xwF" collectionClass="NSMutableArray" id="9wu-NI-W0b"/>
@@ -2786,7 +2770,6 @@ My song had been longer.
         <image name="horn.jpg" width="256" height="256"/>
         <image name="letter-icon-a.jpg" width="192" height="256"/>
         <image name="lion.jpg" width="256" height="256"/>
-        <image name="listen" width="111.83999633789062" height="120"/>
         <image name="logo-alphabet-letters" width="1453" height="1152"/>
         <image name="logo-brainy-phonics" width="1152" height="1152"/>
         <image name="logo-k-sightwords" width="1152" height="1152"/>

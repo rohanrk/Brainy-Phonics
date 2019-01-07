@@ -10,6 +10,8 @@ import Foundation
 
 let PHDefaultPlayerKey = "defaultPlayer-2"
 
+
+
 class Player : NSObject, NSCoding {
     
     static var current = Player.load(id: PHDefaultPlayerKey) ?? Player()
@@ -22,18 +24,29 @@ class Player : NSObject, NSCoding {
     
     /// [“a”: 3, “ah”: 3, “apple”: 1]
     /// lowercased alphabet letters, phonics, and words
-    private var stars: [String: Int]
+    private var stars: [String: Star]
     
-    func stars(for key: String) -> Int {
-        return self.stars[key.lowercased()] ?? 0
+    /// keys:
+    /// Phonics: sound.soundID
+    /// Alphabet: "al-" + sound.sourceLetter
+    /// rest of the app: the word itself
+    func stars(for key: String) -> Star {
+        return self.stars[key.lowercased()] ?? Star(highScore: 0, currentStreak: 0)
     }
     
-    func updateStarsIfGreater(for k: String, newValue: Int) {
+    /// updates current streak,
+    /// and updates highScore if necessary
+    /// @returns new High Score (usually unchanged)
+    @discardableResult
+    func updateStars(for k: String, newValue: Int) -> Int {
         let key = k.lowercased()
         let existingValue = stars[key]
-        if existingValue == nil || existingValue! < newValue {
-            stars[key] = newValue
+        if existingValue == nil || existingValue!.highScore < newValue {
+            stars[key] = Star(highScore: newValue, currentStreak: newValue)
+        } else {
+            stars[key]?.currentStreak = newValue
         }
+        return stars[key]?.highScore ?? 0
     }
     
     var hasSeenSightWordsCelebration: Bool
@@ -82,7 +95,7 @@ class Player : NSObject, NSCoding {
         
         self.hasSeenSightWordsCelebration = decoder.value(for: Key.hasSeenSightWordsCelebration) as? Bool ?? false
         
-        self.stars = decoder.value(for: Key.stars) as? [String: Int] ?? [:]
+        self.stars = decoder.value(for: Key.stars) as? [String: Star] ?? [:]
     }
     
     func encode(with encoder: NSCoder) {
@@ -135,4 +148,34 @@ class Player : NSObject, NSCoding {
         return player
     }
     
+}
+
+class Star: NSObject, NSCoding {
+    enum Key: String, NSCodingKey {
+        case highScore = "Star.highScore"
+        case current = "Star.current"
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        highScore = (decoder.value(for: Key.highScore) as? Int) ?? 0
+        currentStreak = (decoder.value(for: Key.current) as? Int) ?? 0
+    }
+    
+    func encode(with encoder: NSCoder) {
+        encoder.setValue(self.highScore, for: Key.highScore)
+        encoder.setValue(self.currentStreak, for: Key.current)
+    }
+    
+    var highScore: Int
+    var currentStreak: Int
+    
+    override init() {
+        self.highScore = 0
+        self.currentStreak = 0
+    }
+    
+    init(highScore: Int, currentStreak: Int) {
+        self.highScore = highScore
+        self.currentStreak = currentStreak
+    }
 }

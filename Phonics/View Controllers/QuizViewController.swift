@@ -46,7 +46,13 @@ class QuizViewController : InteractiveGrowViewController {
     var state: QuizState = .waiting
     var attempts = 0
     var index = 0 //the index of the previous word in the total array
-    var starsStreak = 0 // how many answered correctly in a row
+    var starsCurrentStreak: Int! {
+        didSet {
+            let key: String = self.difficulty == .easyDifficulty ? "al-" + currentSound.sourceLetter : currentSound.soundId
+            starsHighScore = Player.current.updateStars(for: key, newValue: starsCurrentStreak)
+        }
+    }
+    var starsHighScore: Int!
     
     enum QuizState {
         case waiting, playingQuestion, transitioning
@@ -151,6 +157,9 @@ class QuizViewController : InteractiveGrowViewController {
             self.answerWord = self.currentSound.allWords.random()
         }
         
+        // now that i have currentSound...
+        setupStars()
+        
         //get other (wrong) word choices
         let allWords = PHContent.allWordsNoDuplicates
         let blacklistedSound = currentSound.ipaPronunciation ?? currentSound.displayString.lowercased()
@@ -251,6 +260,21 @@ class QuizViewController : InteractiveGrowViewController {
         
         transitionToCurrentSound(isFirst: isFirst)
     }
+    
+    
+    
+    
+    // MARK: - STARS
+    
+    func setupStars() {
+        guard let sound = currentSound else {return}
+        let star = Player.current.stars(for: self.difficulty == .easyDifficulty ? sound.sourceLetter : sound.soundId)
+        self.starsHighScore = star.highScore
+        self.starsCurrentStreak = star.currentStreak
+    }
+    
+    
+    
     
     
     //MARK: - Question Animation
@@ -383,21 +407,16 @@ class QuizViewController : InteractiveGrowViewController {
         if self.difficulty == .easyDifficulty {
             let selectedLetter = wordView.letterLabelView.text
             if let letter = selectedLetter, letter == currentAlphabetLetter {
-            
+                // correct sound!
                 if attempts == 1 { // first try
-                    starsStreak += 1
-                    Player.current.updateStarsIfGreater(for: letter, newValue: starsStreak)
-                    
-                    if isEntireQuiz {
-                        starsStreak = 0
-                    }
-                    
+                    starsCurrentStreak += 1
                 } else {
-                    starsStreak = 0
+                    starsCurrentStreak = 0
                 }
                 
                 correctWordSelected(wordView)
             } else {
+                
                 shakeView(wordView)
                 delay(0.6) {
                     // replay sound
@@ -405,21 +424,19 @@ class QuizViewController : InteractiveGrowViewController {
                 }
             }
         } else {
+            // PHONICS, not alphabet letters
+
             if wordView.word == answerWord {
-                // PHONICS, not alphabet letters
                 if attempts == 1 { // first try
                     index -= 1
                     if remainingAnswerWordPool != nil {
                         remainingAnswerWordPool.remove(at: index)
                     }
                     
-                    starsStreak += 1
-                    Player.current.updateStarsIfGreater(for: currentSound.soundId, newValue: starsStreak)
-                    if isEntireQuiz {
-                        starsStreak = 0
-                    }
+                    starsCurrentStreak += 1
+                    
                 } else {
-                    starsStreak = 0
+                    starsCurrentStreak = 0
                 }
                 
                 correctWordSelected(wordView)

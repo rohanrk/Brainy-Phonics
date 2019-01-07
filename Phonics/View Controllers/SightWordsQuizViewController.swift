@@ -77,9 +77,15 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     var mode: SightWordsQuizMode = .allWords
     var remainingWords: [SightWord] = []
     var currentWord: SightWord?
-    var guessCount = 0
-    var starsStreak = 0 // how many answered correctly in a row
-
+    var guessCount = 0       // attempts
+    var starsHighScore: Int!
+    var starsCurrent:   Int! {
+        didSet {
+            guard let word = currentWord else {return}
+            starsHighScore = Player.current.updateStars(for: word.text, newValue: starsCurrent)
+        }
+    }
+    
     var currentlyAnimating = false
     var timers = [Timer]()
     
@@ -88,10 +94,7 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     
     @IBOutlet weak var answersView: UIView!
     @IBOutlet weak var buttonArea: UIView!
-    
-    @IBOutlet weak var instructionsPill: UIView!
-    @IBOutlet weak var instructionsImage: UIImageView!
-    @IBOutlet weak var instructionsLabel: UILabel!
+    @IBOutlet weak var starsStackView: UIStackView!
     @IBOutlet weak var bankButton: UIButton!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -104,7 +107,7 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
             self.originalCenters[superview] = superview.center
         }
         
-        self.updateInstructions(with: .listen, animate: false)
+        setupStars()
         self.setupForNewWord(animateTransition: false)
     }
     
@@ -117,6 +120,8 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
         
         self.currentWord = mode.selectNextAnswerWord(from: &remainingWords)
         guard let currentWord = self.currentWord else { return }
+        
+        setupStars()
         
         let incorrectWords = mode.selectNextIncorrectWords(from: &remainingWords)
         let wordsForQuizRound = [currentWord] + incorrectWords
@@ -138,7 +143,6 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
         }
         
         let animateForNewWord = {
-            self.updateInstructions(with: .listen, animate: true)
             self.animateForCurrentWord()
         }
         
@@ -167,59 +171,20 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
     func animateForCurrentWord() {
         self.currentlyAnimating = true
         
-        self.updateInstructions(with: .listen, animate: true)
-        
         Timer.scheduleAfter(0.4, addToArray: &self.timers, handler: {
             self.currentWord?.playAudio(using: self.sightWordsManager)
-        })
-        
-        Timer.scheduleAfter(0.4 + 0.75 + 0.5, addToArray: &self.timers, handler: {
-            self.updateInstructions(with: .chooseWord, animate: true)
             self.currentlyAnimating = false
         })
     }
     
-    func updateInstructions(with content: InstructionsContent, animate: Bool) {
-        //do nothing if the content is already applied
-        if instructionsLabel.text == content.text {
-            return
-        }
-        
-        self.instructionsImage.image = content.image
-        self.instructionsLabel.text = content.text
-        
-        guard animate else {
-            self.instructionsPill.layoutIfNeeded()
-            return
-        }
-        
-        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 1.0, animations: {
-            self.instructionsPill.layoutIfNeeded()
-        })
-    }
     
-    func handleStars() {
-        if guessCount == 1 {
-            // correct on first try
-            starsStreak += 1
-            guard let word = currentWord else {return}
-            Player.current.updateStarsIfGreater(for: word.text, newValue: starsStreak)
-            
-            switch self.mode {
-                case .allWords:
-                    starsStreak = 0
-                default:
-                    break
-            }
-        }
-    }
+    
     
     func userSelectedCorrectWord(from view: UIView) {
         self.currentlyAnimating = true
         PHPlayer.play("correct", ofType: "mp3")
-        self.updateInstructions(with: .correct, animate: true)
         
-        handleStars()
+        incrementStars()
         
         UIView.animate(withDuration: 0.2) {
             for answerLabel in self.answerLabels {
@@ -264,10 +229,6 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
             view.alpha = 0.4
         }
         
-        Timer.scheduleAfter(0.5, addToArray: &self.timers, handler: {
-            self.updateInstructions(with: .listen, animate: true)
-        })
-        
         Timer.scheduleAfter(0.5 + 0.1, addToArray: &self.timers, handler: {
             self.currentWord?.playAudio(using: self.sightWordsManager)
         })
@@ -276,9 +237,6 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
             self.currentlyAnimating = false
         })
         
-        Timer.scheduleAfter(0.5 + 0.1 + 1.5, addToArray: &self.timers, handler: {
-            self.updateInstructions(with: .chooseWord, animate: true)
-        })
         
     }
     
@@ -328,6 +286,34 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
             }, completion: nil)
         }
     }
+    
+    
+    
+    
+    // MARK: - STARS
+    
+    func setupStars() {
+        guard let word = currentWord else {return}
+        let star = Player.current.stars(for: word.text)
+        self.starsHighScore = star.highScore
+        self.starsCurrent = star.currentStreak
+        showCurrentStars()
+    }
+    
+    func showCurrentStars() {
+        starsStackView.update(stars: starsHighScore) // cant be high score, has to be current
+    }
+    
+    func incrementStars() {
+        if guessCount == 1 {
+            // correct on first try
+            starsCurrent += 1
+            showCurrentStars()
+        }
+    }
+    
+    
+    
     
     //MARK: - User Interaction
     
@@ -389,7 +375,7 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
             userSelectedCorrectWord(from: view)
         } else {
             userSelectedIncorrectWord(sightWord, from: view)
-            starsStreak = 0
+            starsCurrent = 0
         }
     }
     
