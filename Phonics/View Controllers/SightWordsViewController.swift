@@ -27,7 +27,16 @@ class SightWordsViewController : UIViewController, UICollectionViewDataSource, U
     
     @IBOutlet weak var sidebarColorView: UIView!
     
-    
+    var bank: Bank {
+        switch self.sightWordsManager!.category {
+        case .preK:
+            return Player.current.prekBank
+        case .kindergarten:
+            return Player.current.kindergartenBank
+        case .readAWord:
+            return Player.current.readAWordBank
+        }
+    }
     
     
     //MARK: - Setup
@@ -114,8 +123,7 @@ class SightWordsViewController : UIViewController, UICollectionViewDataSource, U
         
         BankViewController.present(
             from: self,
-            goldCount: Player.current.sightWordCoins.gold,
-            silverCount: Player.current.sightWordCoins.silver,
+            bank: self.bank,
             onDismiss: {
                 self.view.isUserInteractionEnabled = true
         })

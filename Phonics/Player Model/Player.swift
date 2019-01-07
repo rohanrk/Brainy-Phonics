@@ -12,6 +12,8 @@ let PHDefaultPlayerKey = "defaultPlayer-2"
 
 
 
+
+
 class Player : NSObject, NSCoding {
     
     static var current = Player.load(id: PHDefaultPlayerKey) ?? Player()
@@ -25,6 +27,28 @@ class Player : NSObject, NSCoding {
     /// [“a”: 3, “ah”: 3, “apple”: 1]
     /// lowercased alphabet letters, phonics, and words
     private var stars: [String: Star]
+    
+    var lettersBank: Bank
+    var phonicsBank: Bank
+    var prekBank: Bank
+    var kindergartenBank: Bank
+    var readAWordBank: Bank
+    
+
+    override init() {
+        self.id = PHDefaultPlayerKey
+        self.puzzleProgress = [:]
+        self.stars = [:]
+        
+        lettersBank = Bank()
+        phonicsBank = Bank()
+        prekBank = Bank()
+        kindergartenBank = Bank()
+        readAWordBank = Bank()
+    }
+    
+    
+    
     
     /// keys:
     /// Phonics: sound.soundID
@@ -49,27 +73,6 @@ class Player : NSObject, NSCoding {
         return stars[key]?.highScore ?? 0
     }
     
-    var hasSeenSightWordsCelebration: Bool
-    let celebrationAmount = 125  // 125 gold coins, which is 1 truck
-    
-    var celebrate: Bool {
-        return sightWordCoins.gold >= celebrationAmount && !hasSeenSightWordsCelebration
-    }
-    
-    var sightWordCoins: (gold: Int, silver: Int) {
-        willSet {
-            // reset hasSeenCelebration to false if users wins a new truck
-            hasSeenSightWordsCelebration = !(hasSeenSightWordsCelebration && newValue.gold % celebrationAmount == 0)
-        }
-    }
-    
-    override init() {
-        self.id = PHDefaultPlayerKey
-        self.puzzleProgress = [:]
-        self.stars = [:]
-        self.sightWordCoins = (0, 0)
-        self.hasSeenSightWordsCelebration = false
-    }
     
     
     //MARK: - NSCoding
@@ -77,10 +80,12 @@ class Player : NSObject, NSCoding {
     enum Key: String, NSCodingKey {
         case id = "Player.id"
         case puzzleProgress = "Player.puzzleProgress"
-        case sightWordGoldCoins = "Player.sightWordCoins.gold"
-        case sightWordSilverCoins = "Player.sightWordCoins.silver"
-        case hasSeenSightWordsCelebration = "Player.hasSeenCelebration"
         case stars = "Player.stars"
+        case lettersBank = "Player.lettersBank"
+        case phonicsBank = "Player.phonicsBank"
+        case prekBank = "Player.prekBank"
+        case kindergartenBank = "Player.kindergartenBank"
+        case readAWordBank = "Player.readAWordBank"
     }
     
     required init?(coder decoder: NSCoder) {
@@ -89,22 +94,24 @@ class Player : NSObject, NSCoding {
         
         self.puzzleProgress = (decoder.value(for: Key.puzzleProgress) as? [String : PuzzleProgress]) ?? [:]
         
-        let sightWordGoldCoins = (decoder.value(for: Key.sightWordGoldCoins) as? Int) ?? 0
-        let sightWordSilverCoins = (decoder.value(for: Key.sightWordSilverCoins) as? Int) ?? 0
-        self.sightWordCoins = (sightWordGoldCoins, sightWordSilverCoins)
-        
-        self.hasSeenSightWordsCelebration = decoder.value(for: Key.hasSeenSightWordsCelebration) as? Bool ?? false
-        
+        self.lettersBank = decoder.value(for: Key.lettersBank) as? Bank ?? Bank()
+        self.phonicsBank = decoder.value(for: Key.phonicsBank) as? Bank ?? Bank()
+        self.prekBank = decoder.value(for: Key.prekBank) as? Bank ?? Bank()
+        self.kindergartenBank = decoder.value(for: Key.kindergartenBank) as? Bank ?? Bank()
+        self.readAWordBank = decoder.value(for: Key.readAWordBank) as? Bank ?? Bank()
+
         self.stars = decoder.value(for: Key.stars) as? [String: Star] ?? [:]
     }
     
     func encode(with encoder: NSCoder) {
         encoder.setValue(self.id, for: Key.id)
         encoder.setValue(self.puzzleProgress, for: Key.puzzleProgress)
-        encoder.setValue(self.sightWordCoins.gold, for: Key.sightWordGoldCoins)
-        encoder.setValue(self.sightWordCoins.silver, for: Key.sightWordSilverCoins)
-        encoder.setValue(self.hasSeenSightWordsCelebration, for: Key.hasSeenSightWordsCelebration)
         encoder.setValue(self.stars, for: Key.stars)
+        encoder.setValue(self.lettersBank, for: Key.lettersBank)
+        encoder.setValue(self.phonicsBank, for: Key.phonicsBank)
+        encoder.setValue(self.prekBank, for: Key.prekBank)
+        encoder.setValue(self.kindergartenBank, for: Key.kindergartenBank)
+        encoder.setValue(self.readAWordBank, for: Key.readAWordBank)
     }
     
     
@@ -150,6 +157,8 @@ class Player : NSObject, NSCoding {
     
 }
 
+
+
 class Star: NSObject, NSCoding {
     enum Key: String, NSCodingKey {
         case highScore = "Star.highScore"
@@ -179,3 +188,41 @@ class Star: NSObject, NSCoding {
         self.currentStreak = currentStreak
     }
 }
+
+class Bank: NSObject, NSCoding {
+    var hasSeenSightWordsCelebration: Bool = false
+    
+    private let celebrationAmount = 125  // 125 gold coins, which is 1 truck
+    
+    var celebrate: Bool {
+        return coins.gold >= celebrationAmount && !hasSeenSightWordsCelebration
+    }
+    
+    var coins: (gold: Int, silver: Int) {
+        willSet {
+            // reset hasSeenCelebration to false if users wins a new truck
+            hasSeenSightWordsCelebration = !(hasSeenSightWordsCelebration && newValue.gold % celebrationAmount == 0)
+        }
+    }
+    
+    override init() {
+        self.coins = (0, 0)
+    }
+    
+    enum Key: String, NSCodingKey {
+        case goldCoins = "Bank.gold"
+        case silverCoins = "Bank.silver"
+    }
+    
+    required init?(coder decoder: NSCoder) {
+        let gold = (decoder.value(for: Key.goldCoins) as? Int) ?? 0
+        let silver = (decoder.value(for: Key.silverCoins) as? Int) ?? 0
+        self.coins = (gold, silver)
+    }
+    
+    func encode(with encoder: NSCoder) {
+        encoder.setValue(self.coins.gold, for: Key.goldCoins)
+        encoder.setValue(self.coins.silver, for: Key.silverCoins)
+    }
+}
+

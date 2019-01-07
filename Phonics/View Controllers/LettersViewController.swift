@@ -35,7 +35,9 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     
     var difficulty: Letter.Difficulty!
     
-    
+    var bank: Bank {
+        return self.difficulty == .easyDifficulty ? Player.current.lettersBank : Player.current.phonicsBank
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         bankButton.isHidden = self.difficulty == .standardDifficulty
@@ -88,8 +90,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
         
         BankViewController.present(
             from: self,
-            goldCount: Player.current.sightWordCoins.gold,
-            silverCount: Player.current.sightWordCoins.silver,
+            bank: self.bank,
             onDismiss: {
                 self.view.isUserInteractionEnabled = true
         })

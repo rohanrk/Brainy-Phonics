@@ -27,6 +27,11 @@ class QuizViewController : InteractiveGrowViewController {
         return currentSound?.sourceLetter.lowercased()
     }
     
+    var bank: Bank {
+        return self.difficulty == .easyDifficulty ? Player.current.lettersBank : Player.current.phonicsBank
+    }
+
+    
     @IBOutlet weak var soundLabel: UILabel!
     @IBOutlet var wordViews: [WordView]!
     @IBOutlet weak var topLeftWordLeading: NSLayoutConstraint!
@@ -40,7 +45,7 @@ class QuizViewController : InteractiveGrowViewController {
     @IBOutlet weak var buttonAreaToWords: NSLayoutConstraint!
     @IBOutlet weak var soundSuperview: UIView!
 
-    
+
     var originalCenters = [WordView : CGPoint]()
     var timers = [Timer]()
     var state: QuizState = .waiting
@@ -376,8 +381,7 @@ class QuizViewController : InteractiveGrowViewController {
         
         BankViewController.present(
             from: self,
-            goldCount: Player.current.sightWordCoins.gold,
-            silverCount: Player.current.sightWordCoins.silver,
+            bank: self.bank,
             onDismiss: {
                 self.view.isUserInteractionEnabled = true
         })
@@ -527,7 +531,7 @@ class QuizViewController : InteractiveGrowViewController {
                 
                 Timer.scheduleAfter(2.7, addToArray: &self.timers) {
                     //celebration if over threshold, else continue
-                    if Player.current.sightWordCoins.gold >= Player.current.celebrationAmount {
+                    if self.bank.celebrate {
                         self.presentBank()
                     } else {
                         self.setupForRandomSoundFromPool()
@@ -555,10 +559,10 @@ class QuizViewController : InteractiveGrowViewController {
         switch(self.attempts) {
         case 1:
             coinImage = #imageLiteral(resourceName: "coin-gold")
-            Player.current.sightWordCoins.gold += 1
+            bank.coins.gold += 1
         case 2:
             coinImage = #imageLiteral(resourceName: "coin-silver")
-            Player.current.sightWordCoins.silver += 1
+            bank.coins.silver += 1
         default:
             coinImage = nil
         }

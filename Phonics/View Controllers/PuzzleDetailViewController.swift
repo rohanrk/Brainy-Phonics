@@ -230,8 +230,7 @@ class PuzzleDetailViewController : UIViewController {
 
         BankViewController.present(
             from: self,
-            goldCount: Player.current.sightWordCoins.gold,
-            silverCount: Player.current.sightWordCoins.silver,
+            bank: Player.current.phonicsBank,
             onDismiss: {
                 self.view.isUserInteractionEnabled = true
         })

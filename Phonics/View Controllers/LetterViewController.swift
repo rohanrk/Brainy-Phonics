@@ -250,7 +250,7 @@ class LetterViewController : InteractiveGrowViewController {
     }
     
     @IBAction func openQuiz(_ sender: AnyObject) {
-        QuizViewController.presentQuiz(customSound: self.sound, showingThreeWords: true, difficulty: self.difficulty, onController: self)
+        QuizViewController.presentQuiz(customSound: self.sound, showingThreeWords: self.difficulty == .standardDifficulty, difficulty: self.difficulty, onController: self)
     }
     
     

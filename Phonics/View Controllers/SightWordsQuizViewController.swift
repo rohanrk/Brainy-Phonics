@@ -86,6 +86,17 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
         }
     }
     
+    var bank: Bank {
+        switch self.sightWordsManager!.category {
+            case .preK:
+                return Player.current.prekBank
+            case .kindergarten:
+                return Player.current.kindergartenBank
+            case .readAWord:
+                return Player.current.readAWordBank
+        }
+    }
+    
     var currentlyAnimating = false
     var timers = [Timer]()
     
@@ -212,7 +223,7 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
             self.currentlyAnimating = false
             
             //celebration if over threshold
-            if Player.current.sightWordCoins.gold >= Player.current.celebrationAmount {
+            if self.bank.celebrate {
                 self.presentBank()
             } else {
                 self.setupForNewWord(animateTransition: true)
@@ -245,10 +256,10 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
         switch(self.guessCount) {
         case 1:
             coinImage = #imageLiteral(resourceName: "coin-gold")
-            Player.current.sightWordCoins.gold += 1
+            bank.coins.gold += 1
         case 2:
             coinImage = #imageLiteral(resourceName: "coin-silver")
-            Player.current.sightWordCoins.silver += 1
+            bank.coins.silver += 1
         default:
             coinImage = nil
         }
@@ -334,12 +345,11 @@ class SightWordsQuizViewController : InteractiveGrowViewController {
         
         BankViewController.present(
             from: self,
-            goldCount: Player.current.sightWordCoins.gold,
-            silverCount: Player.current.sightWordCoins.silver,
+            bank: self.bank,
             onDismiss: {
                 self.view.isUserInteractionEnabled = true
 
-                if Player.current.celebrate {
+                if self.bank.celebrate {
                     self.setupForNewWord(animateTransition: true)
                 } else {
                     self.animateForCurrentWord()
