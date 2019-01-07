@@ -140,6 +140,7 @@ class SightWordCell : UICollectionViewCell {
     @IBOutlet var rightImageView: UIImageView!
     @IBOutlet var fullImageView: UIImageView! // for readAWord, only one image
     @IBOutlet weak var starsStackView: UIStackView!
+    @IBOutlet weak var checkmark: UIButton!
     
     // TODO: - THIS MAY NOT BE PERFORMANT to check category each time!
     
@@ -179,5 +180,6 @@ class SightWordCell : UICollectionViewCell {
         for i in 0 ..< 5 {
             starsStackView.subviews[i].alpha = i < stars ? 1 : 0
         }
+        checkmark.isHidden = stars < 5
     }
 }

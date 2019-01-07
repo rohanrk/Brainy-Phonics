@@ -1270,7 +1270,7 @@
                                                             <rect key="frame" x="10" y="15" width="213.33333333333334" height="150.66666666666666"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="brown" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2E-7n-Ucn">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="213.33333333333334" height="48"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="213.33333333333334" height="41"/>
                                                                     <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="41"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -1280,13 +1280,13 @@
                                                                     </variation>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="jNh-VU-DKA">
-                                                                    <rect key="frame" x="0.0" y="53.000000000000007" width="213.33333333333334" height="97.666666666666686"/>
+                                                                    <rect key="frame" x="0.0" y="46.000000000000007" width="213.33333333333334" height="104.66666666666669"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" image="hat.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="lKi-Tg-mN9">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="106.66666666666667" height="97.666666666666671"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="106.66666666666667" height="104.66666666666667"/>
                                                                         </imageView>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" image="spider.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="iDZ-Ja-HMZ">
-                                                                            <rect key="frame" x="106.66666666666666" y="0.0" width="106.66666666666666" height="97.666666666666671"/>
+                                                                            <rect key="frame" x="106.66666666666666" y="0.0" width="106.66666666666666" height="104.66666666666667"/>
                                                                         </imageView>
                                                                     </subviews>
                                                                     <constraints>
@@ -1347,12 +1347,24 @@
                                                                 <constraint firstAttribute="width" constant="100" id="xki-Uh-1ml"/>
                                                             </constraints>
                                                         </stackView>
+                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xg2-iM-TD6" userLabel="checkmark">
+                                                            <rect key="frame" x="203.33333333333331" y="143.66666666666669" width="25" height="25"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="9m5-Lk-wXo"/>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="25" id="Na3-5X-8Uz"/>
+                                                                <constraint firstAttribute="height" constant="25" id="OZC-t6-ymD"/>
+                                                                <constraint firstAttribute="width" constant="25" id="e1U-Wk-2Bb"/>
+                                                            </constraints>
+                                                            <state key="normal" image="button-check"/>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="Mf7-0k-TkH" secondAttribute="trailing" constant="10" id="EM6-TA-89n"/>
                                                         <constraint firstItem="Mf7-0k-TkH" firstAttribute="centerX" secondItem="2QB-Na-LRi" secondAttribute="centerX" id="EOQ-iw-76e"/>
                                                         <constraint firstItem="RE4-xK-CfA" firstAttribute="top" secondItem="2QB-Na-LRi" secondAttribute="top" constant="66" id="Qfq-0C-ub4"/>
+                                                        <constraint firstAttribute="trailing" secondItem="xg2-iM-TD6" secondAttribute="trailing" constant="5" id="R1l-kx-y9b"/>
+                                                        <constraint firstAttribute="bottom" secondItem="xg2-iM-TD6" secondAttribute="bottom" constant="17" id="UId-Vb-cKt"/>
                                                         <constraint firstItem="Mf7-0k-TkH" firstAttribute="top" secondItem="2QB-Na-LRi" secondAttribute="top" constant="15" id="Wdh-Xt-wVH">
                                                             <variation key="heightClass=regular-widthClass=regular" constant="30"/>
                                                         </constraint>
@@ -1384,6 +1396,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="cardView" destination="2QB-Na-LRi" id="6IT-dP-KNU"/>
+                                            <outlet property="checkmark" destination="xg2-iM-TD6" id="2zU-4Y-BPC"/>
                                             <outlet property="fullImageView" destination="RE4-xK-CfA" id="1bp-DC-W3c"/>
                                             <outlet property="leftImageView" destination="lKi-Tg-mN9" id="tVO-jd-nRY"/>
                                             <outlet property="rightImageView" destination="iDZ-Ja-HMZ" id="3j2-ts-iKI"/>

@@ -93,8 +93,10 @@ struct Sound: Equatable {
             "sss"   : ["ts"],
             "sh"    : ["c", "s", "x", "z", "ge"],
             "aw"    : ["o"],
-            "et"    : ["et", "ket"], // yes, it's ok to do this
-            "ket"   : ["et"]
+            "et"    : ["et", "ket"],
+            "ket"   : ["et"],
+            "zz"    : ["z", "c"],
+            "i"     : ["i", "e"]
         ]
         
         let soundList = soundIdAndBlacklist[self.soundId] ?? []
