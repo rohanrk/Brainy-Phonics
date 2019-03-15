@@ -77,6 +77,7 @@ struct Word: Equatable {
         var wordText = self.text.lowercased()
         
         if wordText == "saint bernard" {
+            soundText = "S"
             wordText = "Saint Bernard"
         }
         
