@@ -86,7 +86,24 @@ class SightWordsManager {
             guard let highlightWord = category == .readAWord ? audioFileName : metadata.components(separatedBy: "-").first else { continue }
             
             var sentenceText = category == .readAWord ? audioFileName : audioFileName.replacingOccurrences(of: metadata + " ", with: "")
-            sentenceText = sentenceText.replacingOccurrences(of: ";", with: ".")
+            
+            let tagger = NSLinguisticTagger(tagSchemes: [.lexicalClass], options: 0)
+            tagger.string = sentenceText
+            if #available(iOS 11.0, *) {
+                tagger.enumerateTags(in: NSRange(location: 0, length: sentenceText.utf16.count), unit: .word, scheme: .lexicalClass, options: [.omitPunctuation, .omitWhitespace]) { (tag, range, _) in
+                    if tag == NSLinguisticTag.verb {
+                        sentenceText = sentenceText.replacingOccurrences(of: ";", with: ".")
+                    }
+                }
+                sentenceText = sentenceText.replacingOccurrences(of: ";", with: "") // Omit punctuation
+                sentenceText = sentenceText.lowercased() // Omit capitalization
+            } else {
+                // Fallback on earlier versions
+                // If we can't check for verbs we assume all sentences are complete
+                sentenceText = sentenceText.replacingOccurrences(of: ";", with: ".")
+            }
+            
+            // sentenceText = sentenceText.replacingOccurrences(of: ";", with: ".")
             
             guard let indexOfImageWithSameMetadata = imageFiles.index(where: { $0.hasPrefix(metadata) }) else { continue }
             var imageFileName = imageFiles.remove(at: indexOfImageWithSameMetadata)
