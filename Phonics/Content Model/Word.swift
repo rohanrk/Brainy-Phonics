@@ -60,7 +60,7 @@ struct Word: Equatable {
             "motorcycle"    : [2],
             "pretzel"       : [2],
             "robot"         : [2],
-            "volcano"       : [1],
+            //"volcano"       : [1], Included for Phonics
             "seagulls"      : [2],
             "afraid"        : [2],
             "millipede"     : [1]
