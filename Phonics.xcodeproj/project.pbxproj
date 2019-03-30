@@ -2042,7 +2042,6 @@
 		850A37CA21E2B77400C1383F /* puzzle-E-KET-row3-col1.jpng in Resources */ = {isa = PBXBuildFile; fileRef = 850A37BD21E2B77400C1383F /* puzzle-E-KET-row3-col1.jpng */; };
 		850A37CB21E2B77400C1383F /* puzzle-E-KET-row3-col2.jpng in Resources */ = {isa = PBXBuildFile; fileRef = 850A37BE21E2B77400C1383F /* puzzle-E-KET-row3-col2.jpng */; };
 		850A37CC21E2B77400C1383F /* puzzle-E-KET-spec.json in Resources */ = {isa = PBXBuildFile; fileRef = 850A37BF21E2B77400C1383F /* puzzle-E-KET-spec.json */; };
-		850A37CE21E2B89A00C1383F /* words-E-KET.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 850A37CD21E2B89900C1383F /* words-E-KET.mp3 */; };
 		850A37D021E2B93C00C1383F /* puzzle-E-ET-rhyme.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 850A37CF21E2B93C00C1383F /* puzzle-E-ET-rhyme.mp3 */; };
 		850A37DF21E2C27B00C1383F /* puzzle-E-ET-row0-col0.png in Resources */ = {isa = PBXBuildFile; fileRef = 850A37D221E2C27A00C1383F /* puzzle-E-ET-row0-col0.png */; };
 		850A37E021E2C27B00C1383F /* puzzle-E-ET-row0-col1.png in Resources */ = {isa = PBXBuildFile; fileRef = 850A37D321E2C27A00C1383F /* puzzle-E-ET-row0-col1.png */; };
@@ -2288,6 +2287,7 @@
 		85FA798D20F153EE0007D929 /* puzzle-O-OI-row3-col2.jpng in Resources */ = {isa = PBXBuildFile; fileRef = 85FA798020F153ED0007D929 /* puzzle-O-OI-row3-col2.jpng */; };
 		85FA798E20F153EE0007D929 /* puzzle-O-OI-row0-col0.jpng in Resources */ = {isa = PBXBuildFile; fileRef = 85FA798120F153ED0007D929 /* puzzle-O-OI-row0-col0.jpng */; };
 		BCE2C060225016CE00C93533 /* words-G-GR.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCE2C05F225016CE00C93533 /* words-G-GR.mp3 */; };
+		BCE2C0622250191300C93533 /* words-E-KET.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BCE2C0612250191300C93533 /* words-E-KET.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4327,7 +4327,6 @@
 		850A37BD21E2B77400C1383F /* puzzle-E-KET-row3-col1.jpng */ = {isa = PBXFileReference; lastKnownFileType = file; path = "puzzle-E-KET-row3-col1.jpng"; sourceTree = "<group>"; };
 		850A37BE21E2B77400C1383F /* puzzle-E-KET-row3-col2.jpng */ = {isa = PBXFileReference; lastKnownFileType = file; path = "puzzle-E-KET-row3-col2.jpng"; sourceTree = "<group>"; };
 		850A37BF21E2B77400C1383F /* puzzle-E-KET-spec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "puzzle-E-KET-spec.json"; sourceTree = "<group>"; };
-		850A37CD21E2B89900C1383F /* words-E-KET.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "words-E-KET.mp3"; sourceTree = "<group>"; };
 		850A37CF21E2B93C00C1383F /* puzzle-E-ET-rhyme.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "puzzle-E-ET-rhyme.mp3"; sourceTree = "<group>"; };
 		850A37D221E2C27A00C1383F /* puzzle-E-ET-row0-col0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "puzzle-E-ET-row0-col0.png"; sourceTree = "<group>"; };
 		850A37D321E2C27A00C1383F /* puzzle-E-ET-row0-col1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "puzzle-E-ET-row0-col1.png"; sourceTree = "<group>"; };
@@ -4573,6 +4572,7 @@
 		85FA798020F153ED0007D929 /* puzzle-O-OI-row3-col2.jpng */ = {isa = PBXFileReference; lastKnownFileType = file; path = "puzzle-O-OI-row3-col2.jpng"; sourceTree = "<group>"; };
 		85FA798120F153ED0007D929 /* puzzle-O-OI-row0-col0.jpng */ = {isa = PBXFileReference; lastKnownFileType = file; path = "puzzle-O-OI-row0-col0.jpng"; sourceTree = "<group>"; };
 		BCE2C05F225016CE00C93533 /* words-G-GR.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "words-G-GR.mp3"; path = "../../../../../../../Downloads/words-G-GR.mp3"; sourceTree = "<group>"; };
+		BCE2C0612250191300C93533 /* words-E-KET.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "words-E-KET.mp3"; path = "../../../../../../../Downloads/words-E-KET.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -7145,8 +7145,8 @@
 				2E0D525F1ED1676A00EF3706 /* words-E-EA.mp3 */,
 				2E0D52601ED1676A00EF3706 /* words-E-ER.mp3 */,
 				2E0D52611ED1676A00EF3706 /* words-E-ET.mp3 */,
-				850A37CD21E2B89900C1383F /* words-E-KET.mp3 */,
 				2E0D52621ED1676A00EF3706 /* words-E-EW.mp3 */,
+				BCE2C0612250191300C93533 /* words-E-KET.mp3 */,
 				2E0D52631ED1676A00EF3706 /* words-E-long.mp3 */,
 				2E0D52641ED1676A00EF3706 /* words-E-schwa.mp3 */,
 				2E0D52651ED1676A00EF3706 /* words-E-short.mp3 */,
@@ -7932,9 +7932,9 @@
 				2E146B9A1E46F15500BD6C2C /* puzzle-T-the-row3-col0.jpng in Resources */,
 				8544B39120F148D8008E6609 /* puzzle-C-CL-row3-col1.jpng in Resources */,
 				2E146C301E46F15600BD6C2C /* puzzle-Y-i-row1-col0.jpng in Resources */,
+				BCE2C0622250191300C93533 /* words-E-KET.mp3 in Resources */,
 				2E4B02EF1EE115EB00834D45 /* letter-icon-z.jpg in Resources */,
 				2E146BF11E46F15500BD6C2C /* puzzle-V-vv-row1-col2.jpng in Resources */,
-				850A37CE21E2B89A00C1383F /* words-E-KET.mp3 in Resources */,
 				850A379421E2B61300C1383F /* cardinal.jpg in Resources */,
 				2E146B4F1E46F15500BD6C2C /* puzzle-S-SP-spec.json in Resources */,
 				2E1469C71E46F15500BD6C2C /* puzzle-I-short-row3-col1.jpng in Resources */,
