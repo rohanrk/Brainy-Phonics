@@ -31,6 +31,7 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     
     @IBOutlet weak var bankButton: UIButton!
     
+    @IBOutlet weak var puzzleButton: UIButton!
     
     
     var difficulty: Letter.Difficulty!
@@ -41,12 +42,12 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     
     override func viewWillAppear(_ animated: Bool) {
         bankButton.isHidden = self.difficulty == .standardDifficulty
+        puzzleButton.isHidden = self.difficulty == .easyDifficulty
         self.collectionView.backgroundColor = self.difficulty.color
         self.sidebarColorView.backgroundColor = self.difficulty.color
         collectionView.reloadData()
     }
 
-    
     
     //MARK: - Collection View Data Source
     
@@ -188,6 +189,7 @@ class LetterCell : UICollectionViewCell {
     
     //update image icon with correct image and aspect ratio
     func decorateIcon(letterIconImage: UIImage, letter: Letter, difficulty: Letter.Difficulty, sound: Sound? = nil) {
+        
         let aspectRatioToUse = max(1, letterIconImage.size.height / letterIconImage.size.width)
         
         letterIcon.removeConstraints(letterIcon.constraints)
@@ -218,8 +220,12 @@ class LetterCell : UICollectionViewCell {
         progressBar.numberOfFilledSegments = totalNumberOfOwnedPieces
         
         checkmark.isHidden = totalNumberOfPieces != totalNumberOfOwnedPieces
+        
+        if difficulty == .easyDifficulty {
+            letterIcon.isHidden = true
+            progressBar.isHidden = true
+        }
     }
-    
     
     
 }

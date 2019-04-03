@@ -1,27 +1,20 @@
 //
-//  HomeViewController.swift
-//  Phonetics
+//  PhonicsViewController.swift
+//  Phonics
 //
-//  Created by Cal on 7/4/16.
-//  Copyright © 2016 Cal Stephens. All rights reserved.
+//  Created by Rohan Rk on 4/2/19.
+//  Copyright © 2019 Cal Stephens. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class HomeViewController : InteractiveGrowViewController {
+class PhonicsViewController: InteractiveGrowViewController {
     
     @IBOutlet weak var contentView: UIView!
-    // @IBOutlet weak var alphabetLettersView: UIImageView!
-    //@IBOutlet weak var phonicsView: UIImageView!
-    @IBOutlet weak var prekSightWordsView: UIImageView!
-    @IBOutlet weak var kindergartenSightWordsView: UIImageView!
-    @IBOutlet weak var secretStuffView: UIImageView!
-    @IBOutlet weak var readAWordView: UIImageView!
+    @IBOutlet weak var alphabetLettersView: UIImageView!
+    @IBOutlet weak var phonicsView: UIImageView!
     
     private var temporaryImageView: UIImageView?
-    
-    //MARK: - Content
     
     struct Launcher {
         let audioFileName: String
@@ -34,37 +27,15 @@ class HomeViewController : InteractiveGrowViewController {
         static let phonics = Launcher(audioFileName: "phonics", onTapBlock: { vc in
             LettersViewController.present(from: vc, with: .standardDifficulty)
         })
-        
-        static let prekSightWords = Launcher(audioFileName: "pre-k sight words", onTapBlock: { vc in
-            SightWordsViewController.present(from: vc, using: PHContent.sightWordsPreK)
-        })
-        
-        static let kindergartenSightWords = Launcher(audioFileName: "kindergarten sight words", onTapBlock: { vc in
-            SightWordsViewController.present(from: vc, using: PHContent.sightWordsKindergarten)
-        })
-        
-        static let pigLatin = Launcher(audioFileName: "secret child stuff", onTapBlock: { vc in
-            PigLatinViewController.present(from: vc)
-        })
-        
-        static let readAWord = Launcher(audioFileName: "read a word", onTapBlock: { vc in
-            SightWordsViewController.present(from: vc, using: PHContent.readAWord)
-        })
     }
     
     func launcher(for view: UIView) -> Launcher? {
         switch(view) {
-            //case alphabetLettersView: return .alphabetLetters
-            //case phonicsView: return .phonics
-            case prekSightWordsView: return .prekSightWords
-            case kindergartenSightWordsView: return .kindergartenSightWords
-            case secretStuffView: return .pigLatin
-            case readAWordView: return .readAWord
-            default: return nil
+        case alphabetLettersView: return .alphabetLetters
+        case phonicsView: return .phonics
+        default: return nil
         }
     }
-    
-    //MARK: - Setup
     
     override func viewWillAppear(_ animated: Bool) {
         //tear down any previous animations
@@ -172,5 +143,4 @@ class HomeViewController : InteractiveGrowViewController {
             destination.image = origin.image
         })
     }
-    
 }

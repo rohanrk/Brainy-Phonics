@@ -24,12 +24,16 @@ class HomeButton : UIButton {
             return
         }
         
-        guard let home = root.presentedViewController as? HomeViewController else {
-            return
+        if let home = root.presentedViewController as? HomeViewController {
+            UAHaltPlayback()
+            home.dismiss(animated: true, completion: nil) //doesn't have the best animation but it works
+        } else if let home = root.presentedViewController as? PhonicsViewController {
+            UAHaltPlayback()
+            home.dismiss(animated: true, completion: nil)
         }
+        
+        return
 
-        UAHaltPlayback()
-        home.dismiss(animated: true, completion: nil) //doesn't have the best animation but it works
     }
     
 }

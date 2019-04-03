@@ -94,7 +94,8 @@ class LetterViewController : InteractiveGrowViewController {
         self.timers = []
         
         //set up view
-        self.letterLabel.text = sound.displayString.lowercased()
+        self.letterLabel.text = self.difficulty == .easyDifficulty ? sound.displayString.uppercased() + sound.displayString.lowercased() : sound.displayString.lowercased()
+        //self.letterLabel.
         self.checkmark.isHidden = !self.sound.puzzleIsComplete
         self.previousSoundButton.isEnabled = previousSound != nil
         self.nextSoundButton.isEnabled = nextSound != nil
