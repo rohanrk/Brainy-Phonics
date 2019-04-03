@@ -2286,6 +2286,8 @@
 		85FA798C20F153EE0007D929 /* puzzle-O-OI-row0-col1.jpng in Resources */ = {isa = PBXBuildFile; fileRef = 85FA797F20F153ED0007D929 /* puzzle-O-OI-row0-col1.jpng */; };
 		85FA798D20F153EE0007D929 /* puzzle-O-OI-row3-col2.jpng in Resources */ = {isa = PBXBuildFile; fileRef = 85FA798020F153ED0007D929 /* puzzle-O-OI-row3-col2.jpng */; };
 		85FA798E20F153EE0007D929 /* puzzle-O-OI-row0-col0.jpng in Resources */ = {isa = PBXBuildFile; fileRef = 85FA798120F153ED0007D929 /* puzzle-O-OI-row0-col0.jpng */; };
+		BC54E08022543DAE00D6F235 /* Win as many as five gold stars.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BC54E07F22543DAE00D6F235 /* Win as many as five gold stars.mp3 */; };
+		BC54E08122543DAE00D6F235 /* Win as many as five gold stars.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BC54E07F22543DAE00D6F235 /* Win as many as five gold stars.mp3 */; };
 		BCC82B062253B9430063E7C2 /* PhonicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC82B052253B9430063E7C2 /* PhonicsViewController.swift */; };
 		BCC82B0A2253BF1A0063E7C2 /* SightWordsQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAAF06E1ED5545E00D2B13B /* SightWordsQuizViewController.swift */; };
 		BCC82B0B2253BF1A0063E7C2 /* PuzzleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5631E0BBA4800C667DE /* PuzzleProgress.swift */; };
@@ -6838,6 +6840,7 @@
 		85FA797F20F153ED0007D929 /* puzzle-O-OI-row0-col1.jpng */ = {isa = PBXFileReference; lastKnownFileType = file; path = "puzzle-O-OI-row0-col1.jpng"; sourceTree = "<group>"; };
 		85FA798020F153ED0007D929 /* puzzle-O-OI-row3-col2.jpng */ = {isa = PBXFileReference; lastKnownFileType = file; path = "puzzle-O-OI-row3-col2.jpng"; sourceTree = "<group>"; };
 		85FA798120F153ED0007D929 /* puzzle-O-OI-row0-col0.jpng */ = {isa = PBXFileReference; lastKnownFileType = file; path = "puzzle-O-OI-row0-col0.jpng"; sourceTree = "<group>"; };
+		BC54E07F22543DAE00D6F235 /* Win as many as five gold stars.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Win as many as five gold stars.mp3"; path = "../../../../../../Downloads/Win as many as five gold stars.mp3"; sourceTree = "<group>"; };
 		BCC82B052253B9430063E7C2 /* PhonicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhonicsViewController.swift; sourceTree = "<group>"; };
 		BCC833E92253BF1A0063E7C2 /* SightWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SightWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC833EA2253BF1B0063E7C2 /* SightWords-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SightWords-Info.plist"; path = "/Users/rohanrk/Desktop/Open_Source/Brainy-Phonics/SightWords-Info.plist"; sourceTree = "<absolute>"; };
@@ -9382,6 +9385,7 @@
 				2E88B5C71EEFC50600A595EE /* brainy phonics.mp3 */,
 				2E88B5C81EEFC50600A595EE /* correct.mp3 */,
 				85217DF421E19C6900163693 /* Complete a whole puzzle.mp3 */,
+				BC54E07F22543DAE00D6F235 /* Win as many as five gold stars.mp3 */,
 				2E88B5C91EEFC50600A595EE /* incorrect.mp3 */,
 				2E88B5CA1EEFC50600A595EE /* kindergarten sight words.mp3 */,
 				2E88B5CB1EEFC50600A595EE /* phonics.mp3 */,
@@ -12233,6 +12237,7 @@
 				2E146A411E46F15500BD6C2C /* puzzle-O-ew-row0-col2.jpng in Resources */,
 				2E146A311E46F15500BD6C2C /* puzzle-N-NK-spec.json in Resources */,
 				2E1468EA1E46F15500BD6C2C /* puzzle-E-schwa-row3-col1.jpng in Resources */,
+				BC54E08022543DAE00D6F235 /* Win as many as five gold stars.mp3 in Resources */,
 				2E146B671E46F15500BD6C2C /* puzzle-S-ST-row3-col1.jpng in Resources */,
 				2E14652C1E46F15400BD6C2C /* sound-FR.mp3 in Resources */,
 				2E146AF01E46F15500BD6C2C /* puzzle-P-PR-row2-col2.jpng in Resources */,
@@ -14473,6 +14478,7 @@
 				BCC8331D2253BF1A0063E7C2 /* puzzle-O-ew-row0-col2.jpng in Resources */,
 				BCC8331E2253BF1A0063E7C2 /* puzzle-N-NK-spec.json in Resources */,
 				BCC8331F2253BF1A0063E7C2 /* puzzle-E-schwa-row3-col1.jpng in Resources */,
+				BC54E08122543DAE00D6F235 /* Win as many as five gold stars.mp3 in Resources */,
 				BCC833202253BF1A0063E7C2 /* puzzle-S-ST-row3-col1.jpng in Resources */,
 				BCC833212253BF1A0063E7C2 /* sound-FR.mp3 in Resources */,
 				BCC833222253BF1A0063E7C2 /* puzzle-P-PR-row2-col2.jpng in Resources */,

@@ -106,7 +106,11 @@ class LettersViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     @IBAction func checkmarkButtonPressed(_ sender: Any) {
-        PHPlayer.play("Complete a whole puzzle", ofType: "mp3")
+        if difficulty == .standardDifficulty {
+            PHPlayer.play("Complete a whole puzzle", ofType: "mp3")
+        } else {
+            PHPlayer.play("Win as many as five gold stars", ofType: "mp3")
+        }
     }
     
     
