@@ -97,6 +97,7 @@ class WordView : UINibView {
         
         if let sound = sound, let letter = letter {
             self.label.attributedText = word.attributedText(forSound: sound, ofLetter: letter)
+            self.label.font = UIFont.boldSystemFont(ofSize: self.label.font.pointSize)
         }
         
         //bump up the font size a bit on iPad (the attributed text doesn't seem to respond correctly to size classes)
