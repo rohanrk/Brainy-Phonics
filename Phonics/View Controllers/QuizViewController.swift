@@ -410,7 +410,7 @@ class QuizViewController : InteractiveGrowViewController {
         
         if self.difficulty == .easyDifficulty {
             let selectedLetter = wordView.letterLabelView.text
-            if let letter = selectedLetter, letter == currentAlphabetLetter {
+            if let letter = selectedLetter, letter.hasSuffix(currentAlphabetLetter!) {
                 // correct sound!
                 if attempts == 1 { // first try
                     starsCurrentStreak += 1
@@ -498,11 +498,10 @@ class QuizViewController : InteractiveGrowViewController {
                 }
             }
             
-            let pieceSpawnPoint = self.view.convert(wordView.center, from: wordView.superview)
-            Timer.scheduleAfter(0.8, addToArray: &self.timers, handler: self.addNewPuzzlePiece(spawningAt: pieceSpawnPoint))
-            
             if self.difficulty == .standardDifficulty {
                 // puzzle
+                let pieceSpawnPoint = self.view.convert(wordView.center, from: wordView.superview)
+                Timer.scheduleAfter(0.8, addToArray: &self.timers, handler: self.addNewPuzzlePiece(spawningAt: pieceSpawnPoint))
                 var puzzleWasAlreadyComplete = false
                 if let puzzle = self.puzzleView.puzzle {
                     puzzleWasAlreadyComplete = Player.current.progress(for: puzzle).isComplete
