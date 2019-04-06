@@ -10,6 +10,14 @@ import UIKit
 
 class LaunchViewController: UIViewController {
     
+    @IBOutlet weak var launchView: UIImageView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if Bundle.main.infoDictionary?["TargetName"] as! String == "SightWords" {
+            launchView.image = UIImage(named: "logo-brainy-sight-words")
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         
         if Bundle.main.infoDictionary?["TargetName"] as! String == "SightWords" {

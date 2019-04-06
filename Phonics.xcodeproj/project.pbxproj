@@ -1968,7 +1968,6 @@
 		2E4B04D41EE115EC00834D45 /* zipper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E4B02D51EE115EB00834D45 /* zipper.jpg */; };
 		2E5B33AB1E21FB1C00E4B923 /* PuzzleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5B33AA1E21FB1C00E4B923 /* PuzzleCollectionViewController.swift */; };
 		2E6DE2871D639A1B00978DD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6DDDA61D639A1600978DD6 /* AppDelegate.swift */; };
-		2E6DE2881D639A1B00978DD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E6DDDA81D639A1600978DD6 /* Assets.xcassets */; };
 		2E6DE28A1D639A1B00978DD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E6DDDAB1D639A1600978DD6 /* LaunchScreen.storyboard */; };
 		2E6DE28B1D639A1B00978DD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E6DDDAD1D639A1600978DD6 /* Main.storyboard */; };
 		2E6DE3BA1D639A1B00978DD6 /* Audio Timings.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2E6DDEE01D639A1600978DD6 /* Audio Timings.csv */; };
@@ -2288,6 +2287,8 @@
 		85FA798E20F153EE0007D929 /* puzzle-O-OI-row0-col0.jpng in Resources */ = {isa = PBXBuildFile; fileRef = 85FA798120F153ED0007D929 /* puzzle-O-OI-row0-col0.jpng */; };
 		BC54E08022543DAE00D6F235 /* Win as many as five gold stars.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BC54E07F22543DAE00D6F235 /* Win as many as five gold stars.mp3 */; };
 		BC54E08122543DAE00D6F235 /* Win as many as five gold stars.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BC54E07F22543DAE00D6F235 /* Win as many as five gold stars.mp3 */; };
+		BCA4B42122591F610084F341 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E6DDDA81D639A1600978DD6 /* Assets.xcassets */; };
+		BCA4B42322591FCE0084F341 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E6DDDA81D639A1600978DD6 /* Assets.xcassets */; };
 		BCC82B062253B9430063E7C2 /* PhonicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC82B052253B9430063E7C2 /* PhonicsViewController.swift */; };
 		BCC82B0A2253BF1A0063E7C2 /* SightWordsQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAAF06E1ED5545E00D2B13B /* SightWordsQuizViewController.swift */; };
 		BCC82B0B2253BF1A0063E7C2 /* PuzzleProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EECD5631E0BBA4800C667DE /* PuzzleProgress.swift */; };
@@ -3155,7 +3156,6 @@
 		BCC82E6B2253BF1A0063E7C2 /* ice cream.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E4B01DB1EE115EA00834D45 /* ice cream.jpg */; };
 		BCC82E6C2253BF1A0063E7C2 /* puzzle-E-KET-row0-col0.jpng in Resources */ = {isa = PBXBuildFile; fileRef = 850A37B321E2B77400C1383F /* puzzle-E-KET-row0-col0.jpng */; };
 		BCC82E6D2253BF1A0063E7C2 /* sound-RUH.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E145B061E46F14F00BD6C2C /* sound-RUH.mp3 */; };
-		BCC82E6E2253BF1A0063E7C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E6DDDA81D639A1600978DD6 /* Assets.xcassets */; };
 		BCC82E6F2253BF1A0063E7C2 /* puzzle-A-AW-row3-col1.jpng in Resources */ = {isa = PBXBuildFile; fileRef = 2E145D9C1E46F15000BD6C2C /* puzzle-A-AW-row3-col1.jpng */; };
 		BCC82E702253BF1A0063E7C2 /* puzzle-E-EA-row1-col2.jpng in Resources */ = {isa = PBXBuildFile; fileRef = 2E145E691E46F15000BD6C2C /* puzzle-E-EA-row1-col2.jpng */; };
 		BCC82E712253BF1A0063E7C2 /* crowbar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2E4B01601EE115EA00834D45 /* crowbar.jpg */; };
@@ -11035,7 +11035,6 @@
 				2E4B03DA1EE115EC00834D45 /* ice cream.jpg in Resources */,
 				850A37C021E2B77400C1383F /* puzzle-E-KET-row0-col0.jpng in Resources */,
 				2E14655A1E46F15400BD6C2C /* sound-RUH.mp3 in Resources */,
-				2E6DE2881D639A1B00978DD6 /* Assets.xcassets in Resources */,
 				2E1467E61E46F15400BD6C2C /* puzzle-A-AW-row3-col1.jpng in Resources */,
 				2E1468A41E46F15500BD6C2C /* puzzle-E-EA-row1-col2.jpng in Resources */,
 				2E4B035F1EE115EB00834D45 /* crowbar.jpg in Resources */,
@@ -11882,6 +11881,7 @@
 				2E1464CE1E46F15300BD6C2C /* puzzle-I-IR-rhyme.mp3 in Resources */,
 				2E4B048B1EE115EC00834D45 /* tape measure.jpg in Resources */,
 				2E14686B1E46F15400BD6C2C /* puzzle-C-kuh-row0-col0.jpng in Resources */,
+				BCA4B42122591F610084F341 /* Assets.xcassets in Resources */,
 				2E4B04931EE115EC00834D45 /* threw.jpg in Resources */,
 				2E1469231E46F15500BD6C2C /* puzzle-G-GL-row0-col2.jpng in Resources */,
 				2E14649E1E46F15300BD6C2C /* puzzle-U-uu-rhymeText.txt in Resources */,
@@ -13276,7 +13276,6 @@
 				BCC82E6B2253BF1A0063E7C2 /* ice cream.jpg in Resources */,
 				BCC82E6C2253BF1A0063E7C2 /* puzzle-E-KET-row0-col0.jpng in Resources */,
 				BCC82E6D2253BF1A0063E7C2 /* sound-RUH.mp3 in Resources */,
-				BCC82E6E2253BF1A0063E7C2 /* Assets.xcassets in Resources */,
 				BCC82E6F2253BF1A0063E7C2 /* puzzle-A-AW-row3-col1.jpng in Resources */,
 				BCC82E702253BF1A0063E7C2 /* puzzle-E-EA-row1-col2.jpng in Resources */,
 				BCC82E712253BF1A0063E7C2 /* crowbar.jpg in Resources */,
@@ -14123,6 +14122,7 @@
 				BCC831BA2253BF1A0063E7C2 /* puzzle-I-IR-rhyme.mp3 in Resources */,
 				BCC831BB2253BF1A0063E7C2 /* tape measure.jpg in Resources */,
 				BCC831BC2253BF1A0063E7C2 /* puzzle-C-kuh-row0-col0.jpng in Resources */,
+				BCA4B42322591FCE0084F341 /* Assets.xcassets in Resources */,
 				BCC831BD2253BF1A0063E7C2 /* threw.jpg in Resources */,
 				BCC831BE2253BF1A0063E7C2 /* puzzle-G-GL-row0-col2.jpng in Resources */,
 				BCC831BF2253BF1A0063E7C2 /* puzzle-U-uu-rhymeText.txt in Resources */,
@@ -15014,7 +15014,7 @@
 		BCC833E72253BF1A0063E7C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -15036,7 +15036,7 @@
 		BCC833E82253BF1A0063E7C2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
