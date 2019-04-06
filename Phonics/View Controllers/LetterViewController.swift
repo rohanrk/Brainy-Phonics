@@ -93,26 +93,27 @@ class LetterViewController : InteractiveGrowViewController {
         self.timers.forEach { $0.invalidate() }
         self.timers = []
         
-        //set up view
-        self.letterLabel.text = self.difficulty == .easyDifficulty ? sound.displayString.uppercased() + sound.displayString.lowercased() : sound.displayString.lowercased()
+        //set up view. Letter only for Alphabet Letters. Sound for Phonics
+        self.letterLabel.text = self.difficulty == .easyDifficulty ? letter.text.uppercased() + letter.text.lowercased() : sound.displayString.lowercased()
         //self.letterLabel.
         self.checkmark.isHidden = !self.sound.puzzleIsComplete
         self.previousSoundButton.isEnabled = previousSound != nil
         self.nextSoundButton.isEnabled = nextSound != nil
+        self.wordViews.forEach{ $0.alpha = 0.0 } // Word Views start transparent. Animate only for Phonics
         
-        self.wordViews.forEach{ $0.alpha = 0.0 }
-        
-        for i in 0 ..< min(3, self.sound.primaryWords.count) {
-            let wordView = wordViews[i]
-            wordView.alpha = withAnimationDelay ? 0.0 : 1.0
-            wordView.useWord(self.sound.primaryWords[i], forSound: self.sound, ofLetter: self.letter)
+        if self.difficulty == .standardDifficulty {
+            
+            for i in 0 ..< min(3, self.sound.primaryWords.count) {
+                let wordView = wordViews[i]
+                wordView.alpha = withAnimationDelay ? 0.0 : 1.0
+                wordView.useWord(self.sound.primaryWords[i], forSound: self.sound, ofLetter: self.letter)
+            }
         }
-        
         //play audio, cue animations
         if !withAnimationDelay {
             self.playSoundAnimation()
         } else {
-            Timer.scheduleAfter(0.4, addToArray: &self.timers) { 
+            Timer.scheduleAfter(0.4, addToArray: &self.timers) {
                 self.playSoundAnimation()
             }
         }
@@ -154,29 +155,37 @@ class LetterViewController : InteractiveGrowViewController {
         let timeBetween = 0.85
         
         Timer.scheduleAfter(startTime, addToArray: &timers) { 
-            let soundAudioInfo = self.sound.pronunciationTiming
+            let soundAudioInfo = self.difficulty == .easyDifficulty ? self.letter.audioInfo : self.sound.pronunciationTiming
             PHContent.playAudioForInfo(soundAudioInfo)
             self.playSoundAnimation(on: self.letterLabel, for: soundAudioInfo)
         }
         
-        startTime += (self.sound.pronunciationTiming?.wordDuration ?? 0.5) + timeBetween
-        
-        for (wordIndex, word) in self.sound.primaryWords.enumerated() {
+        // Only perform wordview animations for Phonics
+        if self.difficulty == .standardDifficulty {
             
-            Timer.scheduleAfter(startTime, addToArray: &self.timers) { 
-                let wordView = self.wordViews[wordIndex]
-                wordView.word?.playAudio()
-                self.playSoundAnimation(on: wordView, for: wordView.word?.audioInfo)
-            }
-            
-            startTime += (word.audioInfo?.wordDuration ?? 0.0) + timeBetween
-            
-            if (word == self.sound.primaryWords.last) {
-                Timer.scheduleAfter(startTime, addToArray: &self.timers) { 
-                    self.currentlyPlaying = false
-                    self.showQuizButton()
+            for (wordIndex, word) in self.sound.primaryWords.enumerated() {
+                
+                Timer.scheduleAfter(startTime, addToArray: &self.timers) {
+                    let wordView = self.wordViews[wordIndex]
+                    wordView.word?.playAudio()
+                    self.playSoundAnimation(on: wordView, for: wordView.word?.audioInfo)
+                }
+                
+                startTime += (word.audioInfo?.wordDuration ?? 0.0) + timeBetween
+                
+                if (word == self.sound.primaryWords.last) {
+                    Timer.scheduleAfter(startTime, addToArray: &self.timers) {
+                        self.currentlyPlaying = false
+                        self.showQuizButton()
+                    }
                 }
             }
+        
+        // For Alphabet Letters, show quiz button after letter audio and animation
+        } else {
+            startTime += (self.sound.pronunciationTiming?.wordDuration ?? 0.5) + timeBetween
+            self.currentlyPlaying = false
+            self.showQuizButton()
         }
     }
     
@@ -234,7 +243,7 @@ class LetterViewController : InteractiveGrowViewController {
         if (sender.tag == 0) {
             decorateForCurrentSound(withTransition: false, withAnimationDelay: false, animationSubtype: kCATransitionFade)
         } else if sender.tag == 1 {
-            let audioInfo = sound.pronunciationTiming
+            let audioInfo = self.difficulty == .easyDifficulty ? letter.audioInfo : sound.pronunciationTiming
             PHContent.playAudioForInfo(audioInfo)
             self.playSoundAnimation(on: self.letterLabel, for: audioInfo)
         }
