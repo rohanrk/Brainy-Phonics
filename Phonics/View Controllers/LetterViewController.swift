@@ -83,9 +83,6 @@ class LetterViewController : InteractiveGrowViewController {
         
         self.buttonArea.backgroundColor = difficulty.color
         
-        //easy difficulty only has one sound per letter
-        //self.nextSoundButton.isHidden = difficulty == .easyDifficulty
-        //self.previousSoundButton.isHidden = difficulty == .easyDifficulty
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -106,7 +103,6 @@ class LetterViewController : InteractiveGrowViewController {
         
         //set up view. Letter only for Alphabet Letters. Sound for Phonics
         self.letterLabel.text = self.difficulty == .easyDifficulty ? letter.text.uppercased() + letter.text.lowercased() : sound.displayString.lowercased()
-        //self.letterLabel.
         self.checkmark.isHidden = !self.sound.puzzleIsComplete
         self.wordViews.forEach{ $0.alpha = 0.0 } // Word Views start transparent. Animate only for Phonics
         
@@ -120,6 +116,11 @@ class LetterViewController : InteractiveGrowViewController {
                 wordView.useWord(self.sound.primaryWords[i], forSound: self.sound, ofLetter: self.letter)
             }
         } else {
+            // For Alphabet Letters, bump up font size and center
+            /* For some reason, changing fonts programatically doesn't properly update the view so I mainly did it via storyboard
+            if let font = UIFont.init(name: "ComicNeue-Bold", size: 100) {
+                self.letterLabel.font = font
+            } */
             // Alphabet Letters Buttons based on letters instead of sounds
             self.previousSoundButton.isEnabled = previousLetter != nil
             self.nextSoundButton.isEnabled = nextLetter != nil
