@@ -176,6 +176,8 @@ class LetterViewController : InteractiveGrowViewController {
             self.playSoundAnimation(on: self.letterLabel, for: soundAudioInfo)
         }
         
+        startTime += (self.sound.pronunciationTiming?.wordDuration ?? 0.5) + timeBetween
+        
         // Only perform wordview animations for Phonics
         if self.difficulty == .standardDifficulty {
             
@@ -199,7 +201,6 @@ class LetterViewController : InteractiveGrowViewController {
         
         // For Alphabet Letters, show quiz button after letter audio and animation
         } else {
-            startTime += (self.sound.pronunciationTiming?.wordDuration ?? 0.5) + timeBetween
             self.currentlyPlaying = false
             self.showQuizButton()
         }
