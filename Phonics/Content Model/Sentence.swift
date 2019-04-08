@@ -37,7 +37,7 @@ public struct Sentence {
         let matchWord = self.highlightWord.lowercased()
         let attributedSentence = NSMutableAttributedString(
                 string: self.text,
-                attributes: [.foregroundColor : UIColor.black])
+                attributes: [.foregroundColor : UIColor.black, .font : UIFont.boldSystemFont(ofSize: 25)])
         
         let matchColor = UIColor(hue: 0.00833, saturation: 0.9, brightness: 0.79, alpha: 1.0)
         
