@@ -44,7 +44,8 @@ class QuizViewController : InteractiveGrowViewController {
     /// 0 or 150
     @IBOutlet weak var buttonAreaToWords: NSLayoutConstraint!
     @IBOutlet weak var soundSuperview: UIView!
-
+    @IBOutlet weak var wordSuperView: UIView!
+    
 
     var originalCenters = [WordView : CGPoint]()
     var timers = [Timer]()
@@ -123,6 +124,11 @@ class QuizViewController : InteractiveGrowViewController {
         wordViews.forEach{ originalCenters[$0] = $0.center }
         
         setupForRandomSoundFromPool()
+        
+        // Sound View is hidden in Ipad so make sure that's brought to the front
+        if iPad() {
+            self.view.bringSubview(toFront: soundSuperview)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
