@@ -48,6 +48,11 @@ class BasicLabelView: UIView {
         label.numberOfLines = 0
     }
     
+    // Method that allows editing the private label
+    func editLabelFont(font: UIFont) {
+        self.label.font = font
+    }
+    
 }
 
 extension UIView {

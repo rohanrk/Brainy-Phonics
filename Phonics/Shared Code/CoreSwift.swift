@@ -488,6 +488,10 @@ extension UIFont {
         let fontSize: CGFloat = iPad() ? 60 : 45
         return UIFont(name: "ComicNeue-Bold", size: fontSize) ?? .systemFont(ofSize: fontSize)
     }
+    
+    static func comicSans(size: CGFloat) -> UIFont {
+        return UIFont(name: "ComicNeue-Bold", size: size) ?? .systemFont(ofSize: size)
+    }
 }
 
 extension String {

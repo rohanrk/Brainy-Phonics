@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phonics/View Controllers/LetterViewController.swift"
-            timestampString = "576538409.144969"
+            timestampString = "576546122.790995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "LetterViewController"
             landmarkType = "3">
             <Locations>
@@ -214,11 +214,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phonics/View Controllers/LetterViewController.swift"
-            timestampString = "576538409.145708"
+            timestampString = "576546122.791075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "playSoundAnimation(on:for:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -370,7 +370,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phonics/View Controllers/LettersViewController.swift"
-            timestampString = "576384200.0129859"
+            timestampString = "576546122.7911789"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "43"
@@ -386,7 +386,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phonics/View Controllers/LetterViewController.swift"
-            timestampString = "576538409.146317"
+            timestampString = "576546122.79124"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "109"
@@ -402,11 +402,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phonics/View Controllers/LettersViewController.swift"
-            timestampString = "576384200.013521"
+            timestampString = "576546122.791294"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "decorateForLetter(_:difficulty:sound:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -418,7 +418,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phonics/View Controllers/Views/WordView.swift"
-            timestampString = "576190918.639987"
+            timestampString = "576546122.791339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"
@@ -434,11 +434,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phonics/View Controllers/QuizViewController.swift"
-            timestampString = "576538967.945081"
+            timestampString = "576546122.791389"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "419"
-            endingLineNumber = "419"
+            startingLineNumber = "420"
+            endingLineNumber = "420"
             landmarkName = "wordViewSelected(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -498,7 +498,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phonics/View Controllers/LettersViewController.swift"
-            timestampString = "576384200.0136451"
+            timestampString = "576546122.791849"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
@@ -546,11 +546,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phonics/View Controllers/LetterViewController.swift"
-            timestampString = "576538409.146893"
+            timestampString = "576546122.7919101"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "268"
-            endingLineNumber = "268"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "repeatPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -562,11 +562,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phonics/View Controllers/LetterViewController.swift"
-            timestampString = "576538409.1472239"
+            timestampString = "576546122.791977"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
             landmarkName = "repeatPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -578,11 +578,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phonics/View Controllers/LetterViewController.swift"
-            timestampString = "576538409.14755"
+            timestampString = "576546122.7920409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "playSoundAnimation()"
             landmarkType = "7">
          </BreakpointContent>
@@ -594,11 +594,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phonics/View Controllers/LetterViewController.swift"
-            timestampString = "576538409.147902"
+            timestampString = "576546122.792111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "playSoundAnimation()"
             landmarkType = "7">
          </BreakpointContent>
@@ -610,7 +610,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phonics/View Controllers/LettersViewController.swift"
-            timestampString = "576384200.015542"
+            timestampString = "576546122.79217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "141"
@@ -626,11 +626,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phonics/View Controllers/LetterViewController.swift"
-            timestampString = "576538409.148218"
+            timestampString = "576546122.792217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "decorateForCurrentSound(withTransition:withAnimationDelay:animationSubtype:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -642,11 +642,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phonics/View Controllers/LetterViewController.swift"
-            timestampString = "576538409.148524"
+            timestampString = "576546122.792274"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "decorateForCurrentSound(withTransition:withAnimationDelay:animationSubtype:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -658,11 +658,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phonics/View Controllers/LetterViewController.swift"
-            timestampString = "576538409.148977"
+            timestampString = "576546122.79233"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
             landmarkName = "nextSoundPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -674,39 +674,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Phonics/View Controllers/LetterViewController.swift"
-            timestampString = "576538409.149308"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "decorateForCurrentSound(withTransition:withAnimationDelay:animationSubtype:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Phonics/View Controllers/LetterViewController.swift"
-            timestampString = "576538409.149608"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "decorateForCurrentSound(withTransition:withAnimationDelay:animationSubtype:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Phonics/View Controllers/LetterViewController.swift"
-            timestampString = "576538409.149942"
+            timestampString = "576546122.792388"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"

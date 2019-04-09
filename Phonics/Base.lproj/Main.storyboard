@@ -240,20 +240,17 @@
                                                     <rect key="frame" x="9" y="6" width="223" height="154"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mgX-65-8dj">
-                                                            <rect key="frame" x="12" y="21" width="199" height="104"/>
+                                                            <rect key="frame" x="10" y="21" width="203" height="104"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Aa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nuo-RG-4Dr">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="73.5" height="104"/>
-                                                                    <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="65"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="89" height="104"/>
+                                                                    <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="75"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <size key="shadowOffset" width="1" height="1"/>
-                                                                    <variation key="heightClass=regular-widthClass=regular">
-                                                                        <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="65"/>
-                                                                    </variation>
                                                                 </label>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="1000" image="letter-icon-a.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="PDG-Rj-ZGY">
-                                                                    <rect key="frame" x="98.5" y="0.0" width="100.5" height="104"/>
+                                                                    <rect key="frame" x="114" y="0.0" width="89" height="104"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="PDG-Rj-ZGY" secondAttribute="height" multiplier="1:1" priority="900" id="rQA-Gk-AU5"/>
                                                                     </constraints>
@@ -431,16 +428,16 @@
                                         <rect key="frame" x="417" y="20" width="250" height="387"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWW-Mn-36k">
-                                                <rect key="frame" x="93.5" y="131" width="63.5" height="125"/>
+                                                <rect key="frame" x="92" y="131" width="66.5" height="125"/>
                                                 <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="110"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="125"/>
+                                                    <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="125"/>
                                                 </variation>
                                             </label>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-BJ-uKI" userLabel="checkmark">
-                                                <rect key="frame" x="162" y="205" width="30" height="30"/>
+                                                <rect key="frame" x="163.5" y="205" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="3Kg-g2-goa"/>
                                                     <constraint firstAttribute="width" constant="30" id="cg1-SV-LXF"/>
@@ -692,6 +689,7 @@
                     <connections>
                         <outlet property="buttonArea" destination="NHI-WY-Yf9" id="4zh-ry-WGl"/>
                         <outlet property="checkmark" destination="tKf-BJ-uKI" id="VRh-Fh-LE3"/>
+                        <outlet property="containerTop" destination="5YJ-fj-YV5" id="LwD-Nm-uss"/>
                         <outlet property="letterContainer" destination="PjD-fb-loW" id="OrQ-ki-AP6"/>
                         <outlet property="letterLabel" destination="MWW-Mn-36k" id="481-kG-fZ2"/>
                         <outlet property="nextSoundButton" destination="Ztf-VD-TDV" id="GrG-5z-a99"/>
@@ -770,7 +768,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="500" horizontalCompressionResistancePriority="1000" text="Zz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eP8-VR-vpO" userLabel="sound label">
-                                                <rect key="frame" x="84" y="65" width="132.5" height="369"/>
+                                                <rect key="frame" x="70.5" y="65" width="159.5" height="369"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" priority="950" constant="250" id="5vZ-GV-HNB"/>
                                                     <constraint firstAttribute="height" constant="150" id="XAE-6W-OQ9"/>
@@ -784,7 +782,7 @@
                                                     </mask>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="115"/>
+                                                    <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="135"/>
                                                     <mask key="constraints">
                                                         <exclude reference="XAE-6W-OQ9"/>
                                                     </mask>
@@ -1048,7 +1046,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ecw-ac-YLi">
-                                <rect key="frame" x="90" y="0.0" width="1104" height="834"/>
+                                <rect key="frame" x="56" y="0.0" width="1138" height="834"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Lqh-e7-Tob">
                                     <size key="itemSize" width="140" height="183"/>
@@ -1085,7 +1083,7 @@
                                                     <rect key="frame" x="105" y="148" width="35" height="35"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="i7h-f6-JNH">
-                                                            <rect key="frame" x="8" y="4.5" width="22" height="26"/>
+                                                            <rect key="frame" x="8" y="6.5" width="22" height="22"/>
                                                             <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="22"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1146,14 +1144,14 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="053-Wl-WFQ" userLabel="button area">
-                                <rect key="frame" x="0.0" y="24" width="90" height="810"/>
+                                <rect key="frame" x="0.0" y="24" width="56" height="810"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOT-XM-Yct" userLabel="home" customClass="HomeButton" customModule="Phonics" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="10" width="50" height="50"/>
+                                        <rect key="frame" x="30" y="10" width="16" height="22"/>
                                         <state key="normal" image="button-home"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81q-ZR-Ome" userLabel="home">
-                                        <rect key="frame" x="30" y="70" width="50" height="50"/>
+                                        <rect key="frame" x="30" y="42" width="50" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="ReR-7d-ozw"/>
                                         </constraints>
@@ -1208,14 +1206,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRb-Ez-sqR" userLabel="button area">
-                                <rect key="frame" x="0.0" y="0.0" width="90" height="834"/>
+                                <rect key="frame" x="0.0" y="0.0" width="56" height="834"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUb-GG-Cvx" customClass="HomeButton" customModule="Phonics" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="10" width="50" height="50"/>
+                                        <rect key="frame" x="30" y="10" width="16" height="22"/>
                                         <state key="normal" image="button-home"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4A-NI-5GZ" userLabel="repeat">
-                                        <rect key="frame" x="30" y="754" width="50" height="50"/>
+                                        <rect key="frame" x="30" y="782" width="16" height="22"/>
                                         <state key="normal" image="button-question"/>
                                         <connections>
                                             <action selector="playQuiz:" destination="rgJ-6e-cRF" eventType="touchUpInside" id="8LG-oi-xUB"/>
@@ -1224,7 +1222,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kml-9F-T3v" userLabel="bank">
-                                        <rect key="frame" x="30" y="694" width="50" height="50"/>
+                                        <rect key="frame" x="30" y="722" width="16" height="22"/>
                                         <state key="normal" image="button-bank"/>
                                         <connections>
                                             <action selector="bankButtonPressed:" destination="rgJ-6e-cRF" eventType="touchUpInside" id="4RB-GG-uet"/>
@@ -1239,7 +1237,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="L4d-wV-KUo">
-                                <rect key="frame" x="90" y="0.0" width="1084" height="834"/>
+                                <rect key="frame" x="56" y="0.0" width="1118" height="834"/>
                                 <color key="backgroundColor" red="0.43009102339999999" green="0.78028237820000002" blue="0.8299978375" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TYG-Xr-IuA">
                                     <size key="itemSize" width="252" height="201"/>
@@ -1268,7 +1266,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                     <size key="shadowOffset" width="1" height="1"/>
                                                                     <variation key="heightClass=regular-widthClass=regular">
-                                                                        <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="50"/>
+                                                                        <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="50"/>
                                                                     </variation>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="jNh-VU-DKA">
@@ -1291,7 +1289,7 @@
                                                             </constraints>
                                                         </stackView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" image="hat.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="RE4-xK-CfA">
-                                                            <rect key="frame" x="108.5" y="66" width="16" height="111"/>
+                                                            <rect key="frame" x="-11.5" y="66" width="256" height="111"/>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kZ-LL-5iu" userLabel="Stars Stack View">
                                                             <rect key="frame" x="20" y="163" width="100" height="20"/>
@@ -1457,13 +1455,10 @@
                                         <rect key="frame" x="365" y="20" width="250" height="241"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="big" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sit-ud-vO3">
-                                                <rect key="frame" x="0.0" y="78" width="250" height="85"/>
+                                                <rect key="frame" x="0.0" y="80.5" width="250" height="80"/>
                                                 <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="80"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
-                                                <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="85"/>
-                                                </variation>
                                             </label>
                                         </subviews>
                                         <constraints>
@@ -1776,7 +1771,7 @@
                                 <rect key="frame" x="119.5" y="83.5" width="955" height="667"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ig-pay atin-lay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZO-zZ-jnw">
-                                        <rect key="frame" x="350" y="310" width="255" height="47"/>
+                                        <rect key="frame" x="343" y="313.5" width="269" height="40"/>
                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="40"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1789,7 +1784,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47X-7R-BAy" customClass="HomeButton" customModule="Phonics" customModuleProvider="target">
-                                <rect key="frame" x="30" y="10" width="50" height="50"/>
+                                <rect key="frame" x="30" y="10" width="16" height="22"/>
                                 <state key="normal" image="button-home"/>
                             </button>
                         </subviews>
@@ -1839,7 +1834,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="479.5" height="288"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="big" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CJL-Na-OTN">
-                                                                        <rect key="frame" x="201.5" y="112" width="76.5" height="64.5"/>
+                                                                        <rect key="frame" x="203" y="116.5" width="74" height="55"/>
                                                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="30"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1866,7 +1861,7 @@
                                                                 <rect key="frame" x="0.0" y="313" width="479.5" height="288"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="H8t-dQ-Ndc">
-                                                                        <rect key="frame" x="201.5" y="112" width="76.5" height="64.5"/>
+                                                                        <rect key="frame" x="198.5" y="116.5" width="82.5" height="55"/>
                                                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="30"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1902,7 +1897,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="479.5" height="288"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="what" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cLk-FR-xwF">
-                                                                        <rect key="frame" x="180" y="112" width="119.5" height="64.5"/>
+                                                                        <rect key="frame" x="182" y="116.5" width="115.5" height="55"/>
                                                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="30"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1929,7 +1924,7 @@
                                                                 <rect key="frame" x="0.0" y="313" width="479.5" height="288"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="came" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RaZ-Dz-E39">
-                                                                        <rect key="frame" x="172" y="112" width="136" height="64.5"/>
+                                                                        <rect key="frame" x="172.5" y="116.5" width="135" height="55"/>
                                                                         <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="30"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -2673,7 +2668,7 @@ My song had been longer.
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadow-right" translatesAutoresizingMaskIntoConstraints="NO" id="PNc-FJ-Wnf">
-                                <rect key="frame" x="115.5" y="24" width="9" height="790"/>
+                                <rect key="frame" x="115.5" y="24" width="16" height="790"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IWr-AZ-Tys" userLabel="header">
                                 <rect key="frame" x="0.0" y="0.0" width="119.5" height="834"/>
@@ -2895,6 +2890,6 @@ My song had been longer.
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tf4-Vl-l65"/>
-        <segue reference="MD5-X8-6gl"/>
+        <segue reference="PLU-mT-sCU"/>
     </inferredMetricsTieBreakers>
 </document>
