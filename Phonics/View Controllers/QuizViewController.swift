@@ -247,6 +247,8 @@ class QuizViewController : InteractiveGrowViewController {
             if self.difficulty == .easyDifficulty {
                 // alphabet letters: only letter, no image
                 wordView.useLetter(selectedLetters[index])
+                wordView.letterLabelView.editLabelFont(font: UIFont.comicSans(size: 80))
+                
             } else {
                 // phonics: include image
                 wordView.useWord(selectedWords[index], forSound: currentSound, ofLetter: currentLetter)

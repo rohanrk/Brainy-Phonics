@@ -248,9 +248,6 @@
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                     <size key="shadowOffset" width="1" height="1"/>
-                                                                    <variation key="heightClass=regular-widthClass=regular">
-                                                                        <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="65"/>
-                                                                    </variation>
                                                                 </label>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="1000" image="letter-icon-a.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="PDG-Rj-ZGY">
                                                                     <rect key="frame" x="92" y="0.0" width="100.33333333333331" height="103.33333333333333"/>
@@ -436,7 +433,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="125"/>
+                                                    <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="125"/>
                                                 </variation>
                                             </label>
                                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-BJ-uKI" userLabel="checkmark">
@@ -692,6 +689,7 @@
                     <connections>
                         <outlet property="buttonArea" destination="NHI-WY-Yf9" id="4zh-ry-WGl"/>
                         <outlet property="checkmark" destination="tKf-BJ-uKI" id="VRh-Fh-LE3"/>
+                        <outlet property="containerTop" destination="5YJ-fj-YV5" id="LwD-Nm-uss"/>
                         <outlet property="letterContainer" destination="PjD-fb-loW" id="OrQ-ki-AP6"/>
                         <outlet property="letterLabel" destination="MWW-Mn-36k" id="481-kG-fZ2"/>
                         <outlet property="nextSoundButton" destination="Ztf-VD-TDV" id="GrG-5z-a99"/>
@@ -784,7 +782,7 @@
                                                     </mask>
                                                 </variation>
                                                 <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="115"/>
+                                                    <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="135"/>
                                                     <mask key="constraints">
                                                         <exclude reference="XAE-6W-OQ9"/>
                                                     </mask>
@@ -1268,7 +1266,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                     <size key="shadowOffset" width="1" height="1"/>
                                                                     <variation key="heightClass=regular-widthClass=regular">
-                                                                        <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="50"/>
+                                                                        <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="50"/>
                                                                     </variation>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="100" translatesAutoresizingMaskIntoConstraints="NO" id="jNh-VU-DKA">
@@ -1461,9 +1459,6 @@
                                                 <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="80"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
-                                                <variation key="heightClass=regular-widthClass=regular">
-                                                    <fontDescription key="fontDescription" name="ComicNeue" family="Comic Neue" pointSize="85"/>
-                                                </variation>
                                             </label>
                                         </subviews>
                                         <constraints>
@@ -2895,6 +2890,6 @@ My song had been longer.
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tf4-Vl-l65"/>
-        <segue reference="MD5-X8-6gl"/>
+        <segue reference="PLU-mT-sCU"/>
     </inferredMetricsTieBreakers>
 </document>

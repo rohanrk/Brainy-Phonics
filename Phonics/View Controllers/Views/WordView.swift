@@ -78,6 +78,7 @@ class WordView : UINibView {
     func useLetter(_ letter: String) {
         self.imageView.isHidden = true
         letterLabelView.text = letter.uppercased() + letter
+        
     }
     
     

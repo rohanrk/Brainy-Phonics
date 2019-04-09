@@ -171,14 +171,14 @@ class LetterCell : UICollectionViewCell {
         
         guard let firstLetter = letterText.first,
             let letter = PHContent[String(firstLetter).uppercased()] else { return }
+
+        if iPad() {
+            letterLabel.font = UIFont(name: "ComicNeue-Bold", size: 100)
+        }
         
         if difficulty == .easyDifficulty {
             //alphabet letters
             letterLabel.text = letterText.uppercased() + letterText.lowercased()
-            /* For some reason, changing fonts programatically doesn't properly update the view so I mainly did it via storyboard
-            if let font = UIFont(name: "ComicNeue-Bold", size: 120) {
-                letterLabel.font = font
-            } */
             decorateIcon(letterIconImage: letter.thumbnail, letter: letter, difficulty: difficulty)
         } else if let sound = sound {
             //phonics table of contents

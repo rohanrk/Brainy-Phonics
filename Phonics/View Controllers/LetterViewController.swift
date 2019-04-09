@@ -18,6 +18,7 @@ class LetterViewController : InteractiveGrowViewController {
     @IBOutlet weak var quizButton: UIButton!
     @IBOutlet weak var wordsView: UIView!
     @IBOutlet weak var buttonArea: UIView!
+    @IBOutlet weak var containerTop: NSLayoutConstraint! // IBOutlet to constrain letter container. This lets us center the letter for Alphabet Letters
     
     @IBOutlet var wordViews: [WordView]!
     
@@ -83,9 +84,8 @@ class LetterViewController : InteractiveGrowViewController {
         
         self.buttonArea.backgroundColor = difficulty.color
         
-        if iPad() {
-            letterLabel.font = UIFont(name: "ComicNeue-Bold", size: 120)
-        }
+        let constraintVal = (self.view.bounds.height / 2) - 0.5 * self.letterContainer.bounds.height
+        self.containerTop.constant = self.difficulty == .easyDifficulty ? constraintVal : 0 // The constraint value was tuned. It might need to be changed if new views are added
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -119,11 +119,7 @@ class LetterViewController : InteractiveGrowViewController {
                 wordView.useWord(self.sound.primaryWords[i], forSound: self.sound, ofLetter: self.letter)
             }
         } else {
-            // For Alphabet Letters, bump up font size and center
-            /* For some reason, changing fonts programatically doesn't properly update the view so I mainly did it via storyboard
-            if let font = UIFont.init(name: "ComicNeue-Bold", size: 100) {
-                self.letterLabel.font = font
-            } */
+            
             // Alphabet Letters Buttons based on letters instead of sounds
             self.previousSoundButton.isEnabled = previousLetter != nil
             self.nextSoundButton.isEnabled = nextLetter != nil
