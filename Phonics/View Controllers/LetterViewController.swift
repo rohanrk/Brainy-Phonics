@@ -83,6 +83,9 @@ class LetterViewController : InteractiveGrowViewController {
         
         self.buttonArea.backgroundColor = difficulty.color
         
+        if iPad() {
+            letterLabel.font = UIFont(name: "ComicNeue-Bold", size: 120)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
