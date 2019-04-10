@@ -1839,7 +1839,7 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                            <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="55"/>
+                                                                            <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="72"/>
                                                                         </variation>
                                                                     </label>
                                                                 </subviews>
@@ -1866,7 +1866,7 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                            <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="55"/>
+                                                                            <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="72"/>
                                                                         </variation>
                                                                     </label>
                                                                 </subviews>
@@ -1902,7 +1902,7 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                            <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="55"/>
+                                                                            <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="72"/>
                                                                         </variation>
                                                                     </label>
                                                                 </subviews>
@@ -1929,7 +1929,7 @@
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                         <variation key="heightClass=regular-widthClass=regular">
-                                                                            <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="55"/>
+                                                                            <fontDescription key="fontDescription" name="ComicNeue-Bold" family="Comic Neue" pointSize="72"/>
                                                                         </variation>
                                                                     </label>
                                                                 </subviews>
@@ -2624,9 +2624,9 @@ My song had been longer.
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="IPb-WX-RAl"/>
                                 <exclude reference="3qu-PQ-vue"/>
                                 <exclude reference="tcy-Ou-pS4"/>
-                                <exclude reference="IPb-WX-RAl"/>
                                 <exclude reference="54l-MX-BBE"/>
                             </mask>
                         </variation>
@@ -2890,6 +2890,6 @@ My song had been longer.
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tf4-Vl-l65"/>
-        <segue reference="PLU-mT-sCU"/>
+        <segue reference="MD5-X8-6gl"/>
     </inferredMetricsTieBreakers>
 </document>
