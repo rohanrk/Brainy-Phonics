@@ -108,22 +108,22 @@ class LetterViewController : InteractiveGrowViewController {
         self.letterLabel.text = self.difficulty == .easyDifficulty ? letter.text.uppercased() + letter.text.lowercased() : sound.displayString.lowercased()
         self.checkmark.isHidden = !self.sound.puzzleIsComplete
         self.wordViews.forEach{ $0.alpha = 0.0 } // Word Views start transparent. Animate only for Phonics
+        // The below code is robust for both Alphabet Letters and Phonics.
+        // Alphabet Letter only has one sound per letter whereas Phonics will allow advancing through all sounds from a-z
+        self.previousSoundButton.isEnabled = previousLetter != nil || previousSound != nil
+        self.nextSoundButton.isEnabled = nextLetter != nil || nextSound != nil
         
         if self.difficulty == .standardDifficulty {
             
-            self.previousSoundButton.isEnabled = previousSound != nil
-            self.nextSoundButton.isEnabled = nextSound != nil
+            //self.previousSoundButton.isEnabled = previousSound != nil
+            //self.nextSoundButton.isEnabled = nextSound != nil
             for i in 0 ..< min(3, self.sound.primaryWords.count) {
                 let wordView = wordViews[i]
                 wordView.alpha = withAnimationDelay ? 0.0 : 1.0
                 wordView.useWord(self.sound.primaryWords[i], forSound: self.sound, ofLetter: self.letter)
             }
-        } else {
-            
-            // Alphabet Letters Buttons based on letters instead of sounds
-            self.previousSoundButton.isEnabled = previousLetter != nil
-            self.nextSoundButton.isEnabled = nextLetter != nil
         }
+        
         //play audio, cue animations
         if !withAnimationDelay {
             self.playSoundAnimation()
@@ -267,7 +267,13 @@ class LetterViewController : InteractiveGrowViewController {
     
     @IBAction func previousSoundPressed(_ sender: AnyObject) {
         if self.difficulty == .standardDifficulty {
-            sound = previousSound ?? sound
+            guard let sound = previousSound else {
+                self.letter = self.previousLetter // The previous button is disabled if previousLetter is nil
+                self.sound = letter.sounds(for: difficulty).last
+                decorateForCurrentSound(withTransition: true, animationSubtype: kCATransitionFromLeft)
+                return
+            }
+            self.sound = sound
             decorateForCurrentSound(withTransition: true, animationSubtype: kCATransitionFromLeft)
         } else {
             letter = previousLetter ?? letter
@@ -278,7 +284,13 @@ class LetterViewController : InteractiveGrowViewController {
     
     @IBAction func nextSoundPressed(_ sender: AnyObject) {
         if self.difficulty == .standardDifficulty {
-            sound = nextSound ?? sound
+            guard let sound = nextSound else {
+                self.letter = self.nextLetter // The next button is disabled if nextLetter is nil
+                self.sound = letter.sounds(for: difficulty).first
+                decorateForCurrentSound(withTransition: true, animationSubtype: kCATransitionFromRight)
+                return
+            }
+            self.sound = sound
             decorateForCurrentSound(withTransition: true, animationSubtype: kCATransitionFromRight)
         } else {
             letter = nextLetter ?? letter
