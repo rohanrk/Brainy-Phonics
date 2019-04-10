@@ -22,7 +22,7 @@ class LaunchViewController: UIViewController {
         
         if Bundle.main.infoDictionary?["TargetName"] as! String == "SightWords" {
             
-            PHPlayer.play("brainy phonics", ofType: "mp3")
+            PHPlayer.play("brainy sight words", ofType: "mp3")
             
             UAWhenDonePlayingAudio {
                 let homeViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "home") as! HomeViewController
