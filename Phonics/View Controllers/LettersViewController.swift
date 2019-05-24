@@ -190,7 +190,7 @@ class LetterCell : UICollectionViewCell {
         // show stars
         // phonics: key is the phonic. sound is never nil.
         // alphabet letters: key is the letterText, like "A"
-        let key = difficulty == .easyDifficulty ? letterText : sound!.soundId
+        let key = difficulty == .easyDifficulty ? String(letterText.first ?? Character("")) : sound!.soundId
         let stars = Player.current.stars(for: key).highScore
         starsStackView.update(stars: stars)
     }
