@@ -15028,7 +15028,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/SightWords-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hearatale.SightWords;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hearatale.BrainySightWords;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Phonics/Shared Code/Phonics-Bridging-Header.h";
@@ -15050,7 +15050,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/SightWords-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hearatale.SightWords;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hearatale.BrainySightWords;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Phonics/Shared Code/Phonics-Bridging-Header.h";
