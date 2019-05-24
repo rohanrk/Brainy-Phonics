@@ -54,7 +54,7 @@ class QuizViewController : InteractiveGrowViewController {
     var index = 0 //the index of the previous word in the total array
     var starsCurrentStreak: Int! {
         didSet {
-            let key: String = self.difficulty == .easyDifficulty ? "al-" + currentSound.sourceLetter : currentSound.soundId
+            let key: String = self.difficulty == .easyDifficulty ? currentSound.sourceLetter : currentSound.soundId
             starsHighScore = Player.current.updateStars(for: key, newValue: starsCurrentStreak)
         }
     }
