@@ -247,7 +247,7 @@ class QuizViewController : InteractiveGrowViewController {
             if self.difficulty == .easyDifficulty {
                 // alphabet letters: only letter, no image
                 wordView.useLetter(selectedLetters[index])
-                wordView.letterLabelView.editLabelFont(font: UIFont.comicSans(size: 70))
+                iPad() ? wordView.letterLabelView.editLabelFont(font: UIFont.comicSans(size: 65)) : wordView.letterLabelView.editLabelFont(font: UIFont.comicSans(size: 90))
                 
             } else {
                 // phonics: include image
@@ -325,11 +325,13 @@ class QuizViewController : InteractiveGrowViewController {
             shakeView(self.soundLabel)
         }
         
+        let info = difficulty == .easyDifficulty ? currentLetter.audioInfo : currentSound.pronunciationTiming
+        
         Timer.scheduleAfter(startTime - 0.3, addToArray: &timers) {
-            PHContent.playAudioForInfo(self.currentSound.pronunciationTiming)
+            PHContent.playAudioForInfo(info)
         }
         
-        startTime += (self.currentSound.pronunciationTiming?.wordDuration ?? 0.5) + timeBetween
+        startTime += (info?.wordDuration ?? 0.5) + timeBetween
         
         for (index, wordView) in self.wordViews.enumerated() {
 
@@ -432,7 +434,7 @@ class QuizViewController : InteractiveGrowViewController {
                 shakeView(wordView)
                 delay(0.6) {
                     // replay sound
-                    PHContent.playAudioForInfo(self.currentSound.pronunciationTiming)
+                    PHContent.playAudioForInfo(self.currentLetter.audioInfo)
                 }
             }
         } else {
@@ -502,7 +504,7 @@ class QuizViewController : InteractiveGrowViewController {
             
             if self.difficulty == .easyDifficulty {
                 delay(0.6) {
-                    PHContent.playAudioForInfo(self.currentSound.pronunciationTiming) // good reinforcement
+                    PHContent.playAudioForInfo(self.currentLetter.audioInfo) // good reinforcement
                 }
             }
             
