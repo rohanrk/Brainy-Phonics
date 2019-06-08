@@ -127,7 +127,7 @@ class QuizViewController : InteractiveGrowViewController {
         
         // Sound View is hidden in Ipad so make sure that's brought to the front
         if iPad() {
-            self.view.bringSubview(toFront: soundSuperview)
+            self.view.bringSubview(toFront: difficulty == .easyDifficulty ? wordSuperView : soundSuperview)
         }
     }
     
