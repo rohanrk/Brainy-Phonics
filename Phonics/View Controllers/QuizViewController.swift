@@ -46,6 +46,10 @@ class QuizViewController : InteractiveGrowViewController {
     @IBOutlet weak var soundSuperview: UIView!
     @IBOutlet weak var wordSuperView: UIView!
     
+    /// Constraints
+    @IBOutlet weak var words: UIView!
+    @IBOutlet weak var bottomSpace: NSLayoutConstraint!
+    
 
     var originalCenters = [WordView : CGPoint]()
     var timers = [Timer]()
@@ -128,6 +132,7 @@ class QuizViewController : InteractiveGrowViewController {
         // Sound View is hidden in Ipad so make sure that's brought to the front
         if iPad() {
             self.view.bringSubview(toFront: difficulty == .easyDifficulty ? wordSuperView : soundSuperview)
+            bottomSpace.constant = 120
         }
     }
     
