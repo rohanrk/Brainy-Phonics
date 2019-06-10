@@ -13,6 +13,7 @@ class PhonicsViewController: InteractiveGrowViewController {
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var alphabetLettersView: UIImageView!
     @IBOutlet weak var phonicsView: UIImageView!
+    @IBOutlet weak var pigLatin: UIImageView!
     
     private var temporaryImageView: UIImageView?
     
@@ -27,12 +28,18 @@ class PhonicsViewController: InteractiveGrowViewController {
         static let phonics = Launcher(audioFileName: "phonics", onTapBlock: { vc in
             LettersViewController.present(from: vc, with: .standardDifficulty)
         })
+        
+        static let pigLatin = Launcher(audioFileName: "secret child stuff", onTapBlock: { vc in
+            PigLatinViewController.present(from: vc)
+        })
+        
     }
     
     func launcher(for view: UIView) -> Launcher? {
         switch(view) {
         case alphabetLettersView: return .alphabetLetters
         case phonicsView: return .phonics
+        case pigLatin: return .pigLatin
         default: return nil
         }
     }
