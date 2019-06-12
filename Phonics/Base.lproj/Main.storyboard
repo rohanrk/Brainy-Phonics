@@ -2558,13 +2558,13 @@ My song had been longer.
                                 <rect key="frame" x="127.5" y="0.0" width="896.5" height="768"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="k3A-CG-Nds">
-                                        <rect key="frame" x="50" y="20" width="806.5" height="728"/>
+                                        <rect key="frame" x="374" y="376" width="158" height="16"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Ll6-zg-twl">
-                                                <rect key="frame" x="0.0" y="248" width="232" height="232"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-alphabet-letters" translatesAutoresizingMaskIntoConstraints="NO" id="hL8-mZ-9Bs">
-                                                        <rect key="frame" x="0.0" y="0.0" width="232" height="232"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="hL8-mZ-9Bs" secondAttribute="height" multiplier="1:1" priority="999" id="OTe-a1-Iau"/>
                                                         </constraints>
@@ -2573,10 +2573,10 @@ My song had been longer.
                                                 <variation key="heightClass=regular-widthClass=regular" spacing="65"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="fOl-GH-et7">
-                                                <rect key="frame" x="287" y="248" width="232.5" height="232"/>
+                                                <rect key="frame" x="71" y="0.0" width="16" height="16"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-phonics" translatesAutoresizingMaskIntoConstraints="NO" id="uU1-qg-Lkz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="232.5" height="232.00000000000023"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="uU1-qg-Lkz" secondAttribute="height" multiplier="1:1" priority="999" id="c3H-Ed-zO1"/>
                                                         </constraints>
@@ -2585,10 +2585,10 @@ My song had been longer.
                                                 <variation key="heightClass=regular-widthClass=regular" spacing="65"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="YJ8-AY-a5f">
-                                                <rect key="frame" x="574.5" y="0.0" width="232" height="728"/>
+                                                <rect key="frame" x="142" y="0.0" width="16" height="16"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-secret-stuff" translatesAutoresizingMaskIntoConstraints="NO" id="0Zv-dn-REi">
-                                                        <rect key="frame" x="0.0" y="0.0" width="232" height="728"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
@@ -2621,7 +2621,7 @@ My song had been longer.
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadow-right" translatesAutoresizingMaskIntoConstraints="NO" id="M9U-8A-akB">
-                                <rect key="frame" x="123.5" y="20" width="9" height="748"/>
+                                <rect key="frame" x="123.5" y="20" width="16" height="748"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jpu-gO-rn0" userLabel="header">
                                 <rect key="frame" x="0.0" y="0.0" width="127.5" height="768"/>
