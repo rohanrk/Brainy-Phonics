@@ -295,7 +295,7 @@
                                                             <state key="normal" image="button-check"/>
                                                         </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zuC-JT-9P5" userLabel="Stars Stack View">
-                                                            <rect key="frame" x="8" y="128" width="100" height="20"/>
+                                                            <rect key="frame" x="8" y="127" width="100" height="20"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="8YR-rz-Fam">
                                                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
