@@ -49,6 +49,9 @@ class QuizViewController : InteractiveGrowViewController {
     /// Constraints
     @IBOutlet weak var words: UIView!
     @IBOutlet weak var bottomSpace: NSLayoutConstraint!
+    @IBOutlet weak var secondWordTrailing: NSLayoutConstraint!
+    @IBOutlet weak var thirdWordLeading: NSLayoutConstraint!
+    @IBOutlet weak var fourthWordTrailing: NSLayoutConstraint!
     
 
     var originalCenters = [WordView : CGPoint]()
@@ -88,7 +91,14 @@ class QuizViewController : InteractiveGrowViewController {
             self.soundSuperview.backgroundColor = .white
             self.puzzleShadow.isHidden = true
             self.puzzleView.isHidden = true
+            
+            /// Constraints
             buttonAreaToWords.constant = 0
+            topLeftWordLeading.constant = 0
+            secondWordTrailing.constant = 0
+            thirdWordLeading.constant = 0
+            fourthWordTrailing.constant = 0
+            
         }
         isEntireQuiz = self.sound == nil
     }
@@ -116,6 +126,7 @@ class QuizViewController : InteractiveGrowViewController {
                 }
             }
             
+            topLeftWordLeading.constant = 200
             self.topLeftWordLeading.priority = TopLeftLeadingPriority.centerView.priority
             self.fourthWord.removeFromSuperview()
             self.interactiveViews.remove(at: self.interactiveViews.index(of: self.fourthWord)!)
@@ -252,7 +263,7 @@ class QuizViewController : InteractiveGrowViewController {
             if self.difficulty == .easyDifficulty {
                 // alphabet letters: only letter, no image
                 wordView.useLetter(selectedLetters[index])
-                iPad() ? wordView.letterLabelView.editLabelFont(font: UIFont.comicSans(size: 90)) : wordView.letterLabelView.editLabelFont(font: UIFont.comicSans(size: 65))
+                iPad() ? wordView.letterLabelView.editLabelFont(font: UIFont.comicSans(size: 120)) : wordView.letterLabelView.editLabelFont(font: UIFont.comicSans(size: 65))
                 
             } else {
                 // phonics: include image
