@@ -36,6 +36,7 @@ class QuizViewController : InteractiveGrowViewController {
     @IBOutlet var wordViews: [WordView]!
     @IBOutlet weak var topLeftWordLeading: NSLayoutConstraint!
     @IBOutlet weak var fourthWord: WordView!
+    @IBOutlet weak var firstWord: WordView!
     
     @IBOutlet weak var puzzleView: PuzzleView!
     @IBOutlet weak var puzzleShadow: UIView!
@@ -126,11 +127,12 @@ class QuizViewController : InteractiveGrowViewController {
                 }
             }
             
-            topLeftWordLeading.constant = 200
+            topLeftWordLeading.constant = 300
             self.topLeftWordLeading.priority = TopLeftLeadingPriority.centerView.priority
             self.fourthWord.removeFromSuperview()
             self.interactiveViews.remove(at: self.interactiveViews.index(of: self.fourthWord)!)
             self.wordViews.remove(at: self.wordViews.index(of: self.fourthWord)!)
+//            firstWord.center.x = iPad() ? firstWord.superview!.center.x + 500 : firstWord.superview!.center.x
         }
         
         self.view.layoutIfNeeded()
@@ -513,7 +515,7 @@ class QuizViewController : InteractiveGrowViewController {
         
         func animateAndContinue() {
             UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0, options: [.beginFromCurrentState], animations: {
-                wordView.center = wordView.superview!.superview!.convert(wordView.superview!.center, to: wordView.superview!)
+                wordView.center = self.difficulty == .easyDifficulty || !iPad() ? wordView.superview!.superview!.convert(wordView.superview!.center, to: wordView.superview!) : CGPoint(x: wordView.superview!.center.x - 80, y: wordView.superview!.center.y - 90)
             }, completion: nil)
             
             PHPlayer.play("correct", ofType: "mp3")
